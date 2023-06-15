@@ -1,0 +1,20 @@
+# Ignore editor folder
+/.idea/
+/.vscode/
+.DS_Store
+
+# Ignore libraries
+libft.a
+libmlx.dylib
+libgnl.a
+
+# Ignore libs objs
+libs/**/*.o
+libs/**/*.swiftdoc
+libs/**/*.swiftmodule
+
+# Ignore obj
+/objs/**/*.o
+
+# Ignore executable
+cub3D
