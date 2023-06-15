@@ -29,16 +29,22 @@ LIBS_PATH	= -L$(MLX) -L$(LIBFT) -L$(GNL)
 
 MAIN_FILE	= main.c
 
+	# CLOSE
+
+CLOSE_FILE	= print.c \
+
 	# PARSING
 
-PARSE_FILE	= check_arguments.c \
+PARSE_FILE	= ft_check_arguments.c \
 
 	### OBJECT FILES ###
 
 MAIN_FILE	:= $(addprefix $(OBJS_PATH)/, $(MAIN_FILE:.c=.o))
+CLOSE_FILE	:= $(addprefix $(OBJS_PATH)/close/, $(CLOSE_FILE:.c=.o))
 PARSE_FILE	:= $(addprefix $(OBJS_PATH)/parsing/, $(PARSE_FILE:.c=.o))
 
 OBJS		:= $(MAIN_FILE) \
+			   $(CLOSE_FILE) \
 			   $(PARSE_FILE)
 
 	### COLORS ###

@@ -14,10 +14,18 @@
 # include "define.h"
 
 //###########################################//
+//		===== CLOSE DIRECTORY =====
+//###########################################//
+//
+//	----- Print.c -----
+void	ft_print_error(char *str);
+void	ft_print_success(char *str);
+
+//###########################################//
 //		===== PARSING DIRECTORY =====
 //###########################################//
 //
-//	----- Check_Arguments.c -----
-void	check_arguments(int ac, char **av, t_cube *cube);
+//	----- ft_check_arguments.c -----
+void	ft_check_arguments(int ac, char **av, t_cube *cube);
 
 #endif
