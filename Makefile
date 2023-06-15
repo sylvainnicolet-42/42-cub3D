@@ -31,11 +31,13 @@ MAIN_FILE	= main.c
 
 	# CLOSE
 
-CLOSE_FILE	= print.c \
+CLOSE_FILE	= free.c \
+			  print.c \
 
 	# PARSING
 
-PARSE_FILE	= ft_check_arguments.c \
+PARSE_FILE	= check_arguments.c \
+			  init_cube.c \
 
 	### OBJECT FILES ###
 

@@ -41,11 +41,10 @@ static bool	ft_is_file_cube(char *str)
  *
  * @return void
  */
-void	ft_check_arguments(int ac, char **av, t_cube *cube)
+void	ft_check_arguments(int ac, char **av)
 {
 	int	fd;
 
-	(void) cube;
 	fd = open(av[1], O_RDONLY);
 	if (ac != 2)
 		ft_print_error("Wrong Number of arguments");

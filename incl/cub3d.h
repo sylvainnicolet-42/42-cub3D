@@ -17,6 +17,9 @@
 //		===== CLOSE DIRECTORY =====
 //###########################################//
 //
+//	----- Free.c -----
+void	ft_free_all(t_cube *cube);
+
 //	----- Print.c -----
 void	ft_print_error(char *str);
 void	ft_print_success(char *str);
@@ -25,7 +28,10 @@ void	ft_print_success(char *str);
 //		===== PARSING DIRECTORY =====
 //###########################################//
 //
-//	----- ft_check_arguments.c -----
-void	ft_check_arguments(int ac, char **av, t_cube *cube);
+//	----- Check_Arguments.c -----
+void	ft_check_arguments(int ac, char **av);
+
+//	----- Init_Cube.c -----
+void	ft_init_cube(int ac, char **av, t_cube *cube);
 
 #endif

@@ -5,6 +5,7 @@ int	main(int ac, char **av)
 {
 	t_cube	cube;
 
-	ft_check_arguments(ac, av, &cube);
+	ft_init_cube(ac, av, &cube);
+	ft_free_all(&cube);
 	return (0);
 }

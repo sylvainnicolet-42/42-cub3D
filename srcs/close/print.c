@@ -9,8 +9,7 @@
  */
 void	ft_print_error(char *str)
 {
-	printf("Error\n");
-	printf("%s\n", str);
+	printf("Error : %s\n", str);
 	exit(EXIT_FAILURE);
 }
 
