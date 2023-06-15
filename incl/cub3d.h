@@ -5,6 +5,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdbool.h>
 
 # include "../libs/libmlx/mlx.h"
 # include "../libs/libft/libft.h"
@@ -17,6 +18,6 @@
 //###########################################//
 //
 //	----- Check_Arguments.c -----
-void	ft_check_arguments(void);
+void	check_arguments(int ac, char **av, t_cube *cube);
 
 #endif
