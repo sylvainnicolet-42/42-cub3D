@@ -5,9 +5,9 @@
  * Check if the key is a valid key
  * @param cube
  *
- * @return int, 1 if the key is valid, 0 if not
+ * @return bool, true if the key is valid else false
  */
-static int	ft_is_key(int key)
+static bool	ft_is_key(int key)
 {
 	return (key == E_KEY_ESC);
 }

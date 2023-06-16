@@ -9,7 +9,8 @@
  */
 void	ft_print_error(char *str)
 {
-	printf("Error : %s\n", str);
+	printf("\033[0;31m");
+	printf("Error: %s\n", str);
 	exit(EXIT_FAILURE);
 }
 
@@ -21,7 +22,7 @@ void	ft_print_error(char *str)
  */
 void	ft_print_success(char *str)
 {
-	printf("Success\n");
-	printf("%s\n", str);
+	printf("\033[0;32m");
+	printf("Success: %s\n", str);
 	exit(EXIT_SUCCESS);
 }

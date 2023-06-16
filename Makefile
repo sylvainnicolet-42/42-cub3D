@@ -43,7 +43,7 @@ MLX_FILE	= init_mlx.c \
 
 PARSE_FILE	= check_arguments.c \
 			  init_cube.c \
-			  init_matrice.c \
+			  init_matrix.c \
 
 	### OBJECT FILES ###
 

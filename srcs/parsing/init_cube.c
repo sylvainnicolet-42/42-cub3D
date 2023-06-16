@@ -3,10 +3,10 @@
 
 /**
  * Initialize the struct t_cube.
- * @param matrice
+ * @param matrix
  * @return
  */
-t_cube	*ft_init_cube(t_matrice *matrice)
+t_cube	*ft_init_cube(t_matrix *matrix)
 {
 	t_cube	*cube;
 
@@ -14,7 +14,7 @@ t_cube	*ft_init_cube(t_matrice *matrice)
 	if (!cube)
 		ft_print_error(MSG_MALLOC_ERR);
 	*cube = (t_cube){};
-	cube->matrice = matrice;
+	cube->matrix = matrix;
 	ft_init_mlx(cube);
 	return (cube);
 }

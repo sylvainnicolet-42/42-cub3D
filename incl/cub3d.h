@@ -1,49 +1,34 @@
 
-#ifndef CUBE3D_H
-# define CUBE3D_H
+#ifndef CUB3D_H
+# define CUB3D_H
 
+/** ----- LIBRARIES ----- **/
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdbool.h>
-
 # include "../libs/libmlx/mlx.h"
 # include "../libs/libft/libft.h"
 # include "../libs/gnl/get_next_line.h"
-# include "struct.h"
 # include "define.h"
+# include "enum.h"
+# include "struct.h"
 
-//###########################################//
-//		===== CLOSE DIRECTORY =====
-//###########################################//
-//
-//	----- Close.c -----
-int			ft_close(t_cube *cube);
+/** ----- PARSING ----- **/
+void		ft_check_arguments(int ac, char **av);
+t_cube		*ft_init_cube(t_matrix *matrix);
+t_matrix	*ft_init_matrix(int ac, char **av);
 
-//	----- Print.c -----
-void		ft_print_error(char *str);
-void		ft_print_success(char *str);
-
-//###########################################//
-//		===== MLX DIRECTORY =====
-//###########################################//
-//
-//	----- Init_MLX.c -----
+/** ----- MLX ----- **/
 void		ft_init_mlx(t_cube *cube);
 void		ft_handle_event(t_cube *cube);
 int			ft_key_hook(int key, t_cube *cube);
 
-//###########################################//
-//		===== PARSING DIRECTORY =====
-//###########################################//
-//
-//	----- Check_Arguments.c -----
-void		ft_check_arguments(int ac, char **av);
+/** ----- PRINT ----- **/
+void		ft_print_error(char *str);
+void		ft_print_success(char *str);
 
-//	----- Init_Cube.c -----
-t_cube		*ft_init_cube(t_matrice *matrice);
-
-//	----- Init_Matrix.c -----
-t_matrice	*ft_init_matrice(int ac, char **av);
+/** ----- CLOSE ----- **/
+int			ft_close(t_cube *cube);
 
 #endif

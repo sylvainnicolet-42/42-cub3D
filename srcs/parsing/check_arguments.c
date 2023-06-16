@@ -47,9 +47,9 @@ void	ft_check_arguments(int ac, char **av)
 
 	fd = open(av[1], O_RDONLY);
 	if (ac != 2)
-		ft_print_error("Wrong Number of arguments");
+		ft_print_error(MSG_ARG_ERR);
 	if (ft_is_map_open(fd) == false)
-		ft_print_error("Map can not be opend");
+		ft_print_error(MSG_OPEN_FILE_ERR);
 	if (ft_is_file_cube(av[1]) == false)
-		ft_print_error("Map is not a .cub");
+		ft_print_error(MSG_FILE_NOT_CUB_ERR);
 }
