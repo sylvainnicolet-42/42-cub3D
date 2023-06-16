@@ -15,7 +15,7 @@
 # include "struct.h"
 
 /** ----- PARSING ----- **/
-void		ft_check_arguments(int ac, char **av);
+int			ft_check_arguments(int ac, char **av);
 t_cube		*ft_init_cube(t_matrix *matrix);
 t_matrix	*ft_init_matrix(int ac, char **av);
 
@@ -30,5 +30,8 @@ void		ft_print_success(char *str);
 
 /** ----- CLOSE ----- **/
 int			ft_close(t_cube *cube);
+
+/** ----- DEBUG ----- **/
+void		db_print_file(int fd);
 
 #endif

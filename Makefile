@@ -1,16 +1,13 @@
 
-	### COMPILATION ###
-
+# COMPILATION
 CC			= gcc -g #-fsanitize=address
 FLAGS		= -Wall -Werror -Wextra
 FRAMEWORK	= -framework OpenGL -framework AppKit
 
-	### EXECUTABLE ###
-
+# EXECUTABLE
 NAME		= cub3D
 
-	### PATH ###
-
+# PATH
 SRCS_PATH	= srcs
 OBJS_PATH	= objs
 INCS_PATH	= -Iincl
@@ -18,54 +15,45 @@ MLX			= libs/libmlx
 LIBFT		= libs/libft
 GNL			= libs/gnl
 
-	###	LIBS ###
-
+# LIBS
 LIBS		= -lmlx -lft -lgnl
 LIBS_PATH	= -L$(MLX) -L$(LIBFT) -L$(GNL)
 
 	### SOURCES FILES ###
-
-	# MAIN
-
 MAIN_FILE	= main.c
-
-	# CLOSE
 
 CLOSE_FILE	= close.c \
 			  print.c \
-	# MLX
+
+DEBUG_FILE	= debug.c \
 
 MLX_FILE	= init_mlx.c \
 			  handle_event.c \
 			  key_hook.c \
 
-	# PARSING
-
 PARSE_FILE	= check_arguments.c \
 			  init_cube.c \
 			  init_matrix.c \
 
-	### OBJECT FILES ###
-
+# OBJECT FILES
 MAIN_FILE	:= $(addprefix $(OBJS_PATH)/, $(MAIN_FILE:.c=.o))
 CLOSE_FILE	:= $(addprefix $(OBJS_PATH)/close/, $(CLOSE_FILE:.c=.o))
+DEBUG_FILE	:= $(addprefix $(OBJS_PATH)/debug/, $(DEBUG_FILE:.c=.o))
 MLX_FILE	:= $(addprefix $(OBJS_PATH)/mlx/, $(MLX_FILE:.c=.o))
 PARSE_FILE	:= $(addprefix $(OBJS_PATH)/parsing/, $(PARSE_FILE:.c=.o))
-
 OBJS		:= $(MAIN_FILE) \
 			   $(CLOSE_FILE) \
+			   $(DEBUG_FILE) \
 			   $(MLX_FILE) \
 			   $(PARSE_FILE) \
 
-	### COLORS ###
-
+# COLORS
 RED			= \033[1;31m
 GREEN		= \033[1;32m
 CYAN		= \033[1;36m
 RESET		= \033[0m
 
-	### TEXTES ###
-
+# TEXTES
 MLX_TXT			= echo "$(CYAN)=== Compiling MLX ===$(RESET)"
 LIBFT_TXT		= echo "$(CYAN)=== Compiling LIBFT ===$(RESET)"
 GNL_TXT			= echo "$(CYAN)=== Compiling GNL ===$(RESET)"
@@ -79,8 +67,7 @@ CLEAN_TXT		= echo "$(RED) Deleting all files$(RESET)"
 FCLEAN_TXT		= echo "$(RED) Deleting $(NAME)$(RESET)"
 NL_TXT			= echo ""
 
-	### RULES ###
-
+# RULES
 all:		libs tmp $(NAME)
 
 art:

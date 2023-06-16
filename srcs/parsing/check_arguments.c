@@ -39,17 +39,18 @@ static bool	ft_is_file_cube(char *str)
  * @param av
  * @param cube
  *
- * @return void
+ * @return int fd, the file descriptor of the map
  */
-void	ft_check_arguments(int ac, char **av)
+int	ft_check_arguments(int ac, char **av)
 {
 	int	fd;
 
-	fd = open(av[1], O_RDONLY);
 	if (ac != 2)
 		ft_print_error(MSG_ARG_ERR);
-	if (ft_is_map_open(fd) == false)
-		ft_print_error(MSG_OPEN_FILE_ERR);
 	if (ft_is_file_cube(av[1]) == false)
 		ft_print_error(MSG_FILE_NOT_CUB_ERR);
+	fd = open(av[1], O_RDONLY);
+	if (ft_is_map_open(fd) == false)
+		ft_print_error(MSG_OPEN_FILE_ERR);
+	return (fd);
 }
