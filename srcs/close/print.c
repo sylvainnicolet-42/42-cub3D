@@ -10,7 +10,8 @@
 void	ft_print_error(char *str)
 {
 	printf("\033[0;31m");
-	printf("Error: %s\n", str);
+	printf("Error\n");
+	printf("Reason: %s\n", str);
 	exit(EXIT_FAILURE);
 }
 

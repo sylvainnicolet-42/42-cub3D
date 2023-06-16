@@ -23,6 +23,7 @@ LIBS_PATH	= -L$(MLX) -L$(LIBFT) -L$(GNL)
 MAIN_FILE	= main.c
 
 CLOSE_FILE	= close.c \
+			  free.c \
 			  print.c \
 
 DEBUG_FILE	= debug.c \
@@ -34,6 +35,7 @@ MLX_FILE	= init_mlx.c \
 PARSE_FILE	= check_arguments.c \
 			  init_cube.c \
 			  init_matrix.c \
+			  ft_set_textures.c \
 
 # OBJECT FILES
 MAIN_FILE	:= $(addprefix $(OBJS_PATH)/, $(MAIN_FILE:.c=.o))

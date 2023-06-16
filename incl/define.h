@@ -15,5 +15,7 @@
 # define MSG_ARG_ERR "Wrong Number of arguments"
 # define MSG_OPEN_FILE_ERR "File can't be opened!"
 # define MSG_FILE_NOT_CUB_ERR "File is not a .cub"
+# define MSG_TEXTURES_NOT_SET_ERR "Textures are not set"
+# define MSG_MAP_NOT_SET_ERR "Map is not set"
 
 #endif

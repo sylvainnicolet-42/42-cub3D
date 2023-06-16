@@ -16,8 +16,9 @@
 
 /** ----- PARSING ----- **/
 int			ft_check_arguments(int ac, char **av);
-t_cube		*ft_init_cube(t_matrix *matrix);
+t_cube		*ft_init_cube(int ac, char **av);
 t_matrix	*ft_init_matrix(int ac, char **av);
+void		ft_set_textures(t_cube *cube, int fd);
 
 /** ----- MLX ----- **/
 void		ft_init_mlx(t_cube *cube);
@@ -30,8 +31,10 @@ void		ft_print_success(char *str);
 
 /** ----- CLOSE ----- **/
 int			ft_close(t_cube *cube);
+void		ft_free_array(char **array);
 
 /** ----- DEBUG ----- **/
 void		db_print_file(int fd);
+void		db_print_cube(t_cube *cube);
 
 #endif
