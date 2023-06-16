@@ -3,9 +3,13 @@
 
 int	main(int ac, char **av)
 {
-	t_cube	cube;
+	t_matrice	*matrice;
+	t_cube		*cube;
 
-	ft_init_cube(ac, av, &cube);
-	ft_free_all(&cube);
+	matrice = ft_init_matrice(ac, av);
+	cube = ft_init_cube(matrice);
+	// ft_execution()
+	ft_handle_event(cube);
+	mlx_loop(cube->mlx_ptr);
 	return (0);
 }

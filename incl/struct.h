@@ -4,7 +4,9 @@
 
 typedef struct s_cube {
 	struct s_matrice	*matrice;
-}			t_cube;
+	void				*mlx_ptr;
+	void				*win_ptr;
+}						t_cube;
 
 typedef struct s_matrice {
 	char			*path_texture_n;
@@ -13,7 +15,7 @@ typedef struct s_matrice {
 	char			*path_texture_w;
 	struct s_rgb	*floor;
 	struct s_rgb	*ceiling;
-}	t_matrice;
+}					t_matrice;
 
 typedef struct s_rgb {
 	char	r;

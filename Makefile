@@ -31,23 +31,31 @@ MAIN_FILE	= main.c
 
 	# CLOSE
 
-CLOSE_FILE	= free.c \
+CLOSE_FILE	= close.c \
 			  print.c \
+	# MLX
+
+MLX_FILE	= init_mlx.c \
+			  handle_event.c \
+			  key_hook.c \
 
 	# PARSING
 
 PARSE_FILE	= check_arguments.c \
 			  init_cube.c \
+			  init_matrice.c \
 
 	### OBJECT FILES ###
 
 MAIN_FILE	:= $(addprefix $(OBJS_PATH)/, $(MAIN_FILE:.c=.o))
 CLOSE_FILE	:= $(addprefix $(OBJS_PATH)/close/, $(CLOSE_FILE:.c=.o))
+MLX_FILE	:= $(addprefix $(OBJS_PATH)/mlx/, $(MLX_FILE:.c=.o))
 PARSE_FILE	:= $(addprefix $(OBJS_PATH)/parsing/, $(PARSE_FILE:.c=.o))
 
 OBJS		:= $(MAIN_FILE) \
 			   $(CLOSE_FILE) \
-			   $(PARSE_FILE)
+			   $(MLX_FILE) \
+			   $(PARSE_FILE) \
 
 	### COLORS ###
 

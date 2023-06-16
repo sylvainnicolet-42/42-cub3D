@@ -17,21 +17,33 @@
 //		===== CLOSE DIRECTORY =====
 //###########################################//
 //
-//	----- Free.c -----
-void	ft_free_all(t_cube *cube);
+//	----- Close.c -----
+int			ft_close(t_cube *cube);
 
 //	----- Print.c -----
-void	ft_print_error(char *str);
-void	ft_print_success(char *str);
+void		ft_print_error(char *str);
+void		ft_print_success(char *str);
+
+//###########################################//
+//		===== MLX DIRECTORY =====
+//###########################################//
+//
+//	----- Init_MLX.c -----
+void		ft_init_mlx(t_cube *cube);
+void		ft_handle_event(t_cube *cube);
+int			ft_key_hook(int key, t_cube *cube);
 
 //###########################################//
 //		===== PARSING DIRECTORY =====
 //###########################################//
 //
 //	----- Check_Arguments.c -----
-void	ft_check_arguments(int ac, char **av);
+void		ft_check_arguments(int ac, char **av);
 
 //	----- Init_Cube.c -----
-void	ft_init_cube(int ac, char **av, t_cube *cube);
+t_cube		*ft_init_cube(t_matrice *matrice);
+
+//	----- Init_Matrix.c -----
+t_matrice	*ft_init_matrice(int ac, char **av);
 
 #endif
