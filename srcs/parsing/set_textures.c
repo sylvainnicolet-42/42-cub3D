@@ -11,8 +11,8 @@ static bool	ft_are_textures_set(t_cube *cube)
 
 static bool	ft_is_valid_identifier(char *line)
 {
-	if (strncmp(line, "NO ", 3) == 0 || strncmp(line, "SO ", 3) == 0
-		|| strncmp(line, "WE ", 3) == 0 || strncmp(line, "EA ", 3) == 0)
+	if (ft_strncmp(line, "NO ", 3) == 0 || ft_strncmp(line, "SO ", 3) == 0
+		|| ft_strncmp(line, "WE ", 3) == 0 || ft_strncmp(line, "EA ", 3) == 0)
 		return (true);
 	return (false);
 }
@@ -28,6 +28,9 @@ static void	ft_set_path(t_cube *cube, char *line)
 	char	**split;
 
 	split = ft_split(line, ' ');
+	if (!split)
+		ft_print_error(MSG_MALLOC_ERR);
+	ft_check_double(cube, split[0]);
 	if (ft_strncmp(split[0], "NO", 2) == 0)
 		cube->path_texture_n = ft_strdup(split[1]);
 	else if (ft_strncmp(split[0], "SO", 2) == 0)

@@ -5,7 +5,7 @@
 enum e_xcode_event
 {
 	E_KEY_PRESS = 2,
-	E_ON_DESTROY = 17
+	E_ON_DESTROY = 17,
 };
 enum e_xcode_mask
 {

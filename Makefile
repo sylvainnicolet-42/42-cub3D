@@ -1,6 +1,6 @@
 
 # COMPILATION
-CC			= gcc -g #-fsanitize=address
+CC			= gcc -g -fsanitize=address
 FLAGS		= -Wall -Werror -Wextra
 FRAMEWORK	= -framework OpenGL -framework AppKit
 
@@ -33,9 +33,12 @@ MLX_FILE	= init_mlx.c \
 			  key_hook.c \
 
 PARSE_FILE	= check_arguments.c \
+			  check_double.c \
 			  init_cube.c \
 			  init_matrix.c \
-			  ft_set_textures.c \
+			  set_rgb_textures.c \
+			  set_rgb_textures_check.c \
+			  set_textures.c \
 
 # OBJECT FILES
 MAIN_FILE	:= $(addprefix $(OBJS_PATH)/, $(MAIN_FILE:.c=.o))
@@ -66,6 +69,7 @@ START_TXT		= echo "$(CYAN)=== Compiling Project ===$(RESET)"
 END_TXT			= echo "$(GREEN)=== Project Compilated ===$(RESET)"
 CHARG_LINE_TXT	= echo "$(GREEN)█$(RESET)\c"
 CLEAN_TXT		= echo "$(RED) Deleting all files$(RESET)"
+CLEAN_O_TXT		= echo "$(RED) Deleting Object files of cub3d$(RESET)"
 FCLEAN_TXT		= echo "$(RED) Deleting $(NAME)$(RESET)"
 NL_TXT			= echo ""
 
@@ -128,4 +132,13 @@ fclean:		clean
 
 re:			fclean all
 
-.PHONY:		clean fclean re tmp libs all libft
+rre:		clean_o all
+
+clean_o:		
+			$(CLEAN_O_TXT)
+			@tput setaf 1; cat .ascii_art/trash; tput setaf default
+			@rm -rf $(OBJS_PATH)
+			@rm -rf $(NAME)
+			@$(NL_TXT)
+
+.PHONY:		clean clean_o fclean re tmp libs all libft

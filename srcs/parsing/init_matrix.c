@@ -1,8 +1,6 @@
 
 #include "cub3d.h"
 
-
-
 ///**
 // * Initialize the matrix.
 // *

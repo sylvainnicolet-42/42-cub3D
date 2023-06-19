@@ -16,8 +16,11 @@
 
 /** ----- PARSING ----- **/
 int			ft_check_arguments(int ac, char **av);
+void		ft_check_double(t_cube *cube, char *line);
 t_cube		*ft_init_cube(int ac, char **av);
 t_matrix	*ft_init_matrix(int ac, char **av);
+void		ft_set_rgb_textures(t_cube *cube, int fd);
+void		ft_check_is_color_valid(char **split);
 void		ft_set_textures(t_cube *cube, int fd);
 
 /** ----- MLX ----- **/

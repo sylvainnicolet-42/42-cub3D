@@ -20,9 +20,9 @@ typedef struct s_matrix {
 }					t_matrix;
 
 typedef struct s_rgb {
-	char	r;
-	char	g;
-	char	b;
-}			t_rgb;
+	unsigned int	r;
+	unsigned int	g;
+	unsigned int	b;
+}					t_rgb;
 
 #endif
