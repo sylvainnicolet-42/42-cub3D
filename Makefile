@@ -1,6 +1,6 @@
 
 # COMPILATION
-CC			= gcc -g -fsanitize=address
+CC			= gcc -g #-fsanitize=address
 FLAGS		= -Wall -Werror -Wextra
 FRAMEWORK	= -framework OpenGL -framework AppKit
 

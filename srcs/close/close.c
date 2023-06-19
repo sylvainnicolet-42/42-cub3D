@@ -15,6 +15,8 @@ int	ft_close(t_cube *cube)
 	free(cube->path_texture_s);
 	free(cube->path_texture_w);
 	free(cube->path_texture_e);
+	free(cube->floor);
+	free(cube->ceiling);
 	free(cube);
 	ft_print_success(MSG_CLOSE_SUCCESS);
 	return (0);
