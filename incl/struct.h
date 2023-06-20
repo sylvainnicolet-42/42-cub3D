@@ -6,10 +6,10 @@ typedef struct s_cube {
 	struct s_matrix	*matrix;
 	void			*mlx_ptr;
 	void			*win_ptr;
-	char			*path_texture_n;
-	char			*path_texture_s;
-	char			*path_texture_e;
-	char			*path_texture_w;
+	char			*path_wall_n;
+	char			*path_wall_s;
+	char			*path_wall_e;
+	char			*path_wall_w;
 	struct s_rgb	*floor;
 	struct s_rgb	*ceiling;
 }					t_cube;

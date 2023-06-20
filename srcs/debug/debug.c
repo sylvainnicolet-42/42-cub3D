@@ -21,10 +21,10 @@ void	db_print_cube(t_cube *cube)
 {
 	printf("\n--- DEBUG: PRINT CUBE ---\n");
 	printf("--------------------------------\n");
-	printf("path_texture_n => [%s]\n", cube->path_texture_n);
-	printf("path_texture_s => [%s]\n", cube->path_texture_s);
-	printf("path_texture_w => [%s]\n", cube->path_texture_w);
-	printf("path_texture_e => [%s]\n", cube->path_texture_e);
+	printf("path_texture_n => [%s]\n", cube->path_wall_n);
+	printf("path_texture_s => [%s]\n", cube->path_wall_s);
+	printf("path_texture_w => [%s]\n", cube->path_wall_w);
+	printf("path_texture_e => [%s]\n", cube->path_wall_e);
 	printf("floor_RGB => R[%d] G[%d] B[%d]\n",
 		   	cube->floor->r, cube->floor->g, cube->floor->b);
 	printf("ceiling_RGB=> R[%d] G[%d] B[%d]\n", 

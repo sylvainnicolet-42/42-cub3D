@@ -19,5 +19,10 @@ enum e_key
 	E_KEY_ARROW_DOWN = 125,
 	E_KEY_ARROW_UP = 126,
 };
+enum e_wall
+{
+	E_WALL = 1,
+	E_RGB = 2,
+};
 
 #endif

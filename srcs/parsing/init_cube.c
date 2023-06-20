@@ -17,7 +17,6 @@ t_cube	*ft_init_cube(int ac, char **av)
 		ft_print_error(MSG_MALLOC_ERR);
 	*cube = (t_cube){};
 	ft_set_textures(cube, fd);
-	ft_set_rgb_textures(cube, fd);
 //	ft_set_map(cube, fd);
 	ft_init_mlx(cube);
 	close(fd);

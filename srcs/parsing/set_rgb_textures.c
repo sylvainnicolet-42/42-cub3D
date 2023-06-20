@@ -1,11 +1,53 @@
 
 #include "cub3d.h"
 
-static bool	ft_is_valid_identifier(char *line)
+static void	ft_check_rgb_is_number(char **split)
 {
-	if (ft_strncmp(line, "C ", 2) == 0 || ft_strncmp(line, "F ", 2) == 0)
-		return (true);
-	return (false);
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (split[j] != NULL)
+	{
+		while (split[j][i] != '\0')
+		{
+			if (ft_isdigit(split[j][i]))
+			{
+				i++;
+				continue ;
+			}
+			else
+				ft_print_error(MSG_RGB_WRONG_ARG_ERR);
+		}
+		i = 0;
+		j++;
+	}
+}
+
+static void	ft_check_rgb_range(char **split)
+{
+	if (ft_atoi(split[0]) < 0 || ft_atoi(split[0]) > 255)
+		ft_print_error(MSG_RGB_RANGE_ERR);
+	if (ft_atoi(split[1]) < 0 || ft_atoi(split[1]) > 255)
+		ft_print_error(MSG_RGB_RANGE_ERR);
+	if (ft_atoi(split[2]) < 0 || ft_atoi(split[2]) > 255)
+		ft_print_error(MSG_RGB_RANGE_ERR);
+}
+
+static void	ft_check_is_color_valid(char **split)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (split[i] != NULL)
+		i++;
+	if (i != 3)
+		ft_print_error(MSG_RGB_ARG_ERR);
+	ft_check_rgb_is_number(split);
+	ft_check_rgb_range(split);
 }
 
 static t_rgb	*ft_get_rgb(char *colors)
@@ -27,7 +69,7 @@ static t_rgb	*ft_get_rgb(char *colors)
 	return (rgb);
 }
 
-static void	ft_set_color(t_cube *cube, char *line)
+void	ft_set_rgb(t_cube *cube, char *line)
 {
 	char	**split;
 
@@ -40,36 +82,4 @@ static void	ft_set_color(t_cube *cube, char *line)
 	else if (ft_strncmp(split[0], "F", 1) == 0)
 		cube->floor = ft_get_rgb(split[1]);
 	ft_free_array(split);
-}	
-
-static bool	ft_is_color_set(t_cube *cube)
-{
-	if (cube->ceiling && cube->floor)
-		return (true);
-	return (false);
-}
-
-void	ft_set_rgb_textures(t_cube *cube, int fd)
-{
-	char	*line;
-	char	*trimmed;
-
-	line = get_next_line(fd);
-	while (line)
-	{
-		trimmed = ft_strtrim(line, "\n");
-		if (ft_is_valid_identifier(trimmed))
-			ft_set_color(cube, trimmed);
-		if (ft_is_color_set(cube))
-		{
-			free(line);
-			free(trimmed);
-			break ;
-		}
-		free(line);
-		free(trimmed);
-		line = get_next_line(fd);
-	}
-	if (ft_is_color_set(cube) == false)
-		ft_print_error(MSG_RGB_NOT_SET_ERR);
 }	

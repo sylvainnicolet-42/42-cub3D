@@ -37,8 +37,8 @@ PARSE_FILE	= check_arguments.c \
 			  init_cube.c \
 			  init_matrix.c \
 			  set_rgb_textures.c \
-			  set_rgb_textures_check.c \
 			  set_textures.c \
+			  set_wall.c \
 
 # OBJECT FILES
 MAIN_FILE	:= $(addprefix $(OBJS_PATH)/, $(MAIN_FILE:.c=.o))
