@@ -18,7 +18,6 @@
 # define MSG_TEXTURES_NOT_SET_ERR "Textures are not set"
 
 # define MSG_RGB_RANGE_ERR "Value of the RGB is not in the range [0 - 255]"
-# define MSG_RGB_NOT_SET_ERR "Ceiling and floor are not set"
 # define MSG_RGB_ARG_ERR "Need 3 numbers for the RGB set"
 # define MSG_RGB_WRONG_ARG_ERR "Value of rgb need to be a number"
 
