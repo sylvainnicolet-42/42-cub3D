@@ -18,10 +18,10 @@
 int			ft_check_arguments(int ac, char **av);
 void		ft_check_double(t_cube *cube, char *line);
 t_cube		*ft_init_cube(int ac, char **av);
-t_matrix	*ft_init_matrix(int ac, char **av);
 void		ft_set_textures(t_cube *cube, int fd);
 void		ft_set_wall(t_cube *cube, char *line);
 void		ft_set_rgb(t_cube *cube, char *line);
+void		ft_set_map(t_cube *cube, int fd);
 
 /** ----- MLX ----- **/
 void		ft_init_mlx(t_cube *cube);
@@ -29,6 +29,7 @@ void		ft_handle_event(t_cube *cube);
 int			ft_key_hook(int key, t_cube *cube);
 
 /** ----- PRINT ----- **/
+void		db_print_array(char **array);
 void		ft_print_error(char *str);
 void		ft_print_success(char *str);
 

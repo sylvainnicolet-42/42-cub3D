@@ -35,7 +35,7 @@ MLX_FILE	= init_mlx.c \
 PARSE_FILE	= check_arguments.c \
 			  check_double.c \
 			  init_cube.c \
-			  init_matrix.c \
+			  set_map.c \
 			  set_rgb_textures.c \
 			  set_textures.c \
 			  set_wall.c \
