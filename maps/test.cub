@@ -8,8 +8,7 @@ EA       ./path_to_the_east_texture
 NO ./path_to_the_north_texture
 
 F 1,2,3
-C 255,125,
-
+C 255,125,1
 
         1111111111111111111111111
         1000000000110000000000001

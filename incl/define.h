@@ -21,6 +21,11 @@
 # define MSG_RGB_ARG_ERR "Need 3 numbers for the RGB set"
 # define MSG_RGB_WRONG_ARG_ERR "Value of rgb need to be a number"
 
+# define MSG_MAP_NOT_VALID_ERR "Char in the map are not valid"
+# define MSG_MAP_NOT_EMPTY_ERR "Map is not valid, no new line after the map"
+
+# define MSG_TWO_PLAYER_ERR "Map contain more than one player"
+
 # define MSG_TEXTURES_HAVE_DOUBLE_ERR "Textures have a duplicata"
 # define MSG_MAP_NOT_SET_ERR "Map is not set"
 

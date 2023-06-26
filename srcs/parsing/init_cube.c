@@ -18,6 +18,7 @@ t_cube	*ft_init_cube(int ac, char **av)
 	*cube = (t_cube){};
 	ft_set_textures(cube, fd);
 	ft_set_map(cube, fd);
+	ft_is_map_valid(cube->matrix);
 	ft_init_mlx(cube);
 	close(fd);
 	return (cube);

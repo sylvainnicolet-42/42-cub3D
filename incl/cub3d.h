@@ -22,6 +22,14 @@ void		ft_set_textures(t_cube *cube, int fd);
 void		ft_set_wall(t_cube *cube, char *line);
 void		ft_set_rgb(t_cube *cube, char *line);
 void		ft_set_map(t_cube *cube, int fd);
+void		ft_is_map_valid(t_matrix *matrix);
+
+// List Map
+t_list_map	*ft_lst_new_map(char *str);
+void		ft_lst_addback_map(t_list_map **lst, t_list_map *nw);
+void		ft_free_list_map(t_list_map *lst);
+void		ft_print_list_map(t_list_map **lst);
+size_t		ft_lst_len_map(t_list_map *lst);
 
 /** ----- MLX ----- **/
 void		ft_init_mlx(t_cube *cube);

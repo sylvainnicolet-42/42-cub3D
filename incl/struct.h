@@ -3,7 +3,6 @@
 # define STRUCT_H
 
 typedef struct s_cube {
-	struct s_matrix	*matrix;
 	void			*mlx_ptr;
 	void			*win_ptr;
 	char			*path_wall_n;
@@ -12,11 +11,12 @@ typedef struct s_cube {
 	char			*path_wall_w;
 	struct s_rgb	*floor;
 	struct s_rgb	*ceiling;
+	struct s_matrix	*matrix;
 }					t_cube;
 
 typedef struct s_matrix {
-	bool			are_textures_set;
-	bool			is_map_set;
+	char			**map;
+	struct s_pos	*player;
 }					t_matrix;
 
 typedef struct s_rgb {
@@ -24,5 +24,15 @@ typedef struct s_rgb {
 	unsigned int	g;
 	unsigned int	b;
 }					t_rgb;
+
+typedef struct s_list_map {
+	char				*str;
+	struct s_list_map	*next;
+}						t_list_map;
+
+typedef struct s_pos {
+	unsigned int	x;
+	unsigned int	y;
+}					t_pos;
 
 #endif
