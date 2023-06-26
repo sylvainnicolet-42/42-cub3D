@@ -44,7 +44,7 @@ void	ft_free_list_map(t_list_map *lst)
 void	ft_print_list_map(t_list_map **lst)
 {
 	t_list_map	*node;
-	
+
 	node = *lst;
 	while (node != NULL)
 	{

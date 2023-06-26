@@ -17,7 +17,7 @@ int	ft_close(t_cube *cube)
 	free(cube->floor);
 	free(cube->ceiling);
 	ft_free_array(cube->matrix->map);
-	free(cube->matrix->player);
+	free(cube->matrix->player_pos);
 	free(cube->matrix);
 	free(cube);
 	ft_print_success(MSG_CLOSE_SUCCESS);

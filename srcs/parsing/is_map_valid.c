@@ -8,7 +8,6 @@ static t_pos	*ft_find_player(char **map)
 	unsigned int	x;
 	unsigned int	y;
 
-
 	x = 0;
 	y = 0;
 	found = false;
@@ -38,6 +37,5 @@ static t_pos	*ft_find_player(char **map)
 
 void	ft_is_map_valid(t_matrix *matrix)
 {
-	matrix->player = ft_find_player(matrix->map);
-
+	matrix->player_pos = ft_find_player(matrix->map);
 }

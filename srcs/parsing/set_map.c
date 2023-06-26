@@ -49,9 +49,25 @@ static t_matrix	*ft_set_matrix(t_list_map *lst)
 		if (!matrix->map[i])
 			ft_print_error(MSG_MALLOC_ERR);
 		i++;
-		node = node->next;	
+		node = node->next;
 	}
 	return (matrix);
+}
+
+static void	ft_set_map_ext(char *trimmed, bool *map_found, char *line,
+	t_list_map **map)
+{
+	if (ft_is_map(trimmed) == true)
+	{
+		*map_found = true;
+		ft_lst_addback_map(map, ft_lst_new_map(trimmed));
+	}
+	else if (*map_found == true)
+	{
+		free(line);
+		free(trimmed);
+		ft_print_error(MSG_MAP_NOT_EMPTY_ERR);
+	}
 }
 
 void	ft_set_map(t_cube *cube, int fd)
@@ -68,20 +84,7 @@ void	ft_set_map(t_cube *cube, int fd)
 	{
 		trimmed = ft_strtrim(line, "\n");
 		ft_check_double(cube, trimmed);
-		if (ft_is_map(trimmed) == true)
-		{
-			map_found = true;
-			ft_lst_addback_map(&map, ft_lst_new_map(trimmed));
-		}
-		else 
-		{
-			if (map_found == true)
-			{
-				free(line);
-				free(trimmed);
-				ft_print_error(MSG_MAP_NOT_EMPTY_ERR);
-			}
-		}
+		ft_set_map_ext(trimmed, &map_found, line, &map);
 		free(line);
 		free(trimmed);
 		line = get_next_line(fd);

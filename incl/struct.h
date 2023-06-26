@@ -16,7 +16,7 @@ typedef struct s_cube {
 
 typedef struct s_matrix {
 	char			**map;
-	struct s_pos	*player;
+	struct s_pos	*player_pos;
 }					t_matrix;
 
 typedef struct s_rgb {
