@@ -33,6 +33,7 @@ typedef struct s_list_map {
 typedef struct s_pos {
 	unsigned int	x;
 	unsigned int	y;
+	char			c;
 }					t_pos;
 
 #endif

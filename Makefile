@@ -37,6 +37,7 @@ PARSE_FILE	= check_arguments.c \
 			  init_cube.c \
 			  is_map_valid.c \
 			  list_map.c \
+			  map_utils.c \
 			  set_map.c \
 			  set_rgb_textures.c \
 			  set_textures.c \

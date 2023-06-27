@@ -23,8 +23,10 @@
 
 # define MSG_MAP_NOT_VALID_ERR "Char in the map are not valid"
 # define MSG_MAP_NOT_EMPTY_ERR "Map is not valid, no new line after the map"
+# define MSG_MAP_NOT_CLOSE_ERR "Map is not close"
 
 # define MSG_TWO_PLAYER_ERR "Map contain more than one player"
+# define MSG_NO_PLAYER_ERR "No player found in the map"
 
 # define MSG_TEXTURES_HAVE_DOUBLE_ERR "Textures have a duplicata"
 # define MSG_MAP_NOT_SET_ERR "Map is not set"

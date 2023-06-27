@@ -31,13 +31,15 @@ void		ft_free_list_map(t_list_map *lst);
 void		ft_print_list_map(t_list_map **lst);
 size_t		ft_lst_len_map(t_list_map *lst);
 
+char		**ft_cpy_map_utils(char **map);
+
 /** ----- MLX ----- **/
 void		ft_init_mlx(t_cube *cube);
 void		ft_handle_event(t_cube *cube);
 int			ft_key_hook(int key, t_cube *cube);
 
 /** ----- PRINT ----- **/
-void		db_print_array(char **array);
+void		db_print_array(char **array, char *msg);
 void		ft_print_error(char *str);
 void		ft_print_success(char *str);
 

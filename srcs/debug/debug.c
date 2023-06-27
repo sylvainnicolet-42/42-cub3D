@@ -32,14 +32,14 @@ void	db_print_cube(t_cube *cube)
 	printf("\n");
 	printf("Position of player x[%d] y[%d]\n", cube->matrix->player_pos->x,
 		cube->matrix->player_pos->y);
-	db_print_array(cube->matrix->map);
+	db_print_array(cube->matrix->map, "MAP");
 }
 
-void	db_print_array(char **array)
+void	db_print_array(char **array, char *msg)
 {
 	int	i;
 
-	printf("\n--- DEBUG: PRINT ARRAY ---\n");
+	printf("\n--- DEBUG: PRINT ARRAY : %s ---\n", msg);
 	printf("--------------------------------\n");
 	i = 0;
 	while (array[i])
