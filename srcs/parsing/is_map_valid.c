@@ -91,6 +91,7 @@ static void	ft_map_to_norm(char **map)
 		tmp[x] = '1';
 		free(map[y]);
 		map[y] = tmp;
+		x = 0;
 		y++;
 	}
 }
