@@ -12,6 +12,7 @@ libgnl.a
 libs/**/*.o
 libs/**/*.swiftdoc
 libs/**/*.swiftmodule
+libs/libmlx/libmlx.a
 
 # Ignore obj
 /objs/**/*.o

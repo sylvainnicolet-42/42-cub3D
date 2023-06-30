@@ -97,7 +97,6 @@ libs:		mlx libft gnl
 mlx:
 			@$(MLX_TXT)
 			@make -C $(MLX)
-			@cp $(MLX)/libmlx.dylib .
 			@$(MLX_END_TXT)
 			@$(NL_TXT)
 

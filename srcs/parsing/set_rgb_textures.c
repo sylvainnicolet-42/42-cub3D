@@ -38,10 +38,8 @@ static void	ft_check_rgb_range(char **split)
 static void	ft_check_is_color_valid(char **split)
 {
 	int	i;
-	int	j;
 
 	i = 0;
-	j = 0;
 	while (split[i] != NULL)
 		i++;
 	if (i != 3)
