@@ -22,3 +22,10 @@ char	**ft_cpy_map_utils(char **map)
 	}
 	return (map_cpy);
 }
+
+bool	ft_is_valid_char_map_utils(char c)
+{
+	if (c == '0' || c == 'N' || c == 'S' || c == 'E' || c == 'W')
+		return (true);
+	return (false);
+}

@@ -38,13 +38,6 @@ static t_pos	*ft_find_player(char **map)
 	return (pos);
 }
 
-static bool	ft_is_valid_char(char c)
-{
-	if (c == '0' || c == 'N' || c == 'S' || c == 'E' || c == 'W')
-		return (true);
-	return (false);
-}
-
 static bool	ft_map_is_close(char **map, unsigned int x, unsigned y)
 {
 	if (map[y][x] == 'f')
@@ -55,7 +48,7 @@ static bool	ft_map_is_close(char **map, unsigned int x, unsigned y)
 		return (true);
 	if (x <= 0 || y <= 0)
 		return (false);
-	if (ft_is_valid_char(map[y][x]) == true)
+	if (ft_is_valid_char_map_utils(map[y][x]) == true)
 		map[y][x] = 'f';
 	else
 		ft_print_error(MSG_MAP_NOT_VALID_ERR);
@@ -74,6 +67,7 @@ static void	ft_map_to_norm(char **map)
 {
 	unsigned int	x;
 	unsigned int	y;
+	char			*tmp;
 
 	x = 0;
 	y = 0;
@@ -85,7 +79,18 @@ static void	ft_map_to_norm(char **map)
 				map[y][x] = '1';
 			x++;
 		}
+		tmp = ft_calloc(sizeof(char), x + 2);
+		if (!tmp)
+			ft_print_error(MSG_MALLOC_ERR);	
 		x = 0;
+		while (map[y][x] != '\0')
+		{
+			tmp[x] = map[y][x];
+			x++;
+		}
+		tmp[x] = '1';
+		free(map[y]);
+		map[y] = tmp;
 		y++;
 	}
 }
@@ -114,7 +119,7 @@ void	ft_is_map_valid(t_matrix *matrix)
 		x = 0;
 		y++;
 	}
-	db_print_array(map_cpy, "MAP_CPY");
+	db_print_array(map_cpy, "MAP_CPY"); // <-- fonction can be delete after check
 	ft_free_array(map_cpy);
 	ft_map_to_norm(matrix->map);
 }

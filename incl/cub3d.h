@@ -32,6 +32,7 @@ void		ft_print_list_map(t_list_map **lst);
 size_t		ft_lst_len_map(t_list_map *lst);
 
 char		**ft_cpy_map_utils(char **map);
+bool		ft_is_valid_char_map_utils(char c);
 
 /** ----- MLX ----- **/
 void		ft_init_mlx(t_cube *cube);
