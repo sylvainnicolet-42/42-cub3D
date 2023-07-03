@@ -5,7 +5,7 @@
 enum e_xcode_event
 {
 	E_KEY_PRESS = 2,
-	E_ON_DESTROY = 17
+	E_ON_DESTROY = 17,
 };
 enum e_xcode_mask
 {
@@ -18,6 +18,11 @@ enum e_key
 	E_KEY_ARROW_RIGHT = 124,
 	E_KEY_ARROW_DOWN = 125,
 	E_KEY_ARROW_UP = 126,
+};
+enum e_wall
+{
+	E_WALL = 1,
+	E_RGB = 2,
 };
 
 #endif
