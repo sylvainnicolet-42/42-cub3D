@@ -81,7 +81,7 @@ static void	ft_map_to_norm(char **map)
 		}
 		tmp = ft_calloc(sizeof(char), x + 2);
 		if (!tmp)
-			ft_print_error(MSG_MALLOC_ERR);	
+			ft_print_error(MSG_MALLOC_ERR);
 		x = 0;
 		while (map[y][x] != '\0')
 		{

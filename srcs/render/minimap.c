@@ -43,10 +43,22 @@ static int	ft_strlen_max_y(char **str)
 	while (str[len] != NULL)
 		len++;
 	return (len);
-
 }
 
-static bool	ft_is_wall(char **map, int x, int y)
+static bool	ft_is_player(char **map, int x, int y)
+{
+	if (ft_strncmp(&map[y][x], "N", 1) == 0)
+		return (true);
+	if (ft_strncmp(&map[y][x], "S", 1) == 0)
+		return (true);
+	if (ft_strncmp(&map[y][x], "E", 1) == 0)
+		return (true);
+	if (ft_strncmp(&map[y][x], "W", 1) == 0)
+		return (true);
+	return (false);
+}	
+
+static int	ft_is_wall(char **map, int x, int y)
 {
 	int	x_map;
 	int	y_map;
@@ -58,34 +70,37 @@ static bool	ft_is_wall(char **map, int x, int y)
 	x_map = (x * max_x) / ((WIN_WIDTH / 5) * 1);
 	y_map = (y * max_y) / ((WIN_HEIGHT / 5) * 1);
 	if ((int)ft_strlen(map[y_map]) < x_map)
-		return (true);
+		return (E_WALL);
 	if (ft_strncmp(&map[y_map][x_map], "1", 1) == 0)
-		return (true);
+		return (E_WALL);
 	if (ft_strncmp(&map[y_map][x_map], "\0", 1) == 0)
-		return (true);
-	else
-		return (false);
+		return (E_WALL);
+	if (ft_is_player(map, x_map, y_map) == true)
+		return (E_PLAYER);
+	return (E_ALLEY);
 }
 
 void	ft_minimap(t_cube *cube)
 {
 	int	x;
 	int	y;
-	int	start_x;
-	int	start_y;
+	int	st_x;
+	int	st_y;
 
-	start_x = (WIN_WIDTH / 5) * 4;
-	start_y = (WIN_HEIGHT / 5) * 4;
-	y = start_y;
+	st_x = (WIN_WIDTH / 5) * 4;
+	st_y = (WIN_HEIGHT / 5) * 4;
+	y = st_y;
 	while (y < WIN_HEIGHT)
 	{
-		x = start_x;
+		x = st_x;
 		while (x < WIN_WIDTH)
 		{
-			if (ft_is_wall(cube->matrix->map, x - start_x, y - start_y) == true)
-				ft_mlx_pixel_put(cube->img, x, y, ft_encode_rgb(50, 160, 0)); // <- wall
+			if (ft_is_wall(cube->matrix->map, x - st_x, y - st_y) == E_WALL)
+				ft_mlx_pixel_put(cube->img, x, y, ft_encode_rgb(50, 160, 0));
+			else if (ft_is_wall(cube->matrix->map, x - st_x, y - st_y) == E_PLAYER)
+				ft_mlx_pixel_put(cube->img, x, y, ft_encode_rgb(255, 255, 255));
 			else
-				ft_mlx_pixel_put(cube->img, x, y, ft_encode_rgb(255, 255, 255)); // <- alley
+				ft_mlx_pixel_put(cube->img, x, y, ft_encode_rgb(0, 0, 0));
 			x++;
 		}
 		y++;
