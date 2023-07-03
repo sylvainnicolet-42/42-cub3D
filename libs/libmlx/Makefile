@@ -11,11 +11,22 @@ CFLAGS+=-O2
 # add to match string put with X11 in size and position
 CFLAGS+= -DSTRINGPUTX11
 
+
+NL_TXT			= echo ""
+CHARG_LINE_TXT	= echo "$(GREEN)█$(RESET)\c"
+GREEN			= \033[1;32m
+RESET			= \033[0m
+
 all: $(NOM)
 
 $(NOM):	$(OBJ)
-		ar -r $(NOM) $(OBJ)
+		ar -r $(NOM) $(OBJ) > /dev/null 2>&1
 		ranlib $(NOM)
+		@$(NL_TXT)
+
+.c.o:
+		@${CC} -c $< -o ${<:.c=.o}
+		@$(CHARG_LINE_TXT)
 
 clean:
 	rm -f $(NOM) $(OBJ) *~

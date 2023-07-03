@@ -4,8 +4,8 @@
 
 /** ----- DEFINE ----- **/
 # define PROG_NAME "Cub3D"
-# define WIN_WIDTH 800
-# define WIN_HEIGHT 800
+# define WIN_WIDTH 1500
+# define WIN_HEIGHT 1000
 
 /** ----- SUCCESS MESSAGES ----- **/
 # define MSG_CLOSE_SUCCESS "Cub3D ended successfully! 🚀"

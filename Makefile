@@ -1,6 +1,6 @@
 
 # COMPILATION
-CC			= gcc -g #-fsanitize=address
+CC			= gcc -g -fsanitize=address
 FLAGS		= -Wall -Werror -Wextra
 FRAMEWORK	= -framework OpenGL -framework AppKit
 
@@ -43,17 +43,22 @@ PARSE_FILE	= check_arguments.c \
 			  set_textures.c \
 			  set_wall.c \
 
+RENDER_FILE	= start.c \
+
 # OBJECT FILES
 MAIN_FILE	:= $(addprefix $(OBJS_PATH)/, $(MAIN_FILE:.c=.o))
 CLOSE_FILE	:= $(addprefix $(OBJS_PATH)/close/, $(CLOSE_FILE:.c=.o))
 DEBUG_FILE	:= $(addprefix $(OBJS_PATH)/debug/, $(DEBUG_FILE:.c=.o))
 MLX_FILE	:= $(addprefix $(OBJS_PATH)/mlx/, $(MLX_FILE:.c=.o))
 PARSE_FILE	:= $(addprefix $(OBJS_PATH)/parsing/, $(PARSE_FILE:.c=.o))
+RENDER_FILE	:= $(addprefix $(OBJS_PATH)/render/, $(RENDER_FILE:.c=.o))
+
 OBJS		:= $(MAIN_FILE) \
 			   $(CLOSE_FILE) \
 			   $(DEBUG_FILE) \
 			   $(MLX_FILE) \
 			   $(PARSE_FILE) \
+			   $(RENDER_FILE) \
 
 # COLORS
 RED			= \033[1;31m
