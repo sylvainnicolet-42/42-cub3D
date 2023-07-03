@@ -44,6 +44,7 @@ PARSE_FILE	= check_arguments.c \
 			  set_wall.c \
 
 RENDER_FILE	= start.c \
+			  minimap.c
 
 # OBJECT FILES
 MAIN_FILE	:= $(addprefix $(OBJS_PATH)/, $(MAIN_FILE:.c=.o))

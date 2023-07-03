@@ -3,6 +3,5 @@
 
 void	ft_start(t_cube *cube)
 {
-	(void) cube;
-	printf("cocu\n");
+	ft_minimap(cube);
 }

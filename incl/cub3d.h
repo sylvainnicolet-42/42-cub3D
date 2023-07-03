@@ -32,6 +32,7 @@ void		ft_init_mlx(t_cube *cube);
 void		ft_handle_event(t_cube *cube);
 void		ft_mlx_pixel_put(t_img *img, int x, int y, int color);
 int			ft_key_hook(int key, t_cube *cube);
+int			ft_encode_rgb(uint8_t red, uint8_t green, uint8_t blue);
 
 /** ----- PARSING ----- **/
 int			ft_check_arguments(int ac, char **av);
@@ -54,6 +55,7 @@ char		**ft_cpy_map_utils(char **map);
 bool		ft_is_valid_char_map_utils(char c);
 
 /** ----- RENDER ----- **/
+void		ft_minimap(t_cube *cube);
 void		ft_start(t_cube *cube);
 
 #endif

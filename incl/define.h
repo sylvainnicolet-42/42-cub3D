@@ -7,6 +7,14 @@
 # define WIN_WIDTH 1500
 # define WIN_HEIGHT 1000
 
+# define D_ROOF 0x00FF0000
+# define D_FLOOR 0x000080FF
+# define D_WALL 0x00404040
+
+# define D_MM_BACKGROUND 0x0032A100
+# define D_MM_ALLEY 0x00000000
+# define D_MM_PLAYER 0x00FFFFFF
+
 /** ----- SUCCESS MESSAGES ----- **/
 # define MSG_CLOSE_SUCCESS "Cub3D ended successfully! 🚀"
 
