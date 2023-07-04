@@ -45,7 +45,8 @@ PARSE_FILE	= check_arguments.c \
 
 RENDER_FILE	= floor_and_ceiling.c \
 			  minimap.c \
-			  start.c\
+			  render_next_frame.c \
+			  wall.c \
 
 			  # OBJECT FILES
 MAIN_FILE	:= $(addprefix $(OBJS_PATH)/, $(MAIN_FILE:.c=.o))

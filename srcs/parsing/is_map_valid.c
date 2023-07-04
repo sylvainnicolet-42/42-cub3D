@@ -25,7 +25,6 @@ static t_pos	*ft_find_player(char **map)
 					ft_print_error(MSG_TWO_PLAYER_ERR);
 				pos->x = x;
 				pos->y = y;
-				pos->c = map[y][x];
 				found = true;
 			}
 			x++;

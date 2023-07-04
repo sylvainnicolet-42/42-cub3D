@@ -57,6 +57,7 @@ bool		ft_is_valid_char_map_utils(char c);
 /** ----- RENDER ----- **/
 void		ft_floor_and_ceiling(t_cube *cube);
 void		ft_minimap(t_cube *cube);
-void		ft_start(t_cube *cube);
+void		ft_render_next_frame(t_cube *cube);
+void	ft_wall(t_cube *cube);
 
 #endif
