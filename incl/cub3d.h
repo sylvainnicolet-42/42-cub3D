@@ -55,6 +55,7 @@ char		**ft_cpy_map_utils(char **map);
 bool		ft_is_valid_char_map_utils(char c);
 
 /** ----- RENDER ----- **/
+void		ft_floor_and_ceiling(t_cube *cube);
 void		ft_minimap(t_cube *cube);
 void		ft_start(t_cube *cube);
 

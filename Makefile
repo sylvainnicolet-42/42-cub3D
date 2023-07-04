@@ -43,10 +43,11 @@ PARSE_FILE	= check_arguments.c \
 			  set_textures.c \
 			  set_wall.c \
 
-RENDER_FILE	= start.c \
-			  minimap.c
+RENDER_FILE	= floor_and_ceiling.c \
+			  minimap.c \
+			  start.c\
 
-# OBJECT FILES
+			  # OBJECT FILES
 MAIN_FILE	:= $(addprefix $(OBJS_PATH)/, $(MAIN_FILE:.c=.o))
 CLOSE_FILE	:= $(addprefix $(OBJS_PATH)/close/, $(CLOSE_FILE:.c=.o))
 DEBUG_FILE	:= $(addprefix $(OBJS_PATH)/debug/, $(DEBUG_FILE:.c=.o))

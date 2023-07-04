@@ -13,8 +13,8 @@ static void	ft_free_cube(t_cube *cube)
 	free(cube->path_wall_s);
 	free(cube->path_wall_w);
 	free(cube->path_wall_e);
-	free(cube->floor);
-	free(cube->ceiling);
+	free(cube->f);
+	free(cube->c);
 	ft_free_array(cube->matrix->map);
 	free(cube->matrix->player_pos);
 	free(cube->matrix);

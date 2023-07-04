@@ -10,8 +10,8 @@ typedef struct s_cube {
 	char			*path_wall_s;
 	char			*path_wall_e;
 	char			*path_wall_w;
-	struct s_rgb	*floor;
-	struct s_rgb	*ceiling;
+	struct s_rgb	*f;
+	struct s_rgb	*c;
 	struct s_matrix	*matrix;
 }					t_cube;
 
@@ -42,7 +42,6 @@ typedef struct s_list_map {
 typedef struct s_pos {
 	unsigned int	x;
 	unsigned int	y;
-	char			c;
 }					t_pos;
 
 #endif
