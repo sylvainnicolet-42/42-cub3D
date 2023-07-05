@@ -63,7 +63,7 @@ static void	ft_map_to_norm(char **map)
 		ft_map_to_norm_ext(map, &x, &y);
 }
 
-void	ft_is_map_valid(t_matrix *matrix)
+void	ft_is_map_valid(t_cube *cube)
 {
 	unsigned int	x;
 	unsigned int	y;
@@ -71,8 +71,8 @@ void	ft_is_map_valid(t_matrix *matrix)
 
 	x = 0;
 	y = 0;
-	map_cpy = ft_cpy_map_utils(matrix->map);
-	matrix->player_pos = ft_find_player(matrix->map);
+	map_cpy = ft_cpy_map_utils(cube->map);
+	cube->player = ft_find_player(cube->map);
 	while (map_cpy[y] != NULL)
 	{
 		while (map_cpy[y][x] != '\0')
@@ -88,5 +88,5 @@ void	ft_is_map_valid(t_matrix *matrix)
 		y++;
 	}
 	ft_free_array(map_cpy);
-	ft_map_to_norm(matrix->map);
+	ft_map_to_norm(cube->map);
 }

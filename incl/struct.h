@@ -10,9 +10,10 @@ typedef struct s_cube {
 	char			*path_wall_s;
 	char			*path_wall_e;
 	char			*path_wall_w;
+	char			**map;
 	struct s_rgb	*f;
 	struct s_rgb	*c;
-	struct s_matrix	*matrix;
+	struct s_player	*player;
 }					t_cube;
 
 typedef struct s_img {
@@ -22,11 +23,6 @@ typedef struct s_img {
 	int		line_length;
 	int		endian;
 }			t_img;
-
-typedef struct s_matrix {
-	char			**map;
-	struct s_pos	*player_pos;
-}					t_matrix;
 
 typedef struct s_rgb {
 	unsigned int	r;
@@ -39,9 +35,13 @@ typedef struct s_list_map {
 	struct s_list_map	*next;
 }						t_list_map;
 
-typedef struct s_pos {
-	unsigned int	x;
-	unsigned int	y;
-}					t_pos;
+typedef struct s_player {
+	unsigned int	pos_x;
+	unsigned int	pos_y;
+	int				dir_x;
+	int				dir_y;
+	unsigned int	plane_x;
+	unsigned int	plane_y;
+}					t_player;
 
 #endif

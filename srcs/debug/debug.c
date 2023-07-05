@@ -30,9 +30,9 @@ void	db_print_cube(t_cube *cube)
 	printf("ceiling_RGB=> R[%d] G[%d] B[%d]\n",
 		cube->c->r, cube->c->g, cube->c->b);
 	printf("\n");
-	printf("Position of player x[%d] y[%d]\n", cube->matrix->player_pos->x,
-		cube->matrix->player_pos->y);
-	db_print_array(cube->matrix->map, "MAP");
+	printf("Position of player x[%d] y[%d]\n", cube->player->pos_x,
+		cube->player->pos_y);
+	db_print_array(cube->map, "MAP");
 }
 
 void	db_print_array(char **array, char *msg)

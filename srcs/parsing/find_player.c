@@ -1,7 +1,7 @@
 
 #include "cub3d.h"
 
-static bool	ft_find_player_ext(char **map, t_pos *pos, unsigned int x,
+static bool	ft_find_player_ext(char **map, t_player *pos, unsigned int x,
 	unsigned int y)
 {
 	bool			found;
@@ -16,8 +16,8 @@ static bool	ft_find_player_ext(char **map, t_pos *pos, unsigned int x,
 			{
 				if (found == true)
 					ft_print_error(MSG_TWO_PLAYER_ERR);
-				pos->x = x;
-				pos->y = y;
+				pos->pos_x = x;
+				pos->pos_x = y;
 				found = true;
 			}
 			x++;
@@ -28,12 +28,12 @@ static bool	ft_find_player_ext(char **map, t_pos *pos, unsigned int x,
 	return (found);
 }
 
-t_pos	*ft_find_player(char **map)
+t_player	*ft_find_player(char **map)
 {
-	t_pos			*pos;
+	t_player		*pos;
 	bool			found;
 
-	pos = malloc(sizeof(t_pos));
+	pos = malloc(sizeof(t_player));
 	if (!pos)
 		ft_print_error(MSG_MALLOC_ERR);
 	found = ft_find_player_ext(map, pos, 0, 0);
