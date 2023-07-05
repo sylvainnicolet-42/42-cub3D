@@ -94,27 +94,4 @@ void	ft_map_2d(t_cube *cube)
 		}
 		x++;
 	}
-//	int	x;
-//	int	y;
-//	int	st_x;
-//	int	st_y;
-//
-//	st_x = WIN_WIDTH / 2;
-//	st_y = (WIN_HEIGHT / 5) * 4;
-//	y = st_y;
-//	while (y < WIN_HEIGHT)
-//	{
-//		x = st_x;
-//		while (x < WIN_WIDTH)
-//		{
-//			if (ft_is_wall(cube, x - st_x, y - st_y) == E_WALL)
-//				ft_mlx_pixel_put(cube->img, x, y, ft_encode_rgb(50, 160, 0));
-//			else if (ft_is_wall(cube, x - st_x, y - st_y) == E_PLAYER)
-//				ft_mlx_pixel_put(cube->img, x, y, ft_encode_rgb(255, 255, 255));
-//			else
-//				ft_mlx_pixel_put(cube->img, x, y, ft_encode_rgb(0, 0, 0));
-//			x++;
-//		}
-//		y++;
-//	}
 }
