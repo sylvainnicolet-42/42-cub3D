@@ -2,17 +2,6 @@
 #include "cub3d.h"
 
 /**
- * Check if the key is a valid key
- * @param cube
- *
- * @return bool, true if the key is valid else false
- */
-static bool	ft_is_key(int key)
-{
-	return (key == E_KEY_ESC);
-}
-
-/**
  * Apply the key
  * @param key
  * @param cube
@@ -21,7 +10,19 @@ static bool	ft_is_key(int key)
  */
 static void	ft_apply_key(int key, t_cube *cube)
 {
-	if (key == E_KEY_ESC)
+	if (key == E_KEY_W)
+		ft_move_forward(cube);
+	else if (key == E_KEY_S)
+		ft_move_backward(cube);
+	else if (key == E_KEY_A)
+		ft_move_left(cube);
+	else if (key == E_KEY_D)
+		ft_move_right(cube);
+	else if (key == E_KEY_ARROW_LEFT)
+		ft_move_vision_left(cube);
+	else if (key == E_KEY_ARROW_RIGHT)
+		ft_move_vision_right(cube);
+	else if (key == E_KEY_ESC)
 		ft_close(cube);
 }
 
@@ -33,7 +34,6 @@ static void	ft_apply_key(int key, t_cube *cube)
  */
 int	ft_key_hook(int key, t_cube *cube)
 {
-	if (ft_is_key(key))
-		ft_apply_key(key, cube);
+	ft_apply_key(key, cube);
 	return (0);
 }

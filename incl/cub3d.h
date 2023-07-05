@@ -14,6 +14,14 @@
 # include "enum.h"
 # include "struct.h"
 
+/** ----- ACTIONS ----- **/
+void		ft_move_vision_left(t_cube *cube);
+void		ft_move_vision_right(t_cube *cube);
+void		ft_move_forward(t_cube *cube);
+void		ft_move_backward(t_cube *cube);
+void		ft_move_left(t_cube *cube);
+void		ft_move_right(t_cube *cube);
+
 /** ----- CLOSE ----- **/
 int			ft_close(t_cube *cube);
 void		ft_free_array(char **array);
