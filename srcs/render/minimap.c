@@ -50,7 +50,7 @@ static bool	ft_is_player(t_pos *player, int x, int y)
 	if ((unsigned int)x == player->x && (unsigned int)y == player->y)
 		return (true);
 	return (false);
-}	
+}
 
 static int	ft_is_wall(t_cube *cube, int x, int y)
 {

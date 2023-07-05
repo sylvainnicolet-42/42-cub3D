@@ -60,9 +60,7 @@ static void	ft_map_to_norm(char **map)
 	x = 0;
 	y = 0;
 	while (map[y] != NULL)
-	{
 		ft_map_to_norm_ext(map, &x, &y);
-	}
 }
 
 void	ft_is_map_valid(t_matrix *matrix)
