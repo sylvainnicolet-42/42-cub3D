@@ -16,34 +16,6 @@
  *
  */
 
-static int	ft_strlen_max_x(char **str)
-{
-	int	i;
-	int	len;
-	int	max;
-
-	i = 0;
-	max = 0;
-	while (str[i] != NULL)
-	{
-		len = (int) ft_strlen(str[i]);
-		if (len > max)
-			max = len;
-		i++;
-	}
-	return (max - 1);
-}
-
-static int	ft_strlen_max_y(char **str)
-{
-	int	len;
-
-	len = 0;
-	while (str[len] != NULL)
-		len++;
-	return (len);
-}
-
 static bool	ft_is_player(t_player *player, int x, int y)
 {
 	if ((unsigned int)x == player->pos_x && (unsigned int)y == player->pos_y)
@@ -55,14 +27,10 @@ static int	ft_is_wall(t_cube *cube, int x, int y)
 {
 	int	x_map;
 	int	y_map;
-	int	max_x;
-	int	max_y;
 
-	max_x = ft_strlen_max_x(cube->map);
-	max_y = ft_strlen_max_y(cube->map);
-	x_map = (x * max_x) / (WIN_WIDTH / 2);
-	y_map = (y * max_y) / WIN_HEIGHT;
-	if ((int)ft_strlen(cube->map[y_map]) < x_map)
+	x_map = (x * cube->map_max_x) / (WIN_WIDTH / 2);
+	y_map = (y * cube->map_max_y) / WIN_HEIGHT;
+	if (cube->map_max_x < x_map)
 		return (E_WALL);
 	if (cube->map[y_map][x_map] == '1')
 		return (E_WALL);

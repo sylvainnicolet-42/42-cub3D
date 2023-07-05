@@ -20,6 +20,7 @@ t_cube	*ft_init_cube(int ac, char **av)
 	ft_set_map(cube, fd);
 	ft_is_map_valid(cube);
 	ft_init_mlx(cube);
+	ft_find_max_value(cube);
 	close(fd);
 	return (cube);
 }

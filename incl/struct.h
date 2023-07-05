@@ -11,6 +11,8 @@ typedef struct s_cube {
 	char			*path_wall_e;
 	char			*path_wall_w;
 	char			**map;
+	int				map_max_x;
+	int				map_max_y;
 	struct s_rgb	*f;
 	struct s_rgb	*c;
 	struct s_player	*player;

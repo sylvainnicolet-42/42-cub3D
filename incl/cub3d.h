@@ -46,6 +46,7 @@ int			ft_encode_rgb(uint8_t red, uint8_t green, uint8_t blue);
 int			ft_check_arguments(int ac, char **av);
 void		ft_check_double(t_cube *cube, char *line);
 t_cube		*ft_init_cube(int ac, char **av);
+void		ft_find_max_value(t_cube *cube);
 t_player	*ft_find_player(char **map);
 void		ft_set_textures(t_cube *cube, int fd);
 void		ft_set_wall(t_cube *cube, char *line);
@@ -67,7 +68,7 @@ bool		ft_is_valid_char_map_utils(char c);
 void		ft_floor_and_ceiling(t_cube *cube);
 void		ft_map_2d(t_cube *cube);
 void		ft_minimap(t_cube *cube);
-void		ft_render_next_frame(t_cube *cube);
+int			ft_render_next_frame(t_cube *cube);
 void		ft_wall(t_cube *cube);
 
 #endif

@@ -1,6 +1,6 @@
 
 # COMPILATION
-CC			= gcc -g #fsanitize=address
+CC			= gcc -Ofast #-fsanitize=address
 FLAGS		= -Wall -Werror -Wextra
 FRAMEWORK	= -framework OpenGL -framework AppKit
 
@@ -39,6 +39,7 @@ PARSE_FILE	= check_arguments.c \
 			  check_double.c \
 			  init_cube.c \
 			  is_map_valid.c \
+			  find_max_value.c \
 			  find_player.c \
 			  list_map.c \
 			  map_utils.c \

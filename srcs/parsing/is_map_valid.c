@@ -26,6 +26,26 @@ static bool	ft_map_is_close(char **map, unsigned int x, unsigned int y)
 	return (true);
 }
 
+static void	ft_fill_one(char **map)
+{
+	int y;
+	int x;
+	int max;
+	int len;
+
+	x = 0;
+	y = 0;
+	max = 0;
+	len = 0;
+	while (map[y][x] != '\0')
+	{
+		if (x > max)
+			max = x;
+		x++;
+	}
+	x = 0;
+}
+
 static void	ft_map_to_norm_ext(char **map, unsigned int *x, unsigned int *y)
 {
 	char	*tmp;
@@ -61,6 +81,7 @@ static void	ft_map_to_norm(char **map)
 	y = 0;
 	while (map[y] != NULL)
 		ft_map_to_norm_ext(map, &x, &y);
+	ft_fill_one(map);
 }
 
 void	ft_is_map_valid(t_cube *cube)
