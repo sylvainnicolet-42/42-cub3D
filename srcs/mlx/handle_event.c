@@ -9,8 +9,8 @@
  */
 void	ft_handle_event(t_cube *cube)
 {
-	mlx_hook(cube->win_ptr, E_KEY_PRESS, E_KEY_PRESS_MASK, ft_key_hook, cube);
-	mlx_hook(cube->win_ptr, E_ON_DESTROY, E_KEY_PRESS_MASK, ft_close, cube);
+	mlx_hook(cube->win_ptr, E_KEY_PRESS, 2, ft_key_hook, cube);
+	mlx_hook(cube->win_ptr, E_ON_DESTROY, 2, ft_close, cube);
 }
 
 void	ft_mlx_pixel_put(t_img *img, int x, int y, int color)

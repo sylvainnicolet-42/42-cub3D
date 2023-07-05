@@ -17,10 +17,13 @@ GNL			= libs/gnl
 
 # LIBS
 LIBS		= -lmlx -lft -lgnl
-LIBS_PATH	= -L$(MLX) -L$(LIBFT) -L$(GNL)
+LIBS_PATH	= -L$(MLX) -L$(LIBFT) -L$(GNL) 
 
 	### SOURCES FILES ###
 MAIN_FILE	= main.c
+
+ACTION_FILE	= moves.c \
+			  move_vision.c \
 
 CLOSE_FILE	= close.c \
 			  free.c \
@@ -51,6 +54,7 @@ RENDER_FILE	= floor_and_ceiling.c \
 
 			  # OBJECT FILES
 MAIN_FILE	:= $(addprefix $(OBJS_PATH)/, $(MAIN_FILE:.c=.o))
+ACTION_FILE	:= $(addprefix $(OBJS_PATH)/actions/, $(ACTION_FILE:.c=.o))
 CLOSE_FILE	:= $(addprefix $(OBJS_PATH)/close/, $(CLOSE_FILE:.c=.o))
 DEBUG_FILE	:= $(addprefix $(OBJS_PATH)/debug/, $(DEBUG_FILE:.c=.o))
 MLX_FILE	:= $(addprefix $(OBJS_PATH)/mlx/, $(MLX_FILE:.c=.o))
@@ -58,6 +62,7 @@ PARSE_FILE	:= $(addprefix $(OBJS_PATH)/parsing/, $(PARSE_FILE:.c=.o))
 RENDER_FILE	:= $(addprefix $(OBJS_PATH)/render/, $(RENDER_FILE:.c=.o))
 
 OBJS		:= $(MAIN_FILE) \
+			   $(ACTION_FILE) \
 			   $(CLOSE_FILE) \
 			   $(DEBUG_FILE) \
 			   $(MLX_FILE) \
@@ -74,9 +79,11 @@ RESET		= \033[0m
 MLX_TXT			= echo "$(CYAN)=== Compiling MLX ===$(RESET)"
 LIBFT_TXT		= echo "$(CYAN)=== Compiling LIBFT ===$(RESET)"
 GNL_TXT			= echo "$(CYAN)=== Compiling GNL ===$(RESET)"
+PRINTF_TXT		= echo "$(CYAN)=== Compiling FT_PRINTF ===$(RESET)"
 MLX_END_TXT		= echo "$(GREEN)=== MLX Compilated ===$(RESET)"
 LIBFT_END_TXT	= echo "$(GREEN)=== LIBFT Compilated ===$(RESET)"
 GNL_END_TXT		= echo "$(GREEN)=== GNL Compilated ===$(RESET)"
+PRINTF_END_TXT	= echo "$(GREEN)=== FT_PRINTF Compilated ===$(RESET)"
 START_TXT		= echo "$(CYAN)=== Compiling Project ===$(RESET)"
 END_TXT			= echo "$(GREEN)=== Project Compilated ===$(RESET)"
 CHARG_LINE_TXT	= echo "$(GREEN)█$(RESET)\c"
@@ -120,8 +127,6 @@ gnl:
 			@make -C $(GNL)
 			@$(GNL_END_TXT)
 			@$(NL_TXT)
-
-
 
 $(OBJS_PATH)/%.o:	$(SRCS_PATH)/%.c
 					@mkdir -p $(@D)
