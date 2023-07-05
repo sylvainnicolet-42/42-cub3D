@@ -24,7 +24,7 @@ static void	ft_free_cube(t_cube *cube)
 
 int	ft_close(t_cube *cube)
 {
-//	mlx_destroy_window(cube->mlx_ptr, cube->win_ptr);
+	mlx_destroy_window(cube->mlx_ptr, cube->win_ptr);
 	ft_free_cube(cube);
 	ft_print_success(MSG_CLOSE_SUCCESS);
 	return (0);

@@ -26,36 +26,42 @@ static bool	ft_map_is_close(char **map, unsigned int x, unsigned int y)
 	return (true);
 }
 
+static void	ft_map_to_norm_ext(char **map, unsigned int *x, unsigned int *y)
+{
+	char	*tmp;
+
+	while (map[*y][*x] != '\0')
+	{
+		if (map[*y][*x] == ' ')
+			map[*y][*x] = '1';
+		(*x)++;
+	}
+	tmp = ft_calloc(sizeof(char), *x + 2);
+	if (!tmp)
+		ft_print_error(MSG_MALLOC_ERR);
+	*x = 0;
+	while (map[*y][*x] != '\0')
+	{
+		tmp[*x] = map[*y][*x];
+		(*x)++;
+	}
+	tmp[*x] = '1';
+	free(map[*y]);
+	map[*y] = tmp;
+	*x = 0;
+	(*y)++;
+}
+
 static void	ft_map_to_norm(char **map)
 {
 	unsigned int	x;
 	unsigned int	y;
-	char			*tmp;
 
 	x = 0;
 	y = 0;
 	while (map[y] != NULL)
 	{
-		while (map[y][x] != '\0')
-		{
-			if (map[y][x] == ' ')
-				map[y][x] = '1';
-			x++;
-		}
-		tmp = ft_calloc(sizeof(char), x + 2);
-		if (!tmp)
-			ft_print_error(MSG_MALLOC_ERR);
-		x = 0;
-		while (map[y][x] != '\0')
-		{
-			tmp[x] = map[y][x];
-			x++;
-		}
-		tmp[x] = '1';
-		free(map[y]);
-		map[y] = tmp;
-		x = 0;
-		y++;
+		ft_map_to_norm_ext(map, &x, &y);
 	}
 }
 
