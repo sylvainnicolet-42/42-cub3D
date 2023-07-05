@@ -44,7 +44,8 @@ PARSE_FILE	= check_arguments.c \
 			  set_textures.c \
 			  set_wall.c \
 
-RENDER_FILE	= floor_and_ceiling.c \
+RENDER_FILE	= map_2d.c \
+			  floor_and_ceiling.c \
 			  minimap.c \
 			  render_next_frame.c \
 			  wall.c \

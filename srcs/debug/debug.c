@@ -32,6 +32,10 @@ void	db_print_cube(t_cube *cube)
 	printf("\n");
 	printf("Position of player x[%d] y[%d]\n", cube->player->pos_x,
 		cube->player->pos_y);
+	printf("Direction of player x[%d] y[%d]\n", cube->player->dir_x,
+		cube->player->dir_y);
+	printf("Plane of player x[%f] y[%f]\n", cube->player->plane_x,
+		cube->player->plane_y);
 	db_print_array(cube->map, "MAP");
 }
 

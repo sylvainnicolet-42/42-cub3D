@@ -1,6 +1,24 @@
 
 #include "cub3d.h"
 
+static void	ft_set_player(char c, t_player *pos, unsigned int x, unsigned int y)
+{
+	pos->pos_x = x;
+	pos->pos_y = y;
+	pos->dir_x = 0;
+	pos->dir_y = 0;
+	pos->plane_x = 0;
+	pos->plane_y = (float) FOV / 100;
+	if (c == 'N')
+		pos->dir_y = 1;
+	else if (c == 'S')
+		pos->dir_y = -1;
+	else if (c == 'W')
+		pos->dir_x = -1;
+	else if (c == 'E')
+		pos->dir_x = 1;
+}
+
 static bool	ft_find_player_ext(char **map, t_player *pos, unsigned int x,
 	unsigned int y)
 {
@@ -16,8 +34,7 @@ static bool	ft_find_player_ext(char **map, t_player *pos, unsigned int x,
 			{
 				if (found == true)
 					ft_print_error(MSG_TWO_PLAYER_ERR);
-				pos->pos_x = x;
-				pos->pos_x = y;
+				ft_set_player(map[y][x], pos, x, y);
 				found = true;
 			}
 			x++;

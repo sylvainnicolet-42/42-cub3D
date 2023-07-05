@@ -40,8 +40,8 @@ typedef struct s_player {
 	unsigned int	pos_y;
 	int				dir_x;
 	int				dir_y;
-	unsigned int	plane_x;
-	unsigned int	plane_y;
+	float			plane_x;
+	float			plane_y;
 }					t_player;
 
 #endif
