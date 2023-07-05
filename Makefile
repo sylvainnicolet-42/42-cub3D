@@ -36,6 +36,7 @@ PARSE_FILE	= check_arguments.c \
 			  check_double.c \
 			  init_cube.c \
 			  is_map_valid.c \
+			  find_player.c \
 			  list_map.c \
 			  map_utils.c \
 			  set_map.c \
