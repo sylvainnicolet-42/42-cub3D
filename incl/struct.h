@@ -5,14 +5,23 @@
 typedef struct s_cube {
 	void			*mlx_ptr;
 	void			*win_ptr;
+	struct s_img	*img;
 	char			*path_wall_n;
 	char			*path_wall_s;
 	char			*path_wall_e;
 	char			*path_wall_w;
-	struct s_rgb	*floor;
-	struct s_rgb	*ceiling;
+	struct s_rgb	*f;
+	struct s_rgb	*c;
 	struct s_matrix	*matrix;
 }					t_cube;
+
+typedef struct s_img {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}			t_img;
 
 typedef struct s_matrix {
 	char			**map;
@@ -33,7 +42,6 @@ typedef struct s_list_map {
 typedef struct s_pos {
 	unsigned int	x;
 	unsigned int	y;
-	char			c;
 }					t_pos;
 
 #endif

@@ -11,8 +11,8 @@ void	ft_check_double(t_cube *cube, char *line)
 		ft_print_error(MSG_TEXTURES_HAVE_DOUBLE_ERR);
 	if (ft_strncmp(line, "EA", 2) == 0 && cube->path_wall_e != NULL)
 		ft_print_error(MSG_TEXTURES_HAVE_DOUBLE_ERR);
-	if (ft_strncmp(line, "C", 1) == 0 && cube->ceiling != NULL)
+	if (ft_strncmp(line, "C", 1) == 0 && cube->c != NULL)
 		ft_print_error(MSG_TEXTURES_HAVE_DOUBLE_ERR);
-	if (ft_strncmp(line, "F", 1) == 0 && cube->floor != NULL)
+	if (ft_strncmp(line, "F", 1) == 0 && cube->f != NULL)
 		ft_print_error(MSG_TEXTURES_HAVE_DOUBLE_ERR);
 }

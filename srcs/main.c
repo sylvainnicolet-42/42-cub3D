@@ -7,9 +7,9 @@ int	main(int ac, char **av)
 
 	cube = ft_init_cube(ac, av);
 	db_print_cube(cube);
-//	ft_execution()
-//	ft_handle_event(cube);
-//	mlx_loop(cube->mlx_ptr);
-	ft_close(cube);
+	ft_handle_event(cube);
+	ft_render_next_frame(cube);
+	mlx_put_image_to_window(cube->mlx_ptr, cube->win_ptr, cube->img->img, 0, 0);
+	mlx_loop(cube->mlx_ptr);
 	return (0);
 }

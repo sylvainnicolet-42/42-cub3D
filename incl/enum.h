@@ -23,6 +23,8 @@ enum e_wall
 {
 	E_WALL = 1,
 	E_RGB = 2,
+	E_PLAYER = 3,
+	E_ALLEY = 4,
 };
 
 #endif

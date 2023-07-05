@@ -25,5 +25,5 @@ void	ft_print_success(char *str)
 {
 	printf("\033[0;32m");
 	printf("Success: %s\n", str);
-	//exit(EXIT_SUCCESS);
+	exit(EXIT_SUCCESS);
 }

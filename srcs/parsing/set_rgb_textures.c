@@ -76,8 +76,8 @@ void	ft_set_rgb(t_cube *cube, char *line)
 		ft_print_error(MSG_MALLOC_ERR);
 	ft_check_double(cube, split[0]);
 	if (ft_strncmp(split[0], "C", 1) == 0)
-		cube->ceiling = ft_get_rgb(split[1]);
+		cube->c = ft_get_rgb(split[1]);
 	else if (ft_strncmp(split[0], "F", 1) == 0)
-		cube->floor = ft_get_rgb(split[1]);
+		cube->f = ft_get_rgb(split[1]);
 	ft_free_array(split);
 }	
