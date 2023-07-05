@@ -46,12 +46,12 @@ int			ft_encode_rgb(uint8_t red, uint8_t green, uint8_t blue);
 int			ft_check_arguments(int ac, char **av);
 void		ft_check_double(t_cube *cube, char *line);
 t_cube		*ft_init_cube(int ac, char **av);
-t_pos		*ft_find_player(char **map);
+t_player	*ft_find_player(char **map);
 void		ft_set_textures(t_cube *cube, int fd);
 void		ft_set_wall(t_cube *cube, char *line);
 void		ft_set_rgb(t_cube *cube, char *line);
 void		ft_set_map(t_cube *cube, int fd);
-void		ft_is_map_valid(t_matrix *matrix);
+void		ft_is_map_valid(t_cube *cube);
 
 // List Map
 t_list_map	*ft_lst_new_map(char *str);
@@ -65,6 +65,7 @@ bool		ft_is_valid_char_map_utils(char c);
 
 /** ----- RENDER ----- **/
 void		ft_floor_and_ceiling(t_cube *cube);
+void		ft_map_2d(t_cube *cube);
 void		ft_minimap(t_cube *cube);
 void		ft_render_next_frame(t_cube *cube);
 void		ft_wall(t_cube *cube);

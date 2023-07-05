@@ -47,7 +47,8 @@ PARSE_FILE	= check_arguments.c \
 			  set_textures.c \
 			  set_wall.c \
 
-RENDER_FILE	= floor_and_ceiling.c \
+RENDER_FILE	= map_2d.c \
+			  floor_and_ceiling.c \
 			  minimap.c \
 			  render_next_frame.c \
 			  wall.c \
@@ -158,6 +159,6 @@ clean_o:
 			@$(NL_TXT)
 
 norm:
-			norminette srcs | grep -v "Missing or invalid 42 header" | grep -v "Empty line at start of file"
+			norminette incl srcs | grep -v "Missing or invalid 42 header" | grep -v "Empty line at start of file"
 
 .PHONY:		clean clean_o fclean re tmp libs all libft norm

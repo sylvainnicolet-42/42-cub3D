@@ -27,33 +27,6 @@ static bool	ft_is_map(char *line)
 	return (true);
 }
 
-static t_matrix	*ft_set_matrix(t_list_map *lst)
-{
-	t_matrix	*matrix;
-	size_t		len_map;
-	t_list_map	*node;
-	int			i;
-
-	i = 0;
-	len_map = ft_lst_len_map(lst);
-	node = lst;
-	matrix = malloc(sizeof(t_matrix));
-	if (!matrix)
-		ft_print_error(MSG_MALLOC_ERR);
-	matrix->map = ft_calloc(sizeof(char *), len_map + 1);
-	if (!matrix->map)
-		ft_print_error(MSG_MALLOC_ERR);
-	while (node != NULL)
-	{
-		matrix->map[i] = ft_strdup(node->str);
-		if (!matrix->map[i])
-			ft_print_error(MSG_MALLOC_ERR);
-		i++;
-		node = node->next;
-	}
-	return (matrix);
-}
-
 static void	ft_set_map_ext(char *trimmed, bool *map_found, char *line,
 	t_list_map **map)
 {
@@ -67,6 +40,28 @@ static void	ft_set_map_ext(char *trimmed, bool *map_found, char *line,
 		free(line);
 		free(trimmed);
 		ft_print_error(MSG_MAP_NOT_EMPTY_ERR);
+	}
+}
+
+static void	ft_set_map_ext2(t_cube *cube, t_list_map *lst)
+{
+	size_t		len_map;
+	t_list_map	*node;
+	int			i;
+
+	i = 0;
+	len_map = ft_lst_len_map(lst);
+	node = lst;
+	cube->map = ft_calloc(sizeof(char *), len_map + 1);
+	if (!cube->map)
+		ft_print_error(MSG_MALLOC_ERR);
+	while (node != NULL)
+	{
+		cube->map[i] = ft_strdup(node->str);
+		if (!cube->map[i])
+			ft_print_error(MSG_MALLOC_ERR);
+		i++;
+		node = node->next;
 	}
 }
 
@@ -89,7 +84,7 @@ void	ft_set_map(t_cube *cube, int fd)
 		free(trimmed);
 		line = get_next_line(fd);
 	}
-	cube->matrix = ft_set_matrix(map);
+	ft_set_map_ext2(cube, map);
 	ft_free_list_map(map);
 	ft_is_map_empty(fd);
 }
