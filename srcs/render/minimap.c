@@ -27,7 +27,7 @@ static int	ft_strlen_max_x(char **str)
 	max = 0;
 	while (str[i] != NULL)
 	{
-		len = ft_strlen(str[i]);
+		len = (int) ft_strlen(str[i]);
 		if (len > max)
 			max = len;
 		i++;
@@ -45,11 +45,11 @@ static int	ft_strlen_max_y(char **str)
 	return (len);
 }
 
-static bool	ft_is_player(t_pos *player , int x, int y)
+static bool	ft_is_player(t_pos *player, int x, int y)
 {
 	if ((unsigned int)x == player->x && (unsigned int)y == player->y)
 		return (true);
-	return (false);	
+	return (false);
 }	
 
 static int	ft_is_wall(t_cube *cube, int x, int y)

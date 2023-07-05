@@ -11,7 +11,7 @@ static t_pos	*ft_find_player(char **map)
 	x = 0;
 	y = 0;
 	found = false;
-	pos = malloc(sizeof(pos) * (sizeof(int) * 2) + sizeof(char));
+	pos = malloc(sizeof(t_pos));
 	if (!pos)
 		ft_print_error(MSG_MALLOC_ERR);
 	while (map[y] != NULL)
@@ -37,7 +37,7 @@ static t_pos	*ft_find_player(char **map)
 	return (pos);
 }
 
-static bool	ft_map_is_close(char **map, unsigned int x, unsigned y)
+static bool	ft_map_is_close(char **map, unsigned int x, unsigned int y)
 {
 	if (map[y][x] == 'f')
 		return (true);
@@ -119,7 +119,6 @@ void	ft_is_map_valid(t_matrix *matrix)
 		x = 0;
 		y++;
 	}
-	db_print_array(map_cpy, "MAP_CPY"); // <-- fonction can be delete after check
 	ft_free_array(map_cpy);
 	ft_map_to_norm(matrix->map);
 }
