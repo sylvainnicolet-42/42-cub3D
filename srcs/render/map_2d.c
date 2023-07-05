@@ -9,11 +9,6 @@
  * 3] | 1|0|0|0|1
  * 4] | 1|1|1|1|1
  *
- * x->start = (WIN_WIDTH / 5) * 4
- * x->end = WIN_WIDTH
- *
- * max_len = (strlen(char *str_longer)) - 1
- *
  */
 
 static bool	ft_is_player(t_player *player, int x, int y)
@@ -62,4 +57,5 @@ void	ft_map_2d(t_cube *cube)
 		}
 		x++;
 	}
+	ft_print_player(cube);
 }

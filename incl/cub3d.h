@@ -63,11 +63,13 @@ size_t		ft_lst_len_map(t_list_map *lst);
 
 char		**ft_cpy_map_utils(char **map);
 bool		ft_is_valid_char_map_utils(char c);
+void		ft_fill_one_map_utils(char **map);
 
 /** ----- RENDER ----- **/
 void		ft_floor_and_ceiling(t_cube *cube);
 void		ft_map_2d(t_cube *cube);
 void		ft_minimap(t_cube *cube);
+void		ft_print_player(t_cube *cube);
 int			ft_render_next_frame(t_cube *cube);
 void		ft_wall(t_cube *cube);
 

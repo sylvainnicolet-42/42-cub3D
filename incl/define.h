@@ -7,6 +7,7 @@
 # define WIN_WIDTH 2000
 # define WIN_HEIGHT 1000
 # define D_TILE 64
+# define D_UNIT 8
 # define FOV 66
 
 /** ----- SUCCESS MESSAGES ----- **/

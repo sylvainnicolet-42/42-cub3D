@@ -51,6 +51,7 @@ PARSE_FILE	= check_arguments.c \
 RENDER_FILE	= map_2d.c \
 			  floor_and_ceiling.c \
 			  minimap.c \
+			  print_player.c \
 			  render_next_frame.c \
 			  wall.c \
 

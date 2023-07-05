@@ -9,11 +9,6 @@
  * 3] | 1|0|0|0|1
  * 4] | 1|1|1|1|1
  *
- * x->start = (WIN_WIDTH / 5) * 4
- * x->end = WIN_WIDTH
- *
- * max_len = (strlen(char *str_longer)) - 1
- *
  */
 
 static int	ft_strlen_max_x(char **str)

@@ -32,6 +32,8 @@ void	db_print_cube(t_cube *cube)
 	printf("\n");
 	printf("Position of player x[%d] y[%d]\n", cube->player->pos_x,
 		cube->player->pos_y);
+	printf("Position of player in real x[%d] y[%d]\n", cube->player->real_x,
+		cube->player->real_y);;
 	printf("Direction of player x[%d] y[%d]\n", cube->player->dir_x,
 		cube->player->dir_y);
 	printf("Plane of player x[%f] y[%f]\n", cube->player->plane_x,
