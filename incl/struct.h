@@ -40,8 +40,8 @@ typedef struct s_list_map {
 typedef struct s_player {
 	unsigned int	pos_x;
 	unsigned int	pos_y;
-	unsigned int	real_x;
-	unsigned int	real_y;
+	float			real_x;
+	float			real_y;
 	int				dir_x;
 	int				dir_y;
 	float			plane_x;

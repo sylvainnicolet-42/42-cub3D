@@ -5,8 +5,8 @@ static void	ft_set_player(char c, t_player *pos, unsigned int x, unsigned int y)
 {
 	pos->pos_x = x;
 	pos->pos_y = y;
-	pos->real_x = (D_TILE * x) - (D_TILE / 2);
-	pos->real_y = (D_TILE * y) - (D_TILE / 2);
+	pos->real_x = (float)x + 0.5;
+	pos->real_y = (float)y + 0.5;
 	pos->dir_x = 0;
 	pos->dir_y = 0;
 	pos->plane_x = 0;

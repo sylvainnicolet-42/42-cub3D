@@ -8,7 +8,6 @@ int	main(int ac, char **av)
 	cube = ft_init_cube(ac, av);
 	db_print_cube(cube);
 	ft_handle_event(cube);
-	ft_render_next_frame(cube);
 	mlx_loop(cube->mlx_ptr);
 	return (0);
 }

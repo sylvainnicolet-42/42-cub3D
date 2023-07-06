@@ -10,13 +10,14 @@
  * 4] | 1|1|1|1|1
  *
  */
-
+/*
 static bool	ft_is_player(t_player *player, int x, int y)
 {
 	if ((unsigned int)x == player->pos_x && (unsigned int)y == player->pos_y)
 		return (true);
 	return (false);
 }
+*/
 
 static int	ft_is_wall(t_cube *cube, int x, int y)
 {
@@ -31,8 +32,6 @@ static int	ft_is_wall(t_cube *cube, int x, int y)
 		return (E_WALL);
 	if (cube->map[y_map][x_map] == '\0')
 		return (E_WALL);
-	if (ft_is_player(cube->player, x_map, y_map) == true)
-		return (E_PLAYER);
 	return (E_ALLEY);
 }
 
@@ -49,13 +48,10 @@ void	ft_map_2d(t_cube *cube)
 		{
 			if (ft_is_wall(cube, x, y) == E_WALL)
 				ft_mlx_pixel_put(cube->img, x, y, ft_encode_rgb(50, 160, 0));
-			else if (ft_is_wall(cube, x, y) == E_PLAYER)
-				ft_mlx_pixel_put(cube->img, x, y, ft_encode_rgb(255, 255, 255));
 			else
 				ft_mlx_pixel_put(cube->img, x, y, ft_encode_rgb(0, 0, 0));
 			y++;
 		}
 		x++;
 	}
-	ft_print_player(cube);
 }
