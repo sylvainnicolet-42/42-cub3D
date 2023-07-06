@@ -27,9 +27,9 @@ typedef struct s_img {
 }			t_img;
 
 typedef struct s_rgb {
-	unsigned int	r;
-	unsigned int	g;
-	unsigned int	b;
+	int	r;
+	int	g;
+	int	b;
 }					t_rgb;
 
 typedef struct s_list_map {
@@ -40,12 +40,18 @@ typedef struct s_list_map {
 typedef struct s_player {
 	unsigned int	pos_x;
 	unsigned int	pos_y;
-	float			real_x;
-	float			real_y;
 	int				dir_x;
 	int				dir_y;
 	float			plane_x;
 	float			plane_y;
+	float			facing;
+	struct s_real	*real;
+	struct s_rgb	*color;
 }					t_player;
+
+typedef struct s_real {
+	float	x;
+	float	y;
+}			t_real;
 
 #endif

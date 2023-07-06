@@ -7,6 +7,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdbool.h>
+# include <math.h>
 # include "../libs/libmlx/mlx.h"
 # include "../libs/libft/libft.h"
 # include "../libs/gnl/get_next_line.h"
@@ -70,6 +71,7 @@ void		ft_floor_and_ceiling(t_cube *cube);
 void		ft_map_2d(t_cube *cube);
 void		ft_minimap(t_cube *cube);
 void		ft_print_player(t_cube *cube);
+void		ft_draw_cube(t_cube *cube, t_real *real, float size, t_rgb *rgb);
 int			ft_render_next_frame(t_cube *cube);
 void		ft_wall(t_cube *cube);
 
