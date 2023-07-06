@@ -31,7 +31,13 @@ void	ft_move_backward(t_cube *cube)
 
 void	ft_move_left(t_cube *cube)
 {
-	(void) cube;
+	double	x_p;
+	double	y_p;
+
+	x_p = cos(cube->player->facing) * D_UNIT;
+	y_p = sin(cube->player->facing) * D_UNIT;
+	cube->player->real->x += y_p;
+	cube->player->real->y -= x_p;
 	printf("Move Left\n");
 	printf("Player pos y [%f]\n", cube->player->real->y);
 	printf("Player pos x [%f]\n", cube->player->real->x);
@@ -39,7 +45,13 @@ void	ft_move_left(t_cube *cube)
 
 void	ft_move_right(t_cube *cube)
 {
-	(void) cube;
+	double	x_p;
+	double	y_p;
+
+	x_p = cos(cube->player->facing) * D_UNIT;
+	y_p = sin(cube->player->facing) * D_UNIT;
+	cube->player->real->x -= y_p;
+	cube->player->real->y += x_p;
 	printf("Move Right\n");
 	printf("Player pos y [%f]\n", cube->player->real->y);
 	printf("Player pos x [%f]\n", cube->player->real->x);
