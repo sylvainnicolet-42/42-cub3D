@@ -43,7 +43,7 @@ static char	*ft_fill_one_ext(char *map, int max)
 		i++;
 	}
 	while (i < max)
-	tmp[i++] = '1';
+		tmp[i++] = '1';
 	free(map);
 	return (tmp);
 }
