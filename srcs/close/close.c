@@ -16,6 +16,8 @@ static void	ft_free_cube(t_cube *cube)
 	free(cube->f);
 	free(cube->c);
 	ft_free_array(cube->map);
+	free(cube->player->real);
+	free(cube->player->color);
 	free(cube->player);
 	free(cube->img);
 	free(cube);

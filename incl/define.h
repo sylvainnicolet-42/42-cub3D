@@ -6,6 +6,8 @@
 # define PROG_NAME "Cub3D"
 # define WIN_WIDTH 2000
 # define WIN_HEIGHT 1000
+# define D_UNIT 0.2
+# define D_PLAYER_SCALE 0.2
 # define FOV 66
 
 /** ----- SUCCESS MESSAGES ----- **/

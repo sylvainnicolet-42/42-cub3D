@@ -7,6 +7,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdbool.h>
+# include <math.h>
 # include "../libs/libmlx/mlx.h"
 # include "../libs/libft/libft.h"
 # include "../libs/gnl/get_next_line.h"
@@ -15,6 +16,10 @@
 # include "struct.h"
 
 /** ----- ACTIONS ----- **/
+bool		ft_collision_forw(char **map, t_real *real, float x_p, float y_p);
+bool		ft_collision_back(char **map, t_real *real, float x_p, float y_p);
+bool		ft_collision_left(char **map, t_real *real, float x_p, float y_p);
+bool		ft_collision_right(char **map, t_real *real, float x_p, float y_p);
 void		ft_move_vision_left(t_cube *cube);
 void		ft_move_vision_right(t_cube *cube);
 void		ft_move_forward(t_cube *cube);
@@ -46,6 +51,7 @@ int			ft_encode_rgb(uint8_t red, uint8_t green, uint8_t blue);
 int			ft_check_arguments(int ac, char **av);
 void		ft_check_double(t_cube *cube, char *line);
 t_cube		*ft_init_cube(int ac, char **av);
+void		ft_find_max_value(t_cube *cube);
 t_player	*ft_find_player(char **map);
 void		ft_set_textures(t_cube *cube, int fd);
 void		ft_set_wall(t_cube *cube, char *line);
@@ -62,12 +68,15 @@ size_t		ft_lst_len_map(t_list_map *lst);
 
 char		**ft_cpy_map_utils(char **map);
 bool		ft_is_valid_char_map_utils(char c);
+void		ft_fill_one_map_utils(char **map);
 
 /** ----- RENDER ----- **/
 void		ft_floor_and_ceiling(t_cube *cube);
 void		ft_map_2d(t_cube *cube);
 void		ft_minimap(t_cube *cube);
-void		ft_render_next_frame(t_cube *cube);
+void		ft_print_player(t_cube *cube);
+void		ft_draw_cube(t_cube *cube, t_real *real, float size, t_rgb *rgb);
+int			ft_render_next_frame(t_cube *cube);
 void		ft_wall(t_cube *cube);
 
 #endif

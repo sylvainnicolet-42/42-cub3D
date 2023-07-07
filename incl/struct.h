@@ -11,6 +11,8 @@ typedef struct s_cube {
 	char			*path_wall_e;
 	char			*path_wall_w;
 	char			**map;
+	int				map_max_x;
+	int				map_max_y;
 	struct s_rgb	*f;
 	struct s_rgb	*c;
 	struct s_player	*player;
@@ -25,9 +27,9 @@ typedef struct s_img {
 }			t_img;
 
 typedef struct s_rgb {
-	unsigned int	r;
-	unsigned int	g;
-	unsigned int	b;
+	int	r;
+	int	g;
+	int	b;
 }					t_rgb;
 
 typedef struct s_list_map {
@@ -38,10 +40,16 @@ typedef struct s_list_map {
 typedef struct s_player {
 	unsigned int	pos_x;
 	unsigned int	pos_y;
-	int				dir_x;
-	int				dir_y;
 	float			plane_x;
 	float			plane_y;
+	float			facing;
+	struct s_real	*real;
+	struct s_rgb	*color;
 }					t_player;
+
+typedef struct s_real {
+	float	x;
+	float	y;
+}			t_real;
 
 #endif

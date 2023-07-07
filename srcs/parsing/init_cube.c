@@ -19,6 +19,8 @@ t_cube	*ft_init_cube(int ac, char **av)
 	ft_set_textures(cube, fd);
 	ft_set_map(cube, fd);
 	ft_is_map_valid(cube);
+	ft_find_max_value(cube);
+	cube->player = ft_find_player(cube->map);
 	ft_init_mlx(cube);
 	close(fd);
 	return (cube);

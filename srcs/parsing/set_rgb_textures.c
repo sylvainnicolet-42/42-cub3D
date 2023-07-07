@@ -80,4 +80,4 @@ void	ft_set_rgb(t_cube *cube, char *line)
 	else if (ft_strncmp(split[0], "F", 1) == 0)
 		cube->f = ft_get_rgb(split[1]);
 	ft_free_array(split);
-}	
+}

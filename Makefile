@@ -1,6 +1,7 @@
 
 # COMPILATION
-CC			= gcc -g #fsanitize=address
+CC			= gcc -Ofast
+FLAG_DEBUG	= -fsanitize=address -g
 FLAGS		= -Wall -Werror -Wextra
 FRAMEWORK	= -framework OpenGL -framework AppKit
 
@@ -22,7 +23,8 @@ LIBS_PATH	= -L$(MLX) -L$(LIBFT) -L$(GNL)
 	### SOURCES FILES ###
 MAIN_FILE	= main.c
 
-ACTION_FILE	= moves.c \
+ACTION_FILE	= collision.c \
+			  moves.c \
 			  move_vision.c \
 
 CLOSE_FILE	= close.c \
@@ -39,6 +41,7 @@ PARSE_FILE	= check_arguments.c \
 			  check_double.c \
 			  init_cube.c \
 			  is_map_valid.c \
+			  find_max_value.c \
 			  find_player.c \
 			  list_map.c \
 			  map_utils.c \
@@ -50,6 +53,7 @@ PARSE_FILE	= check_arguments.c \
 RENDER_FILE	= map_2d.c \
 			  floor_and_ceiling.c \
 			  minimap.c \
+			  print_player.c \
 			  render_next_frame.c \
 			  wall.c \
 
@@ -104,6 +108,12 @@ $(NAME):	$(OBJS)
 			$(CC) $(FLAGS) $(FRAMEWORK) -o $@ $(OBJS) $(LIBS_PATH) $(LIBS)
 			@$(NL_TXT)
 			@$(END_TXT)
+
+debug:		clean_o libs tmp $(OBJS)
+			$(CC) $(FLAG_DEBUG) $(FLAGS) $(FRAMEWORK) -o $(NAME) $(OBJS) $(LIBS_PATH) $(LIBS)
+			@$(NL_TXT)
+			@$(END_TXT)
+
 
 tmp:
 			@mkdir -p objs

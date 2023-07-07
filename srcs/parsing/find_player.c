@@ -1,22 +1,39 @@
 
 #include "cub3d.h"
 
+static void	ft_set_player_ext(char c, t_player *pos)
+{
+	if (c == 'N')
+		pos->facing = M_PI + M_PI_2;
+	else if (c == 'S')
+		pos->facing = M_PI_2;
+	else if (c == 'W')
+		pos->facing = M_PI;
+	else if (c == 'E')
+		pos->facing = 0.0f;
+}
+
 static void	ft_set_player(char c, t_player *pos, unsigned int x, unsigned int y)
 {
+	t_real	*real;
+	t_rgb	*color;
+
+	color = malloc(sizeof(t_rgb));
+	real = malloc(sizeof(t_real));
+	if (!real || !color)
+		ft_print_error(MSG_MALLOC_ERR);
 	pos->pos_x = x;
 	pos->pos_y = y;
-	pos->dir_x = 0;
-	pos->dir_y = 0;
+	real->x = x + 0.5;
+	real->y = y + 0.5;
+	color->r = 255;
+	color->g = 0;
+	color->b = 0;
+	pos->color = color;
+	pos->real = real;
 	pos->plane_x = 0;
 	pos->plane_y = (float) FOV / 100;
-	if (c == 'N')
-		pos->dir_y = 1;
-	else if (c == 'S')
-		pos->dir_y = -1;
-	else if (c == 'W')
-		pos->dir_x = -1;
-	else if (c == 'E')
-		pos->dir_x = 1;
+	ft_set_player_ext(c, pos);
 }
 
 static bool	ft_find_player_ext(char **map, t_player *pos, unsigned int x,

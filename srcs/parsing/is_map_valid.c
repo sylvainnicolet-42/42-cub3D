@@ -61,6 +61,7 @@ static void	ft_map_to_norm(char **map)
 	y = 0;
 	while (map[y] != NULL)
 		ft_map_to_norm_ext(map, &x, &y);
+	ft_fill_one_map_utils(map);
 }
 
 void	ft_is_map_valid(t_cube *cube)
@@ -72,12 +73,11 @@ void	ft_is_map_valid(t_cube *cube)
 	x = 0;
 	y = 0;
 	map_cpy = ft_cpy_map_utils(cube->map);
-	cube->player = ft_find_player(cube->map);
 	while (map_cpy[y] != NULL)
 	{
 		while (map_cpy[y][x] != '\0')
 		{
-			if (map_cpy[y][x] == '0')
+			if (ft_is_valid_char_map_utils(map_cpy[y][x]) == true)
 			{
 				if (ft_map_is_close(map_cpy, x, y) == false)
 					ft_print_error(MSG_MAP_NOT_CLOSE_ERR);
