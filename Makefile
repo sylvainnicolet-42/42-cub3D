@@ -50,6 +50,8 @@ PARSE_FILE	= check_arguments.c \
 			  set_textures.c \
 			  set_wall.c \
 
+RAY_FILE	= print_ray.c \
+
 RENDER_FILE	= map_2d.c \
 			  floor_and_ceiling.c \
 			  minimap.c \
@@ -64,6 +66,7 @@ CLOSE_FILE	:= $(addprefix $(OBJS_PATH)/close/, $(CLOSE_FILE:.c=.o))
 DEBUG_FILE	:= $(addprefix $(OBJS_PATH)/debug/, $(DEBUG_FILE:.c=.o))
 MLX_FILE	:= $(addprefix $(OBJS_PATH)/mlx/, $(MLX_FILE:.c=.o))
 PARSE_FILE	:= $(addprefix $(OBJS_PATH)/parsing/, $(PARSE_FILE:.c=.o))
+RAY_FILE	:= $(addprefix $(OBJS_PATH)/ray/, $(RAY_FILE:.c=.o))
 RENDER_FILE	:= $(addprefix $(OBJS_PATH)/render/, $(RENDER_FILE:.c=.o))
 
 OBJS		:= $(MAIN_FILE) \
@@ -72,6 +75,7 @@ OBJS		:= $(MAIN_FILE) \
 			   $(DEBUG_FILE) \
 			   $(MLX_FILE) \
 			   $(PARSE_FILE) \
+			   $(RAY_FILE) \
 			   $(RENDER_FILE) \
 
 # COLORS

@@ -70,6 +70,9 @@ char		**ft_cpy_map_utils(char **map);
 bool		ft_is_valid_char_map_utils(char c);
 void		ft_fill_one_map_utils(char **map);
 
+/** ----- RAY ----- **/
+void		ft_print_ray(t_cube *cube, float facing);
+
 /** ----- RENDER ----- **/
 void		ft_floor_and_ceiling(t_cube *cube);
 void		ft_map_2d(t_cube *cube);
