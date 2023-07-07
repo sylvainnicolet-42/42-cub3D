@@ -39,7 +39,8 @@ void	ft_draw_cube(t_cube *cube, t_real *real, float size, t_rgb *rgb)
 	{
 		while (x < (real->x + size / 2) * ratio_x)
 		{
-			ft_mlx_pixel_put(cube->img, x, y, ft_encode_rgb(rgb->r, rgb->g, rgb->b));
+			ft_mlx_pixel_put(cube->img, x, y, ft_encode_rgb(
+					rgb->r, rgb->g, rgb->b));
 			x++;
 		}
 		x = (real->x - size / 2) * ratio_x;
