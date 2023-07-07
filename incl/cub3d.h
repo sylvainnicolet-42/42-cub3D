@@ -16,6 +16,10 @@
 # include "struct.h"
 
 /** ----- ACTIONS ----- **/
+bool		ft_collision_forward(char **map, t_real *real, float x_p, float y_p);
+bool		ft_collision_backward(char **map, t_real *real, float x_p, float y_p);
+bool		ft_collision_left(char **map, t_real *real, float x_p, float y_p);
+bool		ft_collision_right(char **map, t_real *real, float x_p, float y_p);
 void		ft_move_vision_left(t_cube *cube);
 void		ft_move_vision_right(t_cube *cube);
 void		ft_move_forward(t_cube *cube);

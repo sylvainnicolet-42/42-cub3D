@@ -1,6 +1,7 @@
 
 # COMPILATION
-CC			= gcc -Ofast #-fsanitize=address
+CC			= gcc -Ofast
+FLAG_DEBUG	= -fsanitize=address -g
 FLAGS		= -Wall -Werror -Wextra
 FRAMEWORK	= -framework OpenGL -framework AppKit
 
@@ -22,7 +23,8 @@ LIBS_PATH	= -L$(MLX) -L$(LIBFT) -L$(GNL)
 	### SOURCES FILES ###
 MAIN_FILE	= main.c
 
-ACTION_FILE	= moves.c \
+ACTION_FILE	= collision.c \
+			  moves.c \
 			  move_vision.c \
 
 CLOSE_FILE	= close.c \
@@ -106,6 +108,12 @@ $(NAME):	$(OBJS)
 			$(CC) $(FLAGS) $(FRAMEWORK) -o $@ $(OBJS) $(LIBS_PATH) $(LIBS)
 			@$(NL_TXT)
 			@$(END_TXT)
+
+debug:		clean_o libs tmp $(OBJS)
+			$(CC) $(FLAG_DEBUG) $(FLAGS) $(FRAMEWORK) -o $@ $(OBJS) $(LIBS_PATH) $(LIBS)
+			@$(NL_TXT)
+			@$(END_TXT)
+
 
 tmp:
 			@mkdir -p objs
