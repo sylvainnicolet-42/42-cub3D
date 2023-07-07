@@ -1,7 +1,7 @@
 
 #include "cub3d.h"
 
-bool	ft_collision_forward(char **map, t_real *real, float x_p, float y_p)
+bool	ft_collision_forw(char **map, t_real *real, float x_p, float y_p)
 {
 	float	sc;
 
@@ -19,7 +19,7 @@ bool	ft_collision_forward(char **map, t_real *real, float x_p, float y_p)
 	return (true);
 }
 
-bool	ft_collision_backward(char **map, t_real *real, float x_p, float y_p)
+bool	ft_collision_back(char **map, t_real *real, float x_p, float y_p)
 {
 	float	sc;
 

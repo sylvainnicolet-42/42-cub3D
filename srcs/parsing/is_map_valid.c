@@ -77,7 +77,7 @@ void	ft_is_map_valid(t_cube *cube)
 	{
 		while (map_cpy[y][x] != '\0')
 		{
-			if (map_cpy[y][x] == '0')
+			if (ft_is_valid_char_map_utils(map_cpy[y][x]) == true)
 			{
 				if (ft_map_is_close(map_cpy, x, y) == false)
 					ft_print_error(MSG_MAP_NOT_CLOSE_ERR);

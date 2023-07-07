@@ -110,7 +110,7 @@ $(NAME):	$(OBJS)
 			@$(END_TXT)
 
 debug:		clean_o libs tmp $(OBJS)
-			$(CC) $(FLAG_DEBUG) $(FLAGS) $(FRAMEWORK) -o $@ $(OBJS) $(LIBS_PATH) $(LIBS)
+			$(CC) $(FLAG_DEBUG) $(FLAGS) $(FRAMEWORK) -o $(NAME) $(OBJS) $(LIBS_PATH) $(LIBS)
 			@$(NL_TXT)
 			@$(END_TXT)
 

@@ -8,7 +8,7 @@ void	ft_move_forward(t_cube *cube)
 
 	x_p = cos(cube->player->facing) * D_UNIT;
 	y_p = sin(cube->player->facing) * D_UNIT;
-	if (ft_collision_forward(cube->map, cube->player->real, x_p, y_p) == true)
+	if (ft_collision_forw(cube->map, cube->player->real, x_p, y_p) == true)
 	{
 		cube->player->real->x += x_p;
 		cube->player->real->y += y_p;
@@ -27,7 +27,7 @@ void	ft_move_backward(t_cube *cube)
 
 	x_p = cos(cube->player->facing) * D_UNIT;
 	y_p = sin(cube->player->facing) * D_UNIT;
-	if (ft_collision_backward(cube->map, cube->player->real, x_p, y_p) == true)
+	if (ft_collision_back(cube->map, cube->player->real, x_p, y_p) == true)
 	{
 		cube->player->real->x -= x_p;
 		cube->player->real->y -= y_p;
