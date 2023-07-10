@@ -27,7 +27,7 @@ static t_real	ft_next_wall(float facing, t_real pos, int dir, char **map)
 	}
 	else if (dir == E_NW)
 	{
-		angle = ((3 * M_PI) / 2) - facing;
+		angle = facing - M_PI;
 		distance_y = pos.y - (int)pos.y;		// go - in y
 		distance_x = pos.x - (int)pos.x;		// go - in x
 	}
@@ -136,52 +136,56 @@ void	ft_print_ray(t_cube *cube, float facing)
 	if (facing == M_PI_2)
 	{
 		facing_axis.y = 0;
+		printf("Looking North\n");
 		dir = E_N;
 	}
 	else if (facing == (3 * M_PI) / 2)
 	{
 		facing_axis.y = 0;
+		printf("Looking South\n");
 		dir = E_S;
 	}
 	else if (facing > 0 && facing < M_PI )
-	{
 		facing_axis.y = 1;
-		printf("Looking South\n");
-	}
 	else if (facing > M_PI && facing < 2 * M_PI)
-	{
 		facing_axis.y = -1;
-		printf("Looking North\n");
-	}
 	if	(facing == M_PI)
 	{
 		dir = E_W;
+		printf("Looking West\n");
 		facing_axis.x = 0;
 	}
 	else if (facing == 0 || facing == M_PI * 2)
 	{
 		dir = E_E;
+		printf("Looking East\n");
 		facing_axis. x = 0;
 	}
 	else if ((facing > (3 * M_PI) / 2 && facing < 2 * M_PI) || 
 		(facing > 0 && facing < M_PI_2))
-	{
 		facing_axis.x = 1;
-		printf("Looking East\n");
-	}
 	else if (facing > M_PI_2  && facing < (3 * M_PI) / 2)
-	{
 		facing_axis.x = -1;
-		printf("Looking West\n");
-	}
 	if (facing_axis.y == -1 && facing_axis.x == 1)
+	{
 		dir = E_NE;
+		printf("Loking North East\n");
+	}
 	else if (facing_axis.y == -1 && facing_axis.x == -1)
+	{
 		dir = E_NW;
+		printf("Loking North West\n");
+	}
 	else if (facing_axis.y == 1 && facing_axis.x == -1)
+	{
 		dir = E_SW;
+		printf("Loking South West\n");
+	}
 	else if (facing_axis.y == 1 && facing_axis.x == 1)
+	{
 		dir = E_SE;
+		printf("Loking South East\n");
+	}
 	/*
 	 * We now know how in wich direction the player is looking
 	 *

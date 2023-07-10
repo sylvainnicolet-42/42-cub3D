@@ -53,8 +53,3 @@ void	db_print_array(char **array, char *msg)
 	}
 	printf("\n");
 }
-
-void	db_print_info(t_cube * cube)
-{
-	(void) cube;
-}

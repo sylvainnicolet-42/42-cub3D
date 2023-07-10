@@ -39,7 +39,6 @@ void		ft_print_success(char *str);
 /** ----- DEBUG ----- **/
 void		db_print_file(int fd);
 void		db_print_cube(t_cube *cube);
-void		db_print_info(t_cube * cube);
 
 /** ----- MLX ----- **/
 void		ft_init_mlx(t_cube *cube);
