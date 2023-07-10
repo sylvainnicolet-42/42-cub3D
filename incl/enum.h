@@ -20,6 +20,7 @@ enum e_key
 	E_KEY_S = 1,
 	E_KEY_D = 2,
 	E_KEY_W = 13,
+	E_KEY_R = 15,
 	E_KEY_1 = 18,
 	E_KEY_2 = 19,
 	E_KEY_3 = 20,
@@ -44,6 +45,18 @@ enum e_moves
 	E_LEFT = 2,
 	E_RIGHT = 3,
 	E_BACKWARD = 4,
+};
+
+enum e_balec
+{
+	E_NE = 1,
+	E_NW = 2,
+	E_SW = 3,
+	E_SE = 4,
+	E_N = 5,
+	E_S = 6,
+	E_W = 7,
+	E_E = 8
 };
 
 #endif
