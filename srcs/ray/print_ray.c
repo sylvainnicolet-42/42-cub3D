@@ -268,47 +268,22 @@ void	ft_print_ray_v2(t_cube *cube, float facing)
 	color.g = 0;
 	color.b = 255;
 	angle = ft_rad_to_angle(facing);
-	printf("angle [%d]\n", angle);
 	if (angle == 0)
-	{
 		wall = ft_next_wall_e(*cube->player->real, cube->map);
-		printf("Looking East\n");
-	}
 	else if (angle == 90)
-	{
 		wall = ft_next_wall_s(*cube->player->real, cube->map);
-		printf("Looking South\n");
-	}
 	else if (angle == 180)
-	{
 		wall = ft_next_wall_w(*cube->player->real, cube->map);
-		printf("Looking West\n");
-	}
 	else if (angle == 270)
-	{
 		wall = ft_next_wall_n(*cube->player->real, cube->map);
-		printf("Looking North\n");
-	}
 	else if (angle > 0 && angle < 90)
-	{
 		wall = ft_next_wall_se(facing, *cube->player->real, cube->map);
-		printf("Looking South East\n");
-	}
 	else if (angle > 90 && angle < 180)
-	{
 		wall = ft_next_wall_sw(facing, *cube->player->real, cube->map);
-		printf("Looking South West\n");
-	}
 	else if (angle > 180 && angle < 270)
-	{
 		wall = ft_next_wall_nw(facing, *cube->player->real, cube->map);
-		printf("Looking North West\n");
-	}
 	else if (angle > 270 && angle <= 359)
-	{
 		wall = ft_next_wall_ne(facing, *cube->player->real, cube->map);
-		printf("Looking North East\n");
-	}
-	//ft_draw_cube(cube, &wall, 0.05, &color);
+	ft_draw_cube(cube, &wall, 0.05, &color);
 	ft_draw_ray(cube, &wall, &color);
 }
