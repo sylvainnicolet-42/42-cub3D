@@ -309,6 +309,6 @@ void	ft_print_ray_v2(t_cube *cube, float facing)
 		wall = ft_next_wall_ne(facing, *cube->player->real, cube->map);
 		printf("Looking North East\n");
 	}
-	ft_draw_cube(cube, &wall, 0.05, &color);
+	//ft_draw_cube(cube, &wall, 0.05, &color);
 	ft_draw_ray(cube, &wall, &color);
 }
