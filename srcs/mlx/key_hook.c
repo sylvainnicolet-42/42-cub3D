@@ -19,7 +19,7 @@ static void	ft_apply_key(int key, t_cube *cube)
 	else if (key == E_KEY_D)
 		ft_move_right(cube);
 	else if (key == E_KEY_R)
-		ft_print_ray(cube, cube->player->facing);
+		ft_print_ray_v2(cube, cube->player->facing);
 	else if (key == E_KEY_ARROW_LEFT)
 		ft_move_vision_left(cube);
 	else if (key == E_KEY_ARROW_RIGHT)

@@ -72,6 +72,7 @@ void		ft_fill_one_map_utils(char **map);
 
 /** ----- RAY ----- **/
 void		ft_print_ray(t_cube *cube, float facing);
+void		ft_print_ray_v2(t_cube *cube, float facing);
 
 /** ----- RENDER ----- **/
 void		ft_floor_and_ceiling(t_cube *cube);

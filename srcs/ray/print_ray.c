@@ -46,8 +46,8 @@ static t_real	ft_next_wall(float facing, t_real pos, int dir, char **map)
 	float	hypo_y;
 
 	//calculating the hypotenus of the triangle axis y and x
-	hypo_x = distance_x / cos(angle);
 	hypo_y = distance_y / sin(angle);
+	hypo_x = distance_x / cos(angle);
 	printf("hypo_y[%f]\n", hypo_y);
 	printf("hypo_x[%f]\n", hypo_x);
 	if (hypo_x < hypo_y)
@@ -136,7 +136,6 @@ void	ft_print_ray(t_cube *cube, float facing)
 	if (facing == M_PI_2)
 	{
 		facing_axis.y = 0;
-		printf("Looking North\n");
 		dir = E_N;
 	}
 	else if (facing == (3 * M_PI) / 2)

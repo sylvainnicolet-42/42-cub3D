@@ -4,7 +4,7 @@
 void	ft_move_vision_left(t_cube *cube)
 {
 	printf("Look Left\n");
-	cube->player->facing -= 0.18;
+	cube->player->facing -= (M_PI_2 / 8);
 	if (cube->player->facing < 0)
 		cube->player->facing += (M_PI * 2);
 	printf("Player facing [%f]\n", cube->player->facing);
@@ -13,7 +13,7 @@ void	ft_move_vision_left(t_cube *cube)
 void	ft_move_vision_right(t_cube *cube)
 {
 	printf("Look Right\n");
-	cube->player->facing += 0.18;
+	cube->player->facing += (M_PI_2 / 8);
 	if (cube->player->facing > M_PI * 2)
 		cube->player->facing -= (M_PI * 2);
 	printf("Player facing [%f]\n", cube->player->facing);
