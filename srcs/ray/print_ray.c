@@ -1,212 +1,314 @@
 
 #include "cub3d.h"
 
-static t_real	ft_next_wall(float facing, t_real pos, int dir, char **map)
+t_real	ft_next_wall_e(t_real pos, char **map)
 {
-	float	angle;
-	float	distance_x;
-	float	distance_y;
 	t_real	wall;
 
-	distance_y = -1;
-	distance_x = -1;
-	wall.y = -1;
-	wall.x = -1;
-	//distace to the next intersection in the axis y and x
-	if (dir == E_SE)
-	{
-		angle = facing;
-		distance_y = (int)pos.y + 1 - pos.y;	// go + in y
-		distance_x = (int)pos.x + 1 - pos.x;	// go + in x
-	}
-	else if (dir == E_SW)
-	{
-		angle = M_PI - facing;
-		distance_y = (int)pos.y + 1 - pos.y;	// go + in y
-		distance_x = pos.x - (int)pos.x;		// go - in x
-	}
-	else if (dir == E_NW)
-	{
-		angle = facing - M_PI;
-		distance_y = pos.y - (int)pos.y;		// go - in y
-		distance_x = pos.x - (int)pos.x;		// go - in x
-	}
-	if (dir == E_NE)
-	{
-		angle = (2 * M_PI) - facing;
-		distance_y = pos.y - (int)pos.y;		// go - in y
-		distance_x = (int)pos.x + 1 - pos.x;	// go + in x
-	}
-	printf("distance y[%f]\n", distance_y);
-	printf("distance x[%f]\n", distance_x);
-	printf("angle [%f]\n", angle);
-	
-	// loop to check each intersection and if there is a wall
-	float	hypo_x;
-	float	hypo_y;
-
-	//calculating the hypotenus of the triangle axis y and x
-	hypo_y = distance_y / sin(angle);
-	hypo_x = distance_x / cos(angle);
-	printf("hypo_y[%f]\n", hypo_y);
-	printf("hypo_x[%f]\n", hypo_x);
-	if (hypo_x < hypo_y)
-	{
-		if (dir == E_SE)
-		{
-			printf("hypo_x SE\n");
-			wall.y = pos.y + (distance_x * tan(angle));
-			wall.x = pos.x + distance_x;
-			if (map[(int)pos.y][(int)pos.x + 1] == '1')
-				printf("this is a wall\n");
-		}
-		else if (dir == E_SW)
-		{
-			printf("hypo_x SW\n");
-			wall.y = pos.y + (distance_x * tan(angle));
-			wall.x = pos.x - distance_x;
-			if (map[(int)pos.y][(int)pos.x - 1] == '1')
-				printf("this is a wall\n");
-		}
-		else if (dir == E_NW)
-		{
-			printf("hypo_x NW\n");
-			wall.y = pos.y - (distance_x * tan(angle));
-			wall.x = pos.x - distance_x;
-			if (map[(int)pos.y][(int)pos.x - 1] == '1')
-				printf("this is a wall\n");
-		}
-		else if (dir == E_NE)
-		{
-			printf("hypo_x NE\n");
-			wall.y = pos.y - (distance_x * tan(angle));
-			wall.x = pos.x + distance_x;
-			if (map[(int)pos.y][(int)pos.x + 1] == '1')
-				printf("this is a wall\n");
-		}
-	}
-	else if (hypo_y < hypo_x)
-	{
-		if (dir == E_SE )
-		{
-			printf("hypo_y SE\n");
-			wall.y = pos.y + distance_y;
-			wall.x = pos.x + (distance_y / tan(angle));
-			if (map[(int)pos.y + 1][(int)pos.x] == '1')
-				printf("this is a wall\n");
-		}
-		else if (dir == E_SW)
-		{
-			printf("hypo_y SW\n");
-			wall.y = pos.y + distance_y;
-			wall.x = pos.x - (distance_y / tan(angle));
-			if (map[(int)pos.y + 1][(int)pos.x] == '1')
-				printf("this is a wall\n");
-		}
-		else if (dir == E_NW)
-		{
-			printf("hypo_y NW\n");
-			wall.y = pos.y - distance_y;
-			wall.x = pos.x - (distance_y / tan(angle));
-			if (map[(int)pos.y - 1][(int)pos.x] == '1')
-				printf("this is a wall\n");
-		}
-		else if (dir == E_NE)
-		{
-			printf("hypo_y NE\n");
-			wall.y = pos.y - distance_y;
-			wall.x = pos.x + (distance_y / tan(angle));
-			if (map[(int)pos.y - 1][(int)pos.x] == '1')
-				printf("this is a wall\n");
-		}
-	}
-	printf("wall y[%f]\n", wall.y);
-	printf("wall x[%f]\n", wall.x);
+	while (map[(int)pos.y][(int)pos.x] != '1')
+		pos.x++;
+	wall.y = pos.y;
+	wall.x = pos.x - (pos.x - (int)pos.x);
 	return (wall);
 }
 
-void	ft_print_ray(t_cube *cube, float facing)
+t_real	ft_next_wall_s(t_real pos, char **map)
 {
-	t_real	facing_axis;
-	int		dir;
-	/*
-	 * First thing first we have to know in wich direction the player is looking
-	 * like this we can know how we want to move in the axis x and y
-	 */
-	if (facing == M_PI_2)
-	{
-		facing_axis.y = 0;
-		dir = E_N;
-	}
-	else if (facing == (3 * M_PI) / 2)
-	{
-		facing_axis.y = 0;
-		printf("Looking South\n");
-		dir = E_S;
-	}
-	else if (facing > 0 && facing < M_PI )
-		facing_axis.y = 1;
-	else if (facing > M_PI && facing < 2 * M_PI)
-		facing_axis.y = -1;
-	if	(facing == M_PI)
-	{
-		dir = E_W;
-		printf("Looking West\n");
-		facing_axis.x = 0;
-	}
-	else if (facing == 0 || facing == M_PI * 2)
-	{
-		dir = E_E;
-		printf("Looking East\n");
-		facing_axis. x = 0;
-	}
-	else if ((facing > (3 * M_PI) / 2 && facing < 2 * M_PI) || 
-		(facing > 0 && facing < M_PI_2))
-		facing_axis.x = 1;
-	else if (facing > M_PI_2  && facing < (3 * M_PI) / 2)
-		facing_axis.x = -1;
-	if (facing_axis.y == -1 && facing_axis.x == 1)
-	{
-		dir = E_NE;
-		printf("Loking North East\n");
-	}
-	else if (facing_axis.y == -1 && facing_axis.x == -1)
-	{
-		dir = E_NW;
-		printf("Loking North West\n");
-	}
-	else if (facing_axis.y == 1 && facing_axis.x == -1)
-	{
-		dir = E_SW;
-		printf("Loking South West\n");
-	}
-	else if (facing_axis.y == 1 && facing_axis.x == 1)
-	{
-		dir = E_SE;
-		printf("Loking South East\n");
-	}
-	/*
-	 * We now know how in wich direction the player is looking
-	 *
-	 * After we need to know the distance to the next tile by the axis x
-	 * and by the axis y
-	 *
-	 * If the distance to the next tile in the axis x -> [15 len] is greater 
-	 * than the axis y -> [5 len] 
-	 * 
-	 * We need now to check if the next tile in the axis y is a wall or not
-	 *
-	 * If it's not a wall we have to proced to the same check as before to find
-	 * a wall
-	 */
+	t_real	wall;
 
-	t_real	pos;
+	while (map[(int)pos.y][(int)pos.x] != '1')
+		pos.y++;
+	wall.y = pos.y - (pos.y - (int)pos.y);
+	wall.x = pos.x;
+	return (wall);
+}
+
+t_real	ft_next_wall_w(t_real pos, char **map)
+{
+	t_real	wall;
+
+	while (map[(int)pos.y][(int)pos.x] != '1')
+		pos.x--;
+	wall.y = pos.y;
+	wall.x = (int)pos.x + 1;
+	return (wall);
+}
+
+t_real	ft_next_wall_n(t_real pos, char **map)
+{
+	t_real	wall;
+
+	while (map[(int)pos.y][(int)pos.x] != '1')
+		pos.y--;
+	wall.y = (int)pos.y + 1;
+	wall.x = pos.x;
+	return (wall);
+}
+
+t_real	ft_next_wall_se(float facing, t_real pos, char **map)
+{
+	t_real	wall;
+	t_real	distance;
+	t_real	hypo;
+	float	angle;
+
+	angle = facing;							// angle is 0 to 90
+	distance.y = (int)pos.y + 1 - pos.y;	// go + in y
+	distance.x = (int)pos.x + 1 - pos.x;	// go + in x
+	hypo.y = distance.y / sin(angle);
+	hypo.x = distance.x / cos(angle);
+	if (hypo.y < hypo.x)
+	{
+		wall.y = pos.y + distance.y;
+		wall.x = pos.x + (distance.y / tan(angle));
+		if (map[(int)pos.y + 1][(int)pos.x] != '1')
+			wall = ft_next_wall_se(facing, wall, map);
+	}
+	else
+	{
+		wall.y = pos.y + (distance.x * tan(angle));
+		wall.x = pos.x + distance.x;
+		if (map[(int)pos.y][(int)pos.x + 1] != '1')
+			wall = ft_next_wall_se(facing, wall, map);
+		
+	}
+	return (wall);
+}
+
+t_real	ft_next_wall_sw(float facing, t_real pos, char **map)
+{
+	t_real	wall;
+	t_real	distance;
+	t_real	hypo;
+	float	angle;
+	int		offset;
+
+	offset = 0;
+	angle = M_PI - facing;					// angle is 90 to 180
+	distance.y = (int)pos.y + 1 - pos.y;	// go + in y
+	distance.x = pos.x - (int)pos.x;		// go - in x
+	if (distance.x == 0)
+	{
+		offset = 1;
+		distance.x = 1;
+	}
+	hypo.y = distance.y / sin(angle);
+	hypo.x = distance.x / cos(angle);
+	if (hypo.y < hypo.x)
+	{
+		wall.y = pos.y + distance.y;
+		wall.x = pos.x - (distance.y / tan(angle));
+		if (map[(int)pos.y + 1][(int)pos.x - offset] != '1')
+			wall = ft_next_wall_sw(facing, wall, map);
+	}
+	else
+	{
+		wall.y = pos.y + (distance.x * tan(angle));
+		wall.x = pos.x - distance.x;
+		if (map[(int)pos.y][(int)pos.x - 1 - offset] != '1')
+			wall = ft_next_wall_sw(facing, wall, map);
+	}
+	return (wall);
+}
+
+t_real	ft_next_wall_nw(float facing, t_real pos, char **map)
+{
+	t_real	wall;
+	t_real	distance;
+	t_real	hypo;
+	float	angle;
+	int		offset_x;
+	int		offset_y;
+
+	offset_y = 0;
+	offset_x = 0;
+	angle = facing - M_PI;				// angle is 180 to 270
+	distance.y = pos.y - (int)pos.y;	// go - in y
+	distance.x = pos.x - (int)pos.x;	// go - in x
+	if (distance.y == 0)
+	{
+		offset_y = 1;
+		distance.y = 1;
+	}
+	if (distance.x == 0)
+	{
+		offset_x = 1;
+		distance.x = 1;
+	}
+	hypo.y = distance.y / sin(angle);
+	hypo.x = distance.x / cos(angle);
+	if (hypo.y < hypo.x)
+	{
+		wall.y = pos.y - distance.y;
+		wall.x = pos.x - (distance.y / tan(angle));
+		if (map[(int)pos.y - 1 - offset_y][(int)pos.x - offset_x] != '1')
+			wall = ft_next_wall_nw(facing, wall, map);
+	}
+	else
+	{
+		wall.y = pos.y - (distance.x * tan(angle));
+		wall.x = pos.x - distance.x;
+		if (map[(int)pos.y - offset_y][(int)pos.x - 1 - offset_x] != '1')
+			wall = ft_next_wall_nw(facing, wall, map);
+		
+	}
+	return (wall);
+}
+
+t_real	ft_next_wall_ne(float facing, t_real pos, char **map)
+{
+	t_real	wall;
+	t_real	distance;
+	t_real	hypo;
+	float	angle;
+	int		offset;
+
+	offset = 0;
+	angle = (2 * M_PI) - facing;			// angle is 270 to 360
+	distance.y = pos.y - (int)pos.y;		// go - in y
+	distance.x = (int)pos.x + 1 - pos.x;	// go + in x
+	if (distance.y == 0)
+	{
+		offset = 1;
+		distance.y = 1;
+	}
+	hypo.y = distance.y / sin(angle);
+	hypo.x = distance.x / cos(angle);
+	if (hypo.y < hypo.x)
+	{
+		wall.y = pos.y - distance.y;
+		wall.x = pos.x + (distance.y / tan(angle));
+		if (map[(int)pos.y - 1 - offset][(int)pos.x] != '1')
+			wall = ft_next_wall_ne(facing, wall, map);
+	}
+	else 
+	{
+		wall.y = pos.y - (distance.x * tan(angle));
+		wall.x = pos.x + distance.x;
+		if (map[(int)pos.y - offset][(int)pos.x + 1] != '1')
+			wall = ft_next_wall_ne(facing, wall, map);
+	}
+	return (wall);
+}
+/*
+static float	ft_angle_to_rad(int angle)
+{
+	float	rad;
+
+	rad = 0;
+	return (rad);
+}
+*/
+static int	ft_rad_to_angle(float facing)
+{
+	int	angle;
+	
+	angle = (int)((360 / (2 * M_PI)) * facing);
+	return (angle);
+}
+
+static float	get_max(float step_x, float step_y)
+{
+	float	abs_step_x;
+	float	abs_step_y;
+	float	max;
+
+	if (step_x < 0)
+		abs_step_x = -step_x;
+	else
+		abs_step_x = step_x;
+	if (step_y < 0)
+		abs_step_y = -step_y;
+	else
+		abs_step_y = step_y;
+	if (abs_step_x > abs_step_y)
+		max = abs_step_x;
+	else
+		max = abs_step_y;
+	return (max);
+}
+
+static void	ft_draw_ray(t_cube *cube, t_real *wall, t_rgb *color)
+{
+	float	step_x;
+	float	step_y;
+	float	max;
+	t_real	a;
+	t_real	b;
+	float	ratio_x;
+	float	ratio_y;
+
+	ratio_x = ((float)WIN_WIDTH / 2) / cube->map_max_x;
+	ratio_y = (float)WIN_HEIGHT / cube->map_max_y;
+
+	a.x = cube->player->real->x * ratio_x;
+	a.y = cube->player->real->y * ratio_y;
+	b.x = wall->x * ratio_x;
+	b.y = wall->y * ratio_y;
+	step_x = b.x - a.x;
+	step_y = b.y - a.y;
+	max = get_max(step_x, step_y);
+	step_x /= max;
+	step_y /= max;
+	while ((int)(a.x - b.x) || (int)(a.y - b.y))
+	{
+		ft_mlx_pixel_put(cube->img, a.x, a.y, ft_encode_rgb(color->r, color->g, color->b));
+		a.x += step_x;
+		a.y += step_y;
+	}
+}
+
+void	ft_print_ray_v2(t_cube *cube, float facing)
+{
+	t_real	wall;
 	t_rgb	color;
+	int		angle;
+
 	color.r = 0;
 	color.g = 0;
 	color.b = 255;
-
-	pos = ft_next_wall(facing, *cube->player->real, dir, cube->map);
-//	printf("pos.y[%f], pos.x[%f]\n", pos.y, pos.x);
-	ft_draw_cube(cube, &pos, 0.05, &color); 
+	angle = ft_rad_to_angle(facing);
+	printf("angle [%d]\n", angle);
+	if (angle == 0)
+	{
+		wall = ft_next_wall_e(*cube->player->real, cube->map);
+		printf("Looking East\n");
+	}
+	else if (angle == 90)
+	{
+		wall = ft_next_wall_s(*cube->player->real, cube->map);
+		printf("Looking South\n");
+	}
+	else if (angle == 180)
+	{
+		wall = ft_next_wall_w(*cube->player->real, cube->map);
+		printf("Looking West\n");
+	}
+	else if (angle == 270)
+	{
+		wall = ft_next_wall_n(*cube->player->real, cube->map);
+		printf("Looking North\n");
+	}
+	else if (angle > 0 && angle < 90)
+	{
+		wall = ft_next_wall_se(facing, *cube->player->real, cube->map);
+		printf("Looking South East\n");
+	}
+	else if (angle > 90 && angle < 180)
+	{
+		wall = ft_next_wall_sw(facing, *cube->player->real, cube->map);
+		printf("Looking South West\n");
+	}
+	else if (angle > 180 && angle < 270)
+	{
+		wall = ft_next_wall_nw(facing, *cube->player->real, cube->map);
+		printf("Looking North West\n");
+	}
+	else if (angle > 270 && angle <= 359)
+	{
+		wall = ft_next_wall_ne(facing, *cube->player->real, cube->map);
+		printf("Looking North East\n");
+	}
+	ft_draw_cube(cube, &wall, 0.05, &color);
+	ft_draw_ray(cube, &wall, &color);
 }
