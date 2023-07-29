@@ -9,7 +9,10 @@
  */
 void	ft_handle_event(t_cube *cube)
 {
-	mlx_hook(cube->win_ptr, E_KEY_PRESS, 2, ft_key_hook, cube);
+	if (D_LINUX == 1)
+		mlx_hook(cube->win_ptr, E_KEY_PRESS, 1L, ft_key_hook_linux, cube);
+	else
+		mlx_hook(cube->win_ptr, E_KEY_PRESS, 2, ft_key_hook, cube);
 	mlx_hook(cube->win_ptr, E_ON_DESTROY, 2, ft_close, cube);
 	mlx_loop_hook(cube->mlx_ptr, ft_render_next_frame, cube);
 }
@@ -22,7 +25,7 @@ void	ft_mlx_pixel_put(t_img *img, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-int	ft_encode_rgb(uint8_t red, uint8_t green, uint8_t blue)
+int	ft_encode_rgb(u_int8_t red, u_int8_t green, u_int8_t blue)
 {
 	return (red << 16 | green << 8 | blue);
 }

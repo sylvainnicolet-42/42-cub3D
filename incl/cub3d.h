@@ -44,8 +44,9 @@ void		db_print_cube(t_cube *cube);
 void		ft_init_mlx(t_cube *cube);
 void		ft_handle_event(t_cube *cube);
 void		ft_mlx_pixel_put(t_img *img, int x, int y, int color);
+int			ft_key_hook_linux(int key, t_cube *cube);
 int			ft_key_hook(int key, t_cube *cube);
-int			ft_encode_rgb(uint8_t red, uint8_t green, uint8_t blue);
+int			ft_encode_rgb(u_int8_t red, u_int8_t green, u_int8_t blue);
 
 /** ----- PARSING ----- **/
 int			ft_check_arguments(int ac, char **av);
