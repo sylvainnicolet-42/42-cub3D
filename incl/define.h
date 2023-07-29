@@ -9,7 +9,7 @@
 # define D_UNIT 0.2
 # define D_PLAYER_SCALE 0.2
 # define FOV 66
-# define D_NORTH 4.12389
+# define D_LINUX 1
 
 /** ----- SUCCESS MESSAGES ----- **/
 # define MSG_CLOSE_SUCCESS "Cub3D ended successfully! 🚀"

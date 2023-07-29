@@ -15,7 +15,6 @@ void	ft_move_forward(t_cube *cube)
 		printf("Move Forward\n");
 		printf("Player pos y [%f]\n", cube->player->real->y);
 		printf("Player pos x [%f]\n", cube->player->real->x);
-		printf("Player facing [%f]\n", cube->player->facing);
 	}
 	else
 		printf("Forward walk into a Wall\n");
@@ -35,7 +34,6 @@ void	ft_move_backward(t_cube *cube)
 		printf("Move Backward\n");
 		printf("Player pos y [%f]\n", cube->player->real->y);
 		printf("Player pos x [%f]\n", cube->player->real->x);
-		printf("Player facing [%f]\n", cube->player->facing);
 	}
 	else
 		printf("Backward walk into a Wall\n");
@@ -55,7 +53,6 @@ void	ft_move_left(t_cube *cube)
 		printf("Move Left\n");
 		printf("Player pos y [%f]\n", cube->player->real->y);
 		printf("Player pos x [%f]\n", cube->player->real->x);
-		printf("Player facing [%f]\n", cube->player->facing);
 	}
 	else
 		printf("Left walk into a Wall\n");
@@ -75,7 +72,6 @@ void	ft_move_right(t_cube *cube)
 		printf("Move Right\n");
 		printf("Player pos y [%f]\n", cube->player->real->y);
 		printf("Player pos x [%f]\n", cube->player->real->x);
-		printf("Player facing [%f]\n", cube->player->facing);
 	}
 	else
 		printf("Right walk into a Wall\n");

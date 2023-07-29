@@ -8,8 +8,8 @@ static void	ft_print_direction(t_cube *cube)
 	t_real	real;
 	t_rgb	color;
 
-	x_p = cos(cube->player->facing) * 0.2f;
-	y_p = sin(cube->player->facing) * 0.2f;
+	x_p = cos(cube->player->facing) * 0.5f;
+	y_p = sin(cube->player->facing) * 0.5f;
 	real.x = cube->player->real->x + x_p;
 	real.y = cube->player->real->y + y_p;
 	color.r = 255;
