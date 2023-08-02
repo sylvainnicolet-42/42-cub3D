@@ -31,6 +31,7 @@ void	ft_print_fov(t_cube *cube)
 			angle = 360 + angle;
 		else if (angle > 360)
 			angle -= 360;
+		printf("angle [%d] rad [%f]\n", angle, ft_angle_to_rad(angle));
 		ft_print_ray(cube, angle, ft_angle_to_rad(angle));
 		angle++;
 		i++;
