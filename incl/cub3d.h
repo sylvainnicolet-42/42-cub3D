@@ -73,11 +73,10 @@ void		ft_fill_one_map_utils(char **map);
 
 /** ----- RAY ----- **/
 void		ft_print_ray(t_cube *cube, float facing);
-void		ft_print_ray_v2(t_cube *cube, float facing);
+void		ft_draw_ray(t_cube *cube, t_real *wall, t_rgb *color);
 
 /** ----- RENDER ----- **/
 void		ft_floor_and_ceiling(t_cube *cube);
-void		ft_map_2d(t_cube *cube);
 void		ft_minimap(t_cube *cube);
 void		ft_print_player(t_cube *cube);
 void		ft_draw_cube(t_cube *cube, t_real *real, float size, t_rgb *rgb);

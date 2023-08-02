@@ -55,10 +55,10 @@ PARSE_FILE	= check_arguments.c \
 			  set_textures.c \
 			  set_wall.c \
 
-RAY_FILE	= print_ray.c \
+RAY_FILE	= draw_ray.c \
+			  print_ray.c \
 
-RENDER_FILE	= map_2d.c \
-			  floor_and_ceiling.c \
+RENDER_FILE	= floor_and_ceiling.c \
 			  minimap.c \
 			  print_player.c \
 			  render_next_frame.c \
