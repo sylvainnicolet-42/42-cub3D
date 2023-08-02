@@ -165,9 +165,9 @@ clean:
 			@tput setaf 1; cat .ascii_art/trash; tput setaf default
 			@rm -rf $(OBJS_PATH)
 ifeq ($(shell uname), Linux)
-			@make clean -C $(MLX)
-else
 			make clean -C $(MLX_LINUX)
+else
+			@make clean -C $(MLX)
 endif
 			@make fclean -C $(LIBFT)
 			@make fclean -C $(GNL)
