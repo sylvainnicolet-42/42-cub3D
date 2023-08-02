@@ -3,4 +3,5 @@
 
 void	ft_wall(t_cube *cube)
 {
+	(void) cube;
 }

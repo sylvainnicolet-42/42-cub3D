@@ -45,46 +45,46 @@ t_real	ft_next_wall_n(t_real pos, char **map)
 	return (wall);
 }
 
-t_real	ft_next_wall_se(float facing, t_real pos, char **map)
+t_real	ft_next_wall_se(float rad, t_real pos, char **map)
 {
 	t_real	wall;
 	t_real	distance;
 	t_real	hypo;
-	float	angle;
+	float	direction;
 
-	angle = facing;							// angle is 0 to 90
+	direction = rad;
 	distance.y = (int)pos.y + 1 - pos.y;	// go + in y
 	distance.x = (int)pos.x + 1 - pos.x;	// go + in x
-	hypo.y = distance.y / sin(angle);
-	hypo.x = distance.x / cos(angle);
+	hypo.y = distance.y / sin(direction);
+	hypo.x = distance.x / cos(direction);
 	if (hypo.y < hypo.x)
 	{
 		wall.y = pos.y + distance.y;
-		wall.x = pos.x + (distance.y / tan(angle));
+		wall.x = pos.x + (distance.y / tan(direction));
 		if (map[(int)pos.y + 1][(int)pos.x] != '1')
-			wall = ft_next_wall_se(facing, wall, map);
+			wall = ft_next_wall_se(rad, wall, map);
 	}
 	else
 	{
-		wall.y = pos.y + (distance.x * tan(angle));
+		wall.y = pos.y + (distance.x * tan(direction));
 		wall.x = pos.x + distance.x;
 		if (map[(int)pos.y][(int)pos.x + 1] != '1')
-			wall = ft_next_wall_se(facing, wall, map);
+			wall = ft_next_wall_se(rad, wall, map);
 		
 	}
 	return (wall);
 }
 
-t_real	ft_next_wall_sw(float facing, t_real pos, char **map)
+t_real	ft_next_wall_sw(float rad, t_real pos, char **map)
 {
 	t_real	wall;
 	t_real	distance;
 	t_real	hypo;
-	float	angle;
+	float	direction;
 	int		offset;
 
 	offset = 0;
-	angle = M_PI - facing;					// angle is 90 to 180
+	direction = M_PI - rad;				// angle is 90 to 180
 	distance.y = (int)pos.y + 1 - pos.y;	// go + in y
 	distance.x = pos.x - (int)pos.x;		// go - in x
 	if (distance.x == 0)
@@ -92,37 +92,37 @@ t_real	ft_next_wall_sw(float facing, t_real pos, char **map)
 		offset = 1;
 		distance.x = 1;
 	}
-	hypo.y = distance.y / sin(angle);
-	hypo.x = distance.x / cos(angle);
+	hypo.y = distance.y / sin(direction);
+	hypo.x = distance.x / cos(direction);
 	if (hypo.y < hypo.x)
 	{
 		wall.y = pos.y + distance.y;
-		wall.x = pos.x - (distance.y / tan(angle));
+		wall.x = pos.x - (distance.y / tan(direction));
 		if (map[(int)pos.y + 1][(int)pos.x - offset] != '1')
-			wall = ft_next_wall_sw(facing, wall, map);
+			wall = ft_next_wall_sw(rad, wall, map);
 	}
 	else
 	{
-		wall.y = pos.y + (distance.x * tan(angle));
+		wall.y = pos.y + (distance.x * tan(direction));
 		wall.x = pos.x - distance.x;
 		if (map[(int)pos.y][(int)pos.x - 1 - offset] != '1')
-			wall = ft_next_wall_sw(facing, wall, map);
+			wall = ft_next_wall_sw(rad, wall, map);
 	}
 	return (wall);
 }
 
-t_real	ft_next_wall_nw(float facing, t_real pos, char **map)
+t_real	ft_next_wall_nw(float rad, t_real pos, char **map)
 {
 	t_real	wall;
 	t_real	distance;
 	t_real	hypo;
-	float	angle;
+	float	direction;
 	int		offset_x;
 	int		offset_y;
 
 	offset_y = 0;
 	offset_x = 0;
-	angle = facing - M_PI;				// angle is 180 to 270
+	direction = rad - M_PI;			// angle is 180 to 270
 	distance.y = pos.y - (int)pos.y;	// go - in y
 	distance.x = pos.x - (int)pos.x;	// go - in x
 	if (distance.y == 0)
@@ -135,36 +135,36 @@ t_real	ft_next_wall_nw(float facing, t_real pos, char **map)
 		offset_x = 1;
 		distance.x = 1;
 	}
-	hypo.y = distance.y / sin(angle);
-	hypo.x = distance.x / cos(angle);
+	hypo.y = distance.y / sin(direction);
+	hypo.x = distance.x / cos(direction);
 	if (hypo.y < hypo.x)
 	{
 		wall.y = pos.y - distance.y;
-		wall.x = pos.x - (distance.y / tan(angle));
+		wall.x = pos.x - (distance.y / tan(direction));
 		if (map[(int)pos.y - 1 - offset_y][(int)pos.x - offset_x] != '1')
-			wall = ft_next_wall_nw(facing, wall, map);
+			wall = ft_next_wall_nw(rad, wall, map);
 	}
 	else
 	{
-		wall.y = pos.y - (distance.x * tan(angle));
+		wall.y = pos.y - (distance.x * tan(direction));
 		wall.x = pos.x - distance.x;
 		if (map[(int)pos.y - offset_y][(int)pos.x - 1 - offset_x] != '1')
-			wall = ft_next_wall_nw(facing, wall, map);
+			wall = ft_next_wall_nw(rad, wall, map);
 		
 	}
 	return (wall);
 }
 
-t_real	ft_next_wall_ne(float facing, t_real pos, char **map)
+t_real	ft_next_wall_ne(float rad, t_real pos, char **map)
 {
 	t_real	wall;
 	t_real	distance;
 	t_real	hypo;
-	float	angle;
+	float	direction;
 	int		offset;
 
 	offset = 0;
-	angle = (2 * M_PI) - facing;			// angle is 270 to 360
+	direction = (2 * M_PI) - rad;			// angle is 270 to 360
 	distance.y = pos.y - (int)pos.y;		// go - in y
 	distance.x = (int)pos.x + 1 - pos.x;	// go + in x
 	if (distance.y == 0)
@@ -172,44 +172,34 @@ t_real	ft_next_wall_ne(float facing, t_real pos, char **map)
 		offset = 1;
 		distance.y = 1;
 	}
-	hypo.y = distance.y / sin(angle);
-	hypo.x = distance.x / cos(angle);
+	hypo.y = distance.y / sin(direction);
+	hypo.x = distance.x / cos(direction);
 	if (hypo.y < hypo.x)
 	{
 		wall.y = pos.y - distance.y;
-		wall.x = pos.x + (distance.y / tan(angle));
+		wall.x = pos.x + (distance.y / tan(direction));
 		if (map[(int)pos.y - 1 - offset][(int)pos.x] != '1')
-			wall = ft_next_wall_ne(facing, wall, map);
+			wall = ft_next_wall_ne(rad, wall, map);
 	}
 	else 
 	{
-		wall.y = pos.y - (distance.x * tan(angle));
+		wall.y = pos.y - (distance.x * tan(direction));
 		wall.x = pos.x + distance.x;
 		if (map[(int)pos.y - offset][(int)pos.x + 1] != '1')
-			wall = ft_next_wall_ne(facing, wall, map);
+			wall = ft_next_wall_ne(rad, wall, map);
 	}
 	return (wall);
 }
 
-static int	ft_rad_to_angle(float facing)
-{
-	int	angle;
-	
-	angle = (int)((360 / (2 * M_PI)) * facing);
-	return (angle);
-}
-
-void	ft_print_ray(t_cube *cube, float facing)
+void	ft_print_ray(t_cube *cube, int angle, float rad)
 {
 	t_real	wall;
 	t_rgb	color;
-	int		angle;
 
 	color.r = 0;
 	color.g = 0;
 	color.b = 255;
-	angle = ft_rad_to_angle(facing);
-	if (angle == 0)
+	if (angle == 360)
 		wall = ft_next_wall_e(*cube->player->real, cube->map);
 	else if (angle == 90)
 		wall = ft_next_wall_s(*cube->player->real, cube->map);
@@ -218,13 +208,13 @@ void	ft_print_ray(t_cube *cube, float facing)
 	else if (angle == 270)
 		wall = ft_next_wall_n(*cube->player->real, cube->map);
 	else if (angle > 0 && angle < 90)
-		wall = ft_next_wall_se(facing, *cube->player->real, cube->map);
+		wall = ft_next_wall_se(rad, *cube->player->real, cube->map);
 	else if (angle > 90 && angle < 180)
-		wall = ft_next_wall_sw(facing, *cube->player->real, cube->map);
+		wall = ft_next_wall_sw(rad, *cube->player->real, cube->map);
 	else if (angle > 180 && angle < 270)
-		wall = ft_next_wall_nw(facing, *cube->player->real, cube->map);
+		wall = ft_next_wall_nw(rad, *cube->player->real, cube->map);
 	else if (angle > 270 && angle <= 359)
-		wall = ft_next_wall_ne(facing, *cube->player->real, cube->map);
+		wall = ft_next_wall_ne(rad, *cube->player->real, cube->map);
 	ft_draw_cube(cube, &wall, 0.05, &color);
 	ft_draw_ray(cube, &wall, &color);
 }

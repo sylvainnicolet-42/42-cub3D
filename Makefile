@@ -56,6 +56,7 @@ PARSE_FILE	= check_arguments.c \
 			  set_wall.c \
 
 RAY_FILE	= draw_ray.c \
+			  field_of_view.c \
 			  print_ray.c \
 
 RENDER_FILE	= floor_and_ceiling.c \
