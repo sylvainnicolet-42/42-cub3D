@@ -3,7 +3,11 @@
 CC			= gcc -Ofast
 FLAG_DEBUG	= -fsanitize=address -g
 FLAGS		= -Wall -Werror -Wextra
-FRAMEWORK	= -framework OpenGL -framework AppKit
+
+#	Os Form MLX
+
+LINUX_MLX	= -L$(MLX_LINUX) -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz
+MAC_MLX		= -L$(MLX) -lmlx -framework OpenGL -framework AppKit
 
 # EXECUTABLE
 NAME		= cub3D
@@ -13,12 +17,13 @@ SRCS_PATH	= srcs
 OBJS_PATH	= objs
 INCS_PATH	= -Iincl
 MLX			= libs/libmlx
+MLX_LINUX	= libs/linux_mlx
 LIBFT		= libs/libft
 GNL			= libs/gnl
 
 # LIBS
-LIBS		= -lmlx -lft -lgnl
-LIBS_PATH	= -L$(MLX) -L$(LIBFT) -L$(GNL) 
+LIBS		= -lft -lgnl
+LIBS_PATH	= -L$(LIBFT) -L$(GNL) 
 
 	### SOURCES FILES ###
 MAIN_FILE	= main.c
@@ -39,16 +44,18 @@ MLX_FILE	= init_mlx.c \
 
 PARSE_FILE	= check_arguments.c \
 			  check_double.c \
-			  init_cube.c \
-			  is_map_valid.c \
 			  find_max_value.c \
 			  find_player.c \
+			  init_cube.c \
+			  is_map_valid.c \
 			  list_map.c \
 			  map_utils.c \
 			  set_map.c \
 			  set_rgb_textures.c \
 			  set_textures.c \
 			  set_wall.c \
+
+RAY_FILE	= print_ray.c \
 
 RENDER_FILE	= map_2d.c \
 			  floor_and_ceiling.c \
@@ -64,6 +71,7 @@ CLOSE_FILE	:= $(addprefix $(OBJS_PATH)/close/, $(CLOSE_FILE:.c=.o))
 DEBUG_FILE	:= $(addprefix $(OBJS_PATH)/debug/, $(DEBUG_FILE:.c=.o))
 MLX_FILE	:= $(addprefix $(OBJS_PATH)/mlx/, $(MLX_FILE:.c=.o))
 PARSE_FILE	:= $(addprefix $(OBJS_PATH)/parsing/, $(PARSE_FILE:.c=.o))
+RAY_FILE	:= $(addprefix $(OBJS_PATH)/ray/, $(RAY_FILE:.c=.o))
 RENDER_FILE	:= $(addprefix $(OBJS_PATH)/render/, $(RENDER_FILE:.c=.o))
 
 OBJS		:= $(MAIN_FILE) \
@@ -72,6 +80,7 @@ OBJS		:= $(MAIN_FILE) \
 			   $(DEBUG_FILE) \
 			   $(MLX_FILE) \
 			   $(PARSE_FILE) \
+			   $(RAY_FILE) \
 			   $(RENDER_FILE) \
 
 # COLORS
@@ -105,7 +114,11 @@ art:
 			@tput setaf 2; cat .ascii_art/name; tput setaf default
 
 $(NAME):	$(OBJS)
-			$(CC) $(FLAGS) $(FRAMEWORK) -o $@ $(OBJS) $(LIBS_PATH) $(LIBS)
+ifeq ($(shell uname), Linux)
+			$(CC) $(FLAGS) -o $@ $(OBJS) $(LINUX_MLX) $(LIBS_PATH) $(LIBS)
+else
+			$(CC) $(FLAGS) -o $@ $(OBJS) $(MAC_MLX) $(LIBS_PATH) $(LIBS)
+endif
 			@$(NL_TXT)
 			@$(END_TXT)
 
@@ -123,7 +136,11 @@ libs:		mlx libft gnl
 
 mlx:
 			@$(MLX_TXT)
+ifeq ($(shell uname), Linux)
+			make -C $(MLX_LINUX)
+else
 			@make -C $(MLX)
+endif 
 			@$(MLX_END_TXT)
 			@$(NL_TXT)
 
@@ -147,7 +164,11 @@ clean:
 			@$(CLEAN_TXT)
 			@tput setaf 1; cat .ascii_art/trash; tput setaf default
 			@rm -rf $(OBJS_PATH)
+ifeq ($(shell uname), Linux)
+			make clean -C $(MLX_LINUX)
+else
 			@make clean -C $(MLX)
+endif
 			@make fclean -C $(LIBFT)
 			@make fclean -C $(GNL)
 

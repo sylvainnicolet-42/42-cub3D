@@ -44,8 +44,9 @@ void		db_print_cube(t_cube *cube);
 void		ft_init_mlx(t_cube *cube);
 void		ft_handle_event(t_cube *cube);
 void		ft_mlx_pixel_put(t_img *img, int x, int y, int color);
+int			ft_key_hook_linux(int key, t_cube *cube);
 int			ft_key_hook(int key, t_cube *cube);
-int			ft_encode_rgb(uint8_t red, uint8_t green, uint8_t blue);
+int			ft_encode_rgb(u_int8_t red, u_int8_t green, u_int8_t blue);
 
 /** ----- PARSING ----- **/
 int			ft_check_arguments(int ac, char **av);
@@ -69,6 +70,10 @@ size_t		ft_lst_len_map(t_list_map *lst);
 char		**ft_cpy_map_utils(char **map);
 bool		ft_is_valid_char_map_utils(char c);
 void		ft_fill_one_map_utils(char **map);
+
+/** ----- RAY ----- **/
+void		ft_print_ray(t_cube *cube, float facing);
+void		ft_print_ray_v2(t_cube *cube, float facing);
 
 /** ----- RENDER ----- **/
 void		ft_floor_and_ceiling(t_cube *cube);
