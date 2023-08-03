@@ -219,14 +219,12 @@ t_real	ft_next_wall_ne(float rad, t_real pos, char **map)
 	return (wall);
 }
 
-t_real	ft_print_ray(t_cube *cube, int angle, float rad)
+t_real	ft_get_wall(t_cube *cube, int angle, float rad)
 {
 	t_real	wall;
-	t_rgb	color;
 
-	color.r = 0;
-	color.g = 0;
-	color.b = 255;
+	wall.x = 0;
+	wall.y = 0;
 	if (angle == 360)
 		wall = ft_next_wall_e(*cube->player->real, cube->map);
 	else if (angle == 90)
@@ -243,7 +241,5 @@ t_real	ft_print_ray(t_cube *cube, int angle, float rad)
 		wall = ft_next_wall_nw(rad, *cube->player->real, cube->map);
 	else if (angle > 270 && angle <= 359)
 		wall = ft_next_wall_ne(rad, *cube->player->real, cube->map);
-//	ft_draw_cube(cube, &wall, 0.05, &color);
-	ft_draw_line(cube, &wall, &color);
 	return (wall);
 }

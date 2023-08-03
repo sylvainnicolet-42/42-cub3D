@@ -73,15 +73,17 @@ void		ft_fill_one_map_utils(char **map);
 
 /** ----- RAY ----- **/
 void		ft_draw_line(t_cube *cube, t_real *wall, t_rgb *color);
-t_real		ft_print_ray(t_cube *cube, int angle, float rad);
+int			ft_rad_to_angle(float facing);
+float		ft_angle_to_rad(int angle);
 void		ft_print_fov(t_cube *cube);
+t_real		ft_get_wall(t_cube *cube, int angle, float rad);
 
 /** ----- RENDER ----- **/
 void		ft_floor_and_ceiling(t_cube *cube);
 void		ft_minimap(t_cube *cube);
 void		ft_print_player(t_cube *cube);
 void		ft_draw_cube(t_cube *cube, t_real *real, float size, t_rgb *rgb);
+void		ft_print_wall(t_cube *cube);
 int			ft_render_next_frame(t_cube *cube);
-void		ft_wall(t_cube *cube);
 
 #endif

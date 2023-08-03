@@ -57,13 +57,13 @@ PARSE_FILE	= check_arguments.c \
 
 RAY_FILE	= draw_line.c \
 			  field_of_view.c \
-			  print_ray.c \
+			  get_wall.c \
 
 RENDER_FILE	= floor_and_ceiling.c \
 			  minimap.c \
 			  print_player.c \
+			  print_wall.c \
 			  render_next_frame.c \
-			  wall.c \
 
 			  # OBJECT FILES
 MAIN_FILE	:= $(addprefix $(OBJS_PATH)/, $(MAIN_FILE:.c=.o))

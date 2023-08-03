@@ -43,6 +43,7 @@ typedef struct s_player {
 	float			plane_x;
 	float			plane_y;
 	float			facing;
+	float			fov_start;
 	struct s_real	*real;
 	struct s_rgb	*color;
 }					t_player;
