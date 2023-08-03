@@ -55,8 +55,8 @@ t_real	ft_next_wall_se(float rad, t_real pos, char **map)
 	direction = rad;						// angle is 0 to 90
 	distance.y = (int)pos.y + 1 - pos.y;	// go + in y
 	distance.x = (int)pos.x + 1 - pos.x;	// go + in x
-	hypo.y = distance.y / sin(direction);
-	hypo.x = distance.x / cos(direction);
+	hypo.y = floor(1000000 * (distance.y / sin(direction))) / 1000000;
+	hypo.x = floor(1000000 * (distance.x / cos(direction))) / 1000000;
 	if (hypo.y == hypo.x)
 	{
 		wall.y = pos.y + (distance.y * tan(direction));
@@ -99,14 +99,14 @@ t_real	ft_next_wall_sw(float rad, t_real pos, char **map)
 		offset = 1;
 		distance.x = 1;
 	}
-	hypo.y = distance.y / sin(direction);
-	hypo.x = distance.x / cos(direction);
+	hypo.y = floor(1000000 * (distance.y / sin(direction))) / 1000000;
+	hypo.x = floor(1000000 * (distance.x / cos(direction))) / 1000000;
 	if (hypo.y == hypo.x)
 	{
 		wall.y = pos.y + (distance.y * tan(direction));
 		wall.x = pos.x - (distance.x / tan(direction));
 		if (map[(int)pos.y + 1][(int)pos.x - 1 - offset] != '1')
-			wall = ft_next_wall_se(rad, wall, map);
+			wall = ft_next_wall_sw(rad, wall, map);
 	}
 	else if (hypo.y < hypo.x)
 	{
@@ -149,14 +149,14 @@ t_real	ft_next_wall_nw(float rad, t_real pos, char **map)
 		offset_x = 1;
 		distance.x = 1;
 	}
-	hypo.y = distance.y / sin(direction);
-	hypo.x = distance.x / cos(direction);
+	hypo.y = floor(1000000 * (distance.y / sin(direction))) / 1000000;
+	hypo.x = floor(1000000 * (distance.x / cos(direction))) / 1000000;
 	if (hypo.y == hypo.x)
 	{
 		wall.y = pos.y - (distance.y * tan(direction));
 		wall.x = pos.x - (distance.x / tan(direction));
 		if (map[(int)pos.y - 1 - offset_y][(int)pos.x - 1 - offset_x] != '1')
-			wall = ft_next_wall_se(rad, wall, map);
+			wall = ft_next_wall_nw(rad, wall, map);
 	}
 	else if (hypo.y < hypo.x)
 	{
@@ -193,14 +193,14 @@ t_real	ft_next_wall_ne(float rad, t_real pos, char **map)
 		offset = 1;
 		distance.y = 1;
 	}
-	hypo.y = distance.y / sin(direction);
-	hypo.x = distance.x / cos(direction);
+	hypo.y = floor(1000000 * (distance.y / sin(direction))) / 1000000;
+	hypo.x = floor(1000000 * (distance.x / cos(direction))) / 1000000;
 	if (hypo.y == hypo.x)
 	{
-		wall.y = pos.y + (distance.y * tan(direction));
+		wall.y = pos.y - (distance.y * tan(direction));
 		wall.x = pos.x + (distance.x / tan(direction));
 		if (map[(int)pos.y - 1 - offset][(int)pos.x + 1] != '1')
-			wall = ft_next_wall_se(rad, wall, map);
+			wall = ft_next_wall_ne(rad, wall, map);
 	}
 	else if (hypo.y < hypo.x)
 	{
@@ -219,7 +219,7 @@ t_real	ft_next_wall_ne(float rad, t_real pos, char **map)
 	return (wall);
 }
 
-void	ft_print_ray(t_cube *cube, int angle, float rad)
+t_real	ft_print_ray(t_cube *cube, int angle, float rad)
 {
 	t_real	wall;
 	t_rgb	color;
@@ -244,5 +244,6 @@ void	ft_print_ray(t_cube *cube, int angle, float rad)
 	else if (angle > 270 && angle <= 359)
 		wall = ft_next_wall_ne(rad, *cube->player->real, cube->map);
 //	ft_draw_cube(cube, &wall, 0.05, &color);
-	ft_draw_ray(cube, &wall, &color);
+	ft_draw_line(cube, &wall, &color);
+	return (wall);
 }

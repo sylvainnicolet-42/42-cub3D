@@ -22,7 +22,7 @@ static float	get_max(float step_x, float step_y)
 	return (max);
 }
 
-void	ft_draw_ray(t_cube *cube, t_real *wall, t_rgb *color)
+void	ft_draw_line(t_cube *cube, t_real *wall, t_rgb *color)
 {
 	float	step_x;
 	float	step_y;
@@ -34,7 +34,6 @@ void	ft_draw_ray(t_cube *cube, t_real *wall, t_rgb *color)
 
 	ratio_x = ((float)WIN_WIDTH / 2) / cube->map_max_x;
 	ratio_y = (float)WIN_HEIGHT / cube->map_max_y;
-
 	a.x = cube->player->real->x * ratio_x;
 	a.y = cube->player->real->y * ratio_y;
 	b.x = wall->x * ratio_x;

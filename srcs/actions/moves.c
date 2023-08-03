@@ -66,8 +66,8 @@ void	ft_move_right(t_cube *cube)
 	double	d_x;
 	double	d_y;
 
-	d_x = cos(cube->player->facing) * D_UNIT;	// direction [x]
-	d_y = sin(cube->player->facing) * D_UNIT;	// direction [y]
+	d_x = cos(cube->player->facing) * D_UNIT;
+	d_y = sin(cube->player->facing) * D_UNIT;
 	if (ft_collision_right(cube->map, cube->player->real, d_x, d_y) == true)
 	{
 		cube->player->real->x -= d_y;

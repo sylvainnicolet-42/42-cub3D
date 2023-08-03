@@ -21,7 +21,7 @@ static void	ft_print_grid(t_cube *cube)
 {
 	float	space_y;
 	float	space_x;
-	float 	y;
+	float	y;
 	float	x;
 
 	space_y = WIN_HEIGHT / cube->map_max_y;
@@ -32,7 +32,8 @@ static void	ft_print_grid(t_cube *cube)
 		y = 0;
 		while (y < WIN_HEIGHT)
 		{
-			ft_mlx_pixel_put(cube->img, (int)x, (int)y, ft_encode_rgb(255, 255, 255));
+			ft_mlx_pixel_put(cube->img, (int)x, (int)y,
+				ft_encode_rgb(255, 255, 255));
 			y += space_y;
 		}
 		x += space_x;
