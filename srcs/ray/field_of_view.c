@@ -47,21 +47,20 @@ void	ft_print_fov(t_cube *cube)
 	ft_wall(cube, cube->player->fov_start);
 }
 
-void	ft_draw_wall(t_cube *cube, float distance, int x, t_rgb *color)
+void	ft_draw_wall(t_cube *cube, float distance, int x)
 {
 	int		y;
 	int		i;
-	float	pouic;
 	
 	i = WIN_HEIGHT / 2;
 	y = WIN_HEIGHT / 2;
-	pouic = 1 / distance;
-	if (pouic > 1)
-		pouic = 1;
-	while (y < ((WIN_HEIGHT * pouic) / 2) + (WIN_HEIGHT / 2))
+	distance = 1 / distance;
+	if (distance > 1)
+		distance = 1;
+	while (y < ((WIN_HEIGHT * distance) / 2) + (WIN_HEIGHT / 2))
 	{
-		ft_mlx_pixel_put(cube->img, x, y, ft_encode_rgb(color->r, color->g, color->b));
-		ft_mlx_pixel_put(cube->img, x, i, ft_encode_rgb(color->r, color->g, color->b));
+		ft_mlx_pixel_put(cube->img, x, y, ft_encode_rgb(255, 255, 255));
+		ft_mlx_pixel_put(cube->img, x, i, ft_encode_rgb(255, 255, 255));
 		y++;
 		i--;
 	}
@@ -70,15 +69,11 @@ void	ft_draw_wall(t_cube *cube, float distance, int x, t_rgb *color)
 void	ft_wall(t_cube *cube, float rad)
 {
 	t_real	wall;
-	t_rgb	color;
 	int		x;
 	float	a;
 	float	b;
 	float	distance;
 
-	color.r = 255;
-	color.g = 255;
-	color.b = 255;
 	x = WIN_WIDTH / 2;
 	while (x < WIN_WIDTH)
 	{
@@ -86,18 +81,18 @@ void	ft_wall(t_cube *cube, float rad)
 		rad += (ft_angle_to_rad(46)) / (WIN_WIDTH / 2);
 		if (rad > M_PI * 2)
 			rad -= M_PI * 2;
-		a = wall.x - cube->player->pos_x;
-		b = wall.y - cube->player->pos_y;
+		a = cube->player->real->x - wall.x;
+		b = cube->player->real->y - wall.y;
 		if (a < 0)
 			a *= -1;
 		if (b < 0)
 			b *= -1;
-		distance = sqrt(pow(a, 2) + pow(b, 2));
+		distance = sqrt((a * a) + (b * b));
 		if (distance < 0)
 			distance *= -1;
 		if (x == WIN_WIDTH / 2)
-			printf("distance[%f]\n", distance);
-		ft_draw_wall(cube, distance, x, &color);
+			printf("distance[%f] a[%f] b[%f]\n", distance, a, b);
+		ft_draw_wall(cube, distance, x);
 		x++;
 	}
 }
