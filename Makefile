@@ -41,6 +41,7 @@ DEBUG_FILE	= debug.c \
 MLX_FILE	= init_mlx.c \
 			  handle_event.c \
 			  key_hook.c \
+			  mouse_hook.c \
 
 PARSE_FILE	= check_arguments.c \
 			  check_double.c \

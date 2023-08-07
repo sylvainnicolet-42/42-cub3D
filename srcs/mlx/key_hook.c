@@ -20,9 +20,9 @@ int	ft_key_hook_linux(int key, t_cube *cube)
 	else if (key == E_KEY_LINUX_D)
 		ft_move_right(cube);
 	else if (key == E_KEY_LINUX_ARROW_LEFT)
-		ft_move_vision_left(cube);
+		ft_move_vision_left(cube, D_LOOK_ARROW);
 	else if (key == E_KEY_LINUX_ARROW_RIGHT)
-		ft_move_vision_right(cube);
+		ft_move_vision_right(cube, D_LOOK_ARROW);
 	else if (key == E_KEY_LINUX_ESC)
 		ft_close(cube);
 	return (0);
@@ -45,9 +45,9 @@ int	ft_key_hook(int key, t_cube *cube)
 	else if (key == E_KEY_D)
 		ft_move_right(cube);
 	else if (key == E_KEY_ARROW_LEFT)
-		ft_move_vision_left(cube);
+		ft_move_vision_left(cube, D_LOOK_ARROW);
 	else if (key == E_KEY_ARROW_RIGHT)
-		ft_move_vision_right(cube);
+		ft_move_vision_right(cube, D_LOOK_ARROW);
 	else if (key == E_KEY_ESC)
 		ft_close(cube);
 	return (0);

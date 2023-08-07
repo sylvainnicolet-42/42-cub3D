@@ -20,8 +20,8 @@ bool		ft_collision_forw(char **map, t_real *real, float d_x, float d_y);
 bool		ft_collision_back(char **map, t_real *real, float d_x, float d_y);
 bool		ft_collision_left(char **map, t_real *real, float d_x, float d_y);
 bool		ft_collision_right(char **map, t_real *real, float d_x, float d_y);
-void		ft_move_vision_left(t_cube *cube);
-void		ft_move_vision_right(t_cube *cube);
+void		ft_move_vision_left(t_cube *cube, int look);
+void		ft_move_vision_right(t_cube *cube, int look);
 void		ft_move_forward(t_cube *cube);
 void		ft_move_backward(t_cube *cube);
 void		ft_move_left(t_cube *cube);
@@ -47,6 +47,9 @@ void		ft_mlx_pixel_put(t_img *img, int x, int y, int color);
 int			ft_key_hook_linux(int key, t_cube *cube);
 int			ft_key_hook(int key, t_cube *cube);
 int			ft_encode_rgb(u_int8_t red, u_int8_t green, u_int8_t blue);
+int			ft_mouse_hook(int x, int y, t_cube *cube);
+int			ft_mouse_press(int button, int x, int y, t_cube *cube);
+int			ft_mouse_release(int button, int x, int y, t_cube *cube);
 
 /** ----- PARSING ----- **/
 int			ft_check_arguments(int ac, char **av);
