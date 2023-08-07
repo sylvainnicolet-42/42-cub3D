@@ -53,4 +53,12 @@ typedef struct s_real {
 	float	y;
 }			t_real;
 
+typedef struct s_wall_values {
+	t_real	wall;
+	t_real	distance;
+	t_real	hypo;
+	t_real	of7;
+	float	dir;
+}			t_wall_values;
+
 #endif

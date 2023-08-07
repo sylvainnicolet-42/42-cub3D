@@ -5,7 +5,7 @@ void	ft_draw_wall(t_cube *cube, float distance, int x)
 {
 	int		y;
 	int		i;
-	
+
 	i = WIN_HEIGHT / 2;
 	y = WIN_HEIGHT / 2;
 	distance = 1 / distance;
@@ -20,7 +20,7 @@ void	ft_draw_wall(t_cube *cube, float distance, int x)
 	}
 }
 
-void	ft_wall(t_cube *cube, float rad)
+void	ft_print_wall(t_cube *cube, float rad)
 {
 	t_real	wall;
 	int		x;
