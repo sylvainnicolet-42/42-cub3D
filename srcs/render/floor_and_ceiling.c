@@ -13,10 +13,10 @@ void	ft_floor_and_ceiling(t_cube *cube)
 		while (y < WIN_HEIGHT)
 		{
 			if (y < WIN_HEIGHT / 2)
-				ft_mlx_pixel_put(cube->img, x, y, 
+				ft_mlx_pixel_put(cube->img, x, y,
 					ft_encode_rgb(cube->c->r, cube->c->g, cube->c->b));
 			else
-				ft_mlx_pixel_put(cube->img, x, y, 
+				ft_mlx_pixel_put(cube->img, x, y,
 					ft_encode_rgb(cube->f->r, cube->f->g, cube->f->b));
 			y++;
 		}

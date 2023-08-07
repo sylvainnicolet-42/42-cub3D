@@ -24,29 +24,28 @@ static float	get_max(float step_x, float step_y)
 
 void	ft_draw_line(t_cube *cube, t_real *wall, t_rgb *color)
 {
-	float	step_x;
-	float	step_y;
+	t_real	step;
 	float	max;
 	t_real	a;
 	t_real	b;
-	float	ratio_x;
-	float	ratio_y;
+	t_real	ratio;
 
-	ratio_x = ((float)WIN_WIDTH / 2) / cube->map_max_x;
-	ratio_y = (float)WIN_HEIGHT / cube->map_max_y;
-	a.x = cube->player->real->x * ratio_x;
-	a.y = cube->player->real->y * ratio_y;
-	b.x = wall->x * ratio_x;
-	b.y = wall->y * ratio_y;
-	step_x = b.x - a.x;
-	step_y = b.y - a.y;
-	max = get_max(step_x, step_y);
-	step_x /= max;
-	step_y /= max;
+	ratio.x = ((float)WIN_WIDTH / 2) / cube->map_max_x;
+	ratio.y = (float)WIN_HEIGHT / cube->map_max_y;
+	a.x = cube->player->real->x * ratio.x;
+	a.y = cube->player->real->y * ratio.y;
+	b.x = wall->x * ratio.x;
+	b.y = wall->y * ratio.y;
+	step.x = b.x - a.x;
+	step.y = b.y - a.y;
+	max = get_max(step.x, step.y);
+	step.x /= max;
+	step.y /= max;
 	while ((int)(a.x - b.x) || (int)(a.y - b.y))
 	{
-		ft_mlx_pixel_put(cube->img, a.x, a.y, ft_encode_rgb(color->r, color->g, color->b));
-		a.x += step_x;
-		a.y += step_y;
+		ft_mlx_pixel_put(cube->img, a.x, a.y, ft_encode_rgb(
+				color->r, color->g, color->b));
+		a.x += step.x;
+		a.y += step.y;
 	}
 }

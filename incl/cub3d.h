@@ -77,13 +77,21 @@ int			ft_rad_to_angle(float facing);
 float		ft_angle_to_rad(int angle);
 void		ft_print_fov(t_cube *cube);
 t_real		ft_get_wall(t_cube *cube, int angle, float rad);
+t_real		ft_next_wall_e(t_real pos, char **map);
+t_real		ft_next_wall_s(t_real pos, char **map);
+t_real		ft_next_wall_w(t_real pos, char **map);
+t_real		ft_next_wall_n(t_real pos, char **map);
+t_real		ft_next_wall_se(float rad, t_real pos, char **map);
+t_real		ft_next_wall_sw(float rad, t_real pos, char **map);
+t_real		ft_next_wall_nw(float rad, t_real pos, char **map);
+t_real		ft_next_wall_ne(float rad, t_real pos, char **map);
 
 /** ----- RENDER ----- **/
 void		ft_floor_and_ceiling(t_cube *cube);
 void		ft_minimap(t_cube *cube);
 void		ft_print_player(t_cube *cube);
 void		ft_draw_cube(t_cube *cube, t_real *real, float size, t_rgb *rgb);
-void		ft_wall(t_cube *cube, float rad);
+void		ft_print_wall(t_cube *cube, float rad);
 int			ft_render_next_frame(t_cube *cube);
 
 #endif

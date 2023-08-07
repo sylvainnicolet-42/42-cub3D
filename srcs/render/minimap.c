@@ -17,29 +17,6 @@ static int	ft_is_wall(t_cube *cube, int x, int y)
 	return (E_ALLEY);
 }
 
-static void	ft_print_grid(t_cube *cube)
-{
-	float	space_y;
-	float	space_x;
-	float	y;
-	float	x;
-
-	space_y = WIN_HEIGHT / cube->map_max_y;
-	space_x = (WIN_WIDTH / 2) / cube->map_max_x;
-	x = 0;
-	while (x < WIN_WIDTH / 2)
-	{
-		y = 0;
-		while (y < WIN_HEIGHT)
-		{
-			ft_mlx_pixel_put(cube->img, (int)x, (int)y,
-				ft_encode_rgb(255, 255, 255));
-			y += space_y;
-		}
-		x += space_x;
-	}
-}
-
 void	ft_minimap(t_cube *cube)
 {
 	int	y;
@@ -59,5 +36,4 @@ void	ft_minimap(t_cube *cube)
 		}
 		x++;
 	}
-	ft_print_grid(cube);
 }

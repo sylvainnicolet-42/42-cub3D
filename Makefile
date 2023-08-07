@@ -57,6 +57,11 @@ PARSE_FILE	= check_arguments.c \
 
 RAY_FILE	= draw_line.c \
 			  field_of_view.c \
+			  next_wall_ne.c \
+			  next_wall_nw.c \
+			  next_wall_se.c \
+			  next_wall_sw.c \
+			  next_wall_simple.c \
 			  get_wall.c \
 
 RENDER_FILE	= floor_and_ceiling.c \

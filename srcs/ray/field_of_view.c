@@ -44,5 +44,4 @@ void	ft_print_fov(t_cube *cube)
 		i++;
 		ft_draw_line(cube, &wall, &color);
 	}
-	ft_wall(cube, cube->player->fov_start);
 }
