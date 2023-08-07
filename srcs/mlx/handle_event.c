@@ -12,8 +12,12 @@ void	ft_handle_event(t_cube *cube)
 	if (D_LINUX == 1)
 		mlx_hook(cube->win_ptr, E_KEY_PRESS, 1L, ft_key_hook_linux, cube);
 	else
-		mlx_hook(cube->win_ptr, E_KEY_PRESS, 2, ft_key_hook, cube);
-	mlx_hook(cube->win_ptr, E_ON_DESTROY, 2, ft_close, cube);
+		mlx_hook(
+			cube->win_ptr, E_KEY_PRESS, E_KEY_PRESS_MASK, ft_key_hook, cube);
+	mlx_hook(cube->win_ptr, E_ON_MOUSEDOWN, 0, ft_mouse_press, cube);
+	mlx_hook(cube->win_ptr, E_ON_MOUSEMOVE, 0, ft_mouse_hook, cube);
+	mlx_hook(cube->win_ptr, E_ON_MOUSEUP, 0, ft_mouse_release, cube);
+	mlx_hook(cube->win_ptr, E_ON_DESTROY, E_KEY_PRESS_MASK, ft_close, cube);
 	mlx_loop_hook(cube->mlx_ptr, ft_render_next_frame, cube);
 }
 

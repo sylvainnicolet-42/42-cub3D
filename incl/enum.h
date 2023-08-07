@@ -6,6 +6,9 @@ enum e_xcode_event
 {
 	E_KEY_PRESS = 2,
 	E_KEY_UP = 3,
+	E_ON_MOUSEDOWN = 4,
+	E_ON_MOUSEUP = 5,
+	E_ON_MOUSEMOVE = 6,
 	E_ON_DESTROY = 17,
 };
 

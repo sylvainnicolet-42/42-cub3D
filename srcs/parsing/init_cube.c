@@ -16,6 +16,7 @@ t_cube	*ft_init_cube(int ac, char **av)
 	if (!cube)
 		ft_print_error(MSG_MALLOC_ERR);
 	*cube = (t_cube){};
+	cube->on_mouse = false;
 	ft_set_textures(cube, fd);
 	ft_set_map(cube, fd);
 	ft_is_map_valid(cube);
