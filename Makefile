@@ -55,8 +55,9 @@ PARSE_FILE	= check_arguments.c \
 			  set_textures.c \
 			  set_wall.c \
 
-RAY_FILE	= draw_ray.c \
-			  print_ray.c \
+RAY_FILE	= draw_line.c \
+			  field_of_view.c \
+			  get_wall.c \
 
 RENDER_FILE	= floor_and_ceiling.c \
 			  minimap.c \
@@ -123,7 +124,11 @@ endif
 			@$(END_TXT)
 
 debug:		clean_o libs tmp $(OBJS)
-			$(CC) $(FLAG_DEBUG) $(FLAGS) $(FRAMEWORK) -o $(NAME) $(OBJS) $(LIBS_PATH) $(LIBS)
+ifeq ($(shell uname), Linux)
+			$(CC) $(FLAG_DEBUG) $(FLAGS) -o $(NAME) $(OBJS) $(LINUX_MLX) $(LIBS_PATH) $(LIBS)
+else
+			$(CC) $(FLAG_DEBUG) $(FLAGS) -o $(NAME) $(OBJS) $(MAC_MLX) $(LIBS_PATH) $(LIBS)
+endif
 			@$(NL_TXT)
 			@$(END_TXT)
 

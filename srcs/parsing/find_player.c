@@ -32,7 +32,7 @@ static void	ft_set_player(char c, t_player *pos, unsigned int x, unsigned int y)
 	pos->color = color;
 	pos->real = real;
 	pos->plane_x = 0;
-	pos->plane_y = (float) FOV / 100;
+	pos->plane_y = (float) D_FOV / 100;
 	ft_set_player_ext(c, pos);
 }
 

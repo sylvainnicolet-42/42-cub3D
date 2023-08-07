@@ -1,7 +1,6 @@
 
 #include "cub3d.h"
 
-
 static void	ft_print_direction(t_cube *cube)
 {
 	double	x_p;
@@ -18,7 +17,6 @@ static void	ft_print_direction(t_cube *cube)
 	color.b = 252;
 	ft_draw_cube(cube, &real, 0.05, &color);
 }
-
 
 void	ft_print_player(t_cube *cube)
 {

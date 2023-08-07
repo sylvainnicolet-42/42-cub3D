@@ -8,8 +8,8 @@
 # define WIN_HEIGHT 1000
 # define D_UNIT 0.2
 # define D_PLAYER_SCALE 0.2
-# define FOV 66
-# define D_NORTH 4.12389
+# define D_FOV 60
+# define D_LOOK 5
 # define D_LINUX 0
 
 /** ----- SUCCESS MESSAGES ----- **/
