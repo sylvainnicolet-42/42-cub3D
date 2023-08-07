@@ -83,7 +83,7 @@ void		ft_floor_and_ceiling(t_cube *cube);
 void		ft_minimap(t_cube *cube);
 void		ft_print_player(t_cube *cube);
 void		ft_draw_cube(t_cube *cube, t_real *real, float size, t_rgb *rgb);
-void		ft_print_wall(t_cube *cube);
+void		ft_wall(t_cube *cube, float rad);
 int			ft_render_next_frame(t_cube *cube);
 
 #endif

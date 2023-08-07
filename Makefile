@@ -62,8 +62,8 @@ RAY_FILE	= draw_line.c \
 RENDER_FILE	= floor_and_ceiling.c \
 			  minimap.c \
 			  print_player.c \
-			  print_wall.c \
 			  render_next_frame.c \
+			  wall.c \
 
 			  # OBJECT FILES
 MAIN_FILE	:= $(addprefix $(OBJS_PATH)/, $(MAIN_FILE:.c=.o))

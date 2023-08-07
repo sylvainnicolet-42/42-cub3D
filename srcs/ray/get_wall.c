@@ -225,7 +225,7 @@ t_real	ft_get_wall(t_cube *cube, int angle, float rad)
 
 	wall.x = 0;
 	wall.y = 0;
-	if (angle == 360)
+	if (angle == 0 || angle == 360)
 		wall = ft_next_wall_e(*cube->player->real, cube->map);
 	else if (angle == 90)
 		wall = ft_next_wall_s(*cube->player->real, cube->map);
