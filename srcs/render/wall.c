@@ -44,8 +44,6 @@ void	ft_wall(t_cube *cube, float rad)
 		distance = sqrt((a * a) + (b * b));
 		if (distance < 0)
 			distance *= -1;
-		if (x == (WIN_WIDTH / 2) + (WIN_WIDTH / 4))
-			printf("distance[%f]\n", distance);
 		ft_draw_wall(cube, distance, x);
 		x++;
 	}

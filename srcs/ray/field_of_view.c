@@ -29,6 +29,8 @@ void	ft_print_fov(t_cube *cube)
 	color.b = 255;
 	angle = ft_rad_to_angle(cube->player->facing);
 	angle -= D_FOV / 2;
+	if (angle < 0)
+		angle += 360;
 	cube->player->fov_start = ft_angle_to_rad(angle);
 	i = 0;
 	while (i < D_FOV)
