@@ -51,6 +51,15 @@ enum e_key
 	E_KEY_ARROW_UP = 126,
 };
 
+enum e_mouse
+{
+	E_MOUSE_LEFT = 1,
+	E_MOUSE_RIGHT = 2,
+	E_MOUSE_MIDDLE = 3,
+	E_MOUSE_SCROLL_UP = 4,
+	E_MOUSE_SCROLL_DOWN = 5,
+};
+
 enum e_wall
 {
 	E_WALL = 1,

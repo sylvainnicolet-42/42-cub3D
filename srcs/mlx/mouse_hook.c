@@ -18,20 +18,22 @@ int	ft_mouse_hook(int x, int y, t_cube *cube)
 
 int	ft_mouse_press(int button, int x, int y, t_cube *cube)
 {
-	(void)button;
-	if ((x > 0 && x < WIN_WIDTH) && (y > 0 && y < WIN_HEIGHT))
+	if (button == E_MOUSE_LEFT)
 	{
-		cube->mouse_x = x;
-		cube->on_mouse = true;
+		if ((x > 0 && x < WIN_WIDTH) && (y > 0 && y < WIN_HEIGHT))
+		{
+			cube->mouse_x = x;
+			cube->on_mouse = true;
+		}
 	}
 	return (0);
 }
 
 int	ft_mouse_release(int button, int x, int y, t_cube *cube)
 {
-	(void)button;
 	(void)x;
 	(void)y;
-	cube->on_mouse = false;
+	if (button == E_MOUSE_LEFT)
+		cube->on_mouse = false;
 	return (0);
 }

@@ -1,7 +1,7 @@
 
 #include "cub3d.h"
 
-void	ft_draw_wall(t_cube *cube, float distance, int x)
+static void	ft_draw_wall(t_cube *cube, float distance, int x)
 {
 	int		y;
 	int		i;
@@ -20,28 +20,39 @@ void	ft_draw_wall(t_cube *cube, float distance, int x)
 	}
 }
 
+static void	ft_init_values(int *x, int *end, t_cube *cube)
+{
+	*x = 0;
+	*end = WIN_WIDTH;
+	if (cube->scene == 2)
+	{
+		*x = WIN_WIDTH / 2;
+		*end = *x;
+	}
+}
+
 void	ft_print_wall(t_cube *cube, float rad)
 {
 	t_real	wall;
 	int		x;
-	float	a;
-	float	b;
+	int		end;
+	t_real	pyth;
 	float	distance;
 
-	x = WIN_WIDTH / 2;
+	ft_init_values(&x, &end, cube);
 	while (x < WIN_WIDTH)
 	{
 		wall = ft_get_wall(cube, ft_rad_to_angle(rad), rad);
-		rad += (ft_angle_to_rad(D_FOV)) / (WIN_WIDTH / 2);
+		rad += (ft_angle_to_rad(D_FOV)) / (float)end;
 		if (rad > M_PI * 2)
 			rad -= M_PI * 2;
-		a = cube->player->real->x - wall.x;
-		b = cube->player->real->y - wall.y;
-		if (a < 0)
-			a *= -1;
-		if (b < 0)
-			b *= -1;
-		distance = sqrt((a * a) + (b * b));
+		pyth.x = cube->player->real->x - wall.x;
+		pyth.y = cube->player->real->y - wall.y;
+		if (pyth.x < 0)
+			pyth.x *= -1;
+		if (pyth.y < 0)
+			pyth.y *= -1;
+		distance = sqrt((pyth.x * pyth.x) + (pyth.y * pyth.y));
 		if (distance < 0)
 			distance *= -1;
 		ft_draw_wall(cube, distance, x);

@@ -22,11 +22,7 @@ void	ft_print_fov(t_cube *cube)
 	t_real	wall;
 	int		angle;
 	int		i;
-	t_rgb	color;
 
-	color.r = 0;
-	color.g = 0;
-	color.b = 255;
 	angle = ft_rad_to_angle(cube->player->facing);
 	angle -= D_FOV / 2;
 	if (angle < 0)
@@ -42,6 +38,7 @@ void	ft_print_fov(t_cube *cube)
 		wall = ft_get_wall(cube, angle, ft_angle_to_rad(angle));
 		angle++;
 		i++;
-		ft_draw_line(cube, &wall, &color);
+		if (cube->scene == 2)
+			ft_draw_line(cube, &wall, &(t_rgb){0, 0, 255});
 	}
 }

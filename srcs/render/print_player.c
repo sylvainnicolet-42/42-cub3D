@@ -6,16 +6,12 @@ static void	ft_print_direction(t_cube *cube)
 	double	x_p;
 	double	y_p;
 	t_real	real;
-	t_rgb	color;
 
 	x_p = cos(cube->player->facing) * 0.2f;
 	y_p = sin(cube->player->facing) * 0.2f;
 	real.x = cube->player->real->x + x_p;
 	real.y = cube->player->real->y + y_p;
-	color.r = 255;
-	color.g = 0;
-	color.b = 252;
-	ft_draw_cube(cube, &real, 0.05, &color);
+	ft_draw_cube(cube, &real, 0.05, &(t_rgb){255, 0, 252});
 }
 
 void	ft_print_player(t_cube *cube)

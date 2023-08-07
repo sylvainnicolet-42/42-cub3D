@@ -18,6 +18,7 @@ typedef struct s_cube {
 	struct s_player	*player;
 	bool			on_mouse;
 	int				mouse_x;
+	int				scene;
 }					t_cube;
 
 typedef struct s_img {
