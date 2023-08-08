@@ -31,6 +31,23 @@ static void	ft_init_values(int *x, int *end, t_cube *cube)
 	}
 }
 
+static float	ft_get_distance(t_cube *cube, t_real pyth, float rad)
+{
+	float	distance;
+
+	distance = sqrt((pyth.x * pyth.x) + (pyth.y * pyth.y));
+	if (cube->scene == 3)
+	{
+		if (distance < 0)
+			distance *= -1;
+		return (distance);
+	}
+	distance *= cos(cube->player->facing - rad);
+	if (distance < 0)
+		distance *= -1;
+	return (distance);
+}
+
 void	ft_print_wall(t_cube *cube, float rad)
 {
 	t_real	wall;
@@ -52,9 +69,7 @@ void	ft_print_wall(t_cube *cube, float rad)
 			pyth.x *= -1;
 		if (pyth.y < 0)
 			pyth.y *= -1;
-		distance = sqrt((pyth.x * pyth.x) + (pyth.y * pyth.y));
-		if (distance < 0)
-			distance *= -1;
+		distance = ft_get_distance(cube, pyth, rad);
 		ft_draw_wall(cube, distance, x);
 		x++;
 	}

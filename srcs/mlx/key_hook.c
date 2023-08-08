@@ -51,14 +51,10 @@ int	ft_key_hook(int key, t_cube *cube)
 	else if (key == E_KEY_ESC)
 		ft_close(cube);
 	else if (key == E_KEY_1)
-	{
-		printf("Scene 1\n");
 		cube->scene = 1;
-	}
 	else if (key == E_KEY_2)
-	{
-		printf("Scene 2\n");
 		cube->scene = 2;
-	}
+	else if (key == E_KEY_3)
+		cube->scene = 3;
 	return (0);
 }
