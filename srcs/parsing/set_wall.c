@@ -25,9 +25,8 @@ static t_img	*ft_init_texture(t_cube *cube, char *path)
 		ft_print_error(MSG_MALLOC_ERR);
 	img->img = mlx_xpm_file_to_image(cube->mlx_ptr, path, &img->width,
 			&img->height);
-	img->addr = mlx_get_data_addr(img, &img->bpp, &img->line_length,
+	img->addr = mlx_get_data_addr(img->img, &img->bpp, &img->line_length,
 			&img->endian);
-	printf("width: %d\n", img->width);
 	return (img);
 }
 
