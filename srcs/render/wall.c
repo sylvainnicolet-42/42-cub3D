@@ -1,6 +1,33 @@
 
 #include "cub3d.h"
 
+static int	ft_get_pixel(t_img *img, int x, int y, int line_length)
+{
+	int	color;
+
+	x = (y * line_length) + (x * 4);
+	color = ft_encode_rgb(img->addr[x], img->addr[x + 1], img->addr[x + 2]);
+	return (color);
+}
+
+static int	ft_get_texture(t_cube *cube, int x, int y)
+{
+	t_img	*img;
+	t_real	scale;
+	int		x_texture;
+	int		y_texture;
+	int		color;
+
+	img = malloc(sizeof(t_img));
+	img->img = mlx_xpm_file_to_image(cube->mlx_ptr, cube->path_wall_n, &x_texture, &y_texture);
+	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel,&img->line_length, &img->endian);
+	scale.x = (float)WIN_WIDTH / (img->line_length / 4);
+	scale.y = (float)WIN_HEIGHT / (img->line_length / 4);
+	color = ft_get_pixel(img, x / scale.x, y / scale.y, img->line_length);
+	free(img);
+	return (color);
+}
+
 static void	ft_draw_wall(t_cube *cube, float distance, int x)
 {
 	int		y;
@@ -13,8 +40,8 @@ static void	ft_draw_wall(t_cube *cube, float distance, int x)
 		distance = 1;
 	while (y < ((WIN_HEIGHT * distance) / 2) + (WIN_HEIGHT / 2))
 	{
-		ft_mlx_pixel_put(cube->img, x, y, ft_encode_rgb(255, 255, 255));
-		ft_mlx_pixel_put(cube->img, x, i, ft_encode_rgb(255, 255, 255));
+		ft_mlx_pixel_put(cube->img, x, y, ft_get_texture(cube, x, y));
+		ft_mlx_pixel_put(cube->img, x, i, ft_get_texture(cube,x ,y));
 		y++;
 		i--;
 	}

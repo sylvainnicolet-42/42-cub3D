@@ -44,6 +44,10 @@ int	ft_key_hook(int key, t_cube *cube)
 		ft_move_left(cube);
 	else if (key == E_KEY_D)
 		ft_move_right(cube);
+//	else if (key == E_KEY_R)
+//		ft_print_texture(cube);
+	else if (key == E_KEY_ARROW_DOWN)
+		ft_move_backward(cube);
 	else if (key == E_KEY_ARROW_LEFT)
 		ft_move_vision_left(cube, D_LOOK_ARROW);
 	else if (key == E_KEY_ARROW_RIGHT)
