@@ -9,10 +9,10 @@
  */
 static void	ft_free_cube(t_cube *cube)
 {
-	free(cube->path_wall_n);
-	free(cube->path_wall_s);
-	free(cube->path_wall_w);
-	free(cube->path_wall_e);
+	free(cube->wall_e);
+	free(cube->wall_n);
+	free(cube->wall_s);
+	free(cube->wall_w);
 	free(cube->f);
 	free(cube->c);
 	ft_free_array(cube->map);

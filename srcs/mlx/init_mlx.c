@@ -7,7 +7,7 @@ static t_img	*ft_init_img(t_cube *cube)
 
 	img = malloc(sizeof(t_img));
 	img->img = mlx_new_image(cube->mlx_ptr, WIN_WIDTH, WIN_HEIGHT);
-	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel,
+	img->addr = mlx_get_data_addr(img->img, &img->bpp,
 			&img->line_length, &img->endian);
 	return (img);
 }

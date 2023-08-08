@@ -13,8 +13,8 @@ static int	ft_is_valid_identifier(char *line)
 
 static bool	ft_are_textures_set(t_cube *cube)
 {
-	if (cube->path_wall_n && cube->path_wall_s && cube->path_wall_w
-		&& cube->path_wall_e && cube->f && cube->c)
+	if (cube->wall_e && cube->wall_n && cube->wall_s
+		&& cube->wall_w && cube->f && cube->c)
 		return (true);
 	return (false);
 }

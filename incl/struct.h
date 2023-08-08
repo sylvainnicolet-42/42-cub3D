@@ -6,10 +6,10 @@ typedef struct s_cube {
 	void			*mlx_ptr;
 	void			*win_ptr;
 	struct s_img	*img;
-	char			*path_wall_n;
-	char			*path_wall_s;
-	char			*path_wall_e;
-	char			*path_wall_w;
+	struct s_img	*wall_n;
+	struct s_img	*wall_s;
+	struct s_img	*wall_e;
+	struct s_img	*wall_w;
 	char			**map;
 	int				map_max_x;
 	int				map_max_y;
@@ -24,9 +24,11 @@ typedef struct s_cube {
 typedef struct s_img {
 	void	*img;
 	char	*addr;
-	int		bits_per_pixel;
+	int		bpp;
 	int		line_length;
 	int		endian;
+	int		width;
+	int		height;
 }			t_img;
 
 typedef struct s_rgb {
