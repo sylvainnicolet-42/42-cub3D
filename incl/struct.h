@@ -66,4 +66,14 @@ typedef struct s_wall_values {
 	float	dir;
 }			t_wall_values;
 
+typedef struct s_wall {
+	t_real	pos;
+	int		direction;
+}			t_wall;
+
+typedef struct s_ray {
+	t_wall	wall;
+	float	distance;
+}			t_ray;
+
 #endif

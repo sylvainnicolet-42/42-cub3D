@@ -1,12 +1,12 @@
 
 #include "cub3d.h"
 
-t_real	ft_get_wall(t_cube *cube, int angle, float rad)
+t_wall	ft_get_wall(t_cube *cube, int angle, float rad)
 {
-	t_real	wall;
+	t_wall	wall;
 
-	wall.x = 0;
-	wall.y = 0;
+	wall.pos.x = 0;
+	wall.pos.y = 0;
 	if (angle == 0 || angle == 360)
 		wall = ft_next_wall_e(*cube->player->real, cube->map);
 	else if (angle == 90)

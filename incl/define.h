@@ -4,14 +4,14 @@
 
 /** ----- DEFINE ----- **/
 # define PROG_NAME "Cub3D"
-# define WIN_WIDTH 1920
-# define WIN_HEIGHT 1080
+# define WIN_WIDTH 960
+# define WIN_HEIGHT 540
 # define D_UNIT 0.2
 # define D_PLAYER_SCALE 0.2
 # define D_FOV 60
 # define D_LOOK_ARROW 5
 # define D_LOOK_MOUSE 3
-# define D_LINUX 0
+# define D_LINUX 1
 
 /** ----- SUCCESS MESSAGES ----- **/
 # define MSG_CLOSE_SUCCESS "Cub3D ended successfully! 🚀"

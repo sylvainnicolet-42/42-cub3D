@@ -25,6 +25,12 @@ int	ft_key_hook_linux(int key, t_cube *cube)
 		ft_move_vision_right(cube, D_LOOK_ARROW);
 	else if (key == E_KEY_LINUX_ESC)
 		ft_close(cube);
+	else if (key == E_KEY_LINUX_1)
+		cube->scene = 1;
+	else if (key == E_KEY_LINUX_2)
+		cube->scene = 2;
+	else if (key == E_KEY_LINUX_3)
+		cube->scene = 3;
 	return (0);
 }
 

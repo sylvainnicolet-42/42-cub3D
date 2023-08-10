@@ -19,7 +19,7 @@ float	ft_angle_to_rad(int angle)
 
 void	ft_print_fov(t_cube *cube)
 {
-	t_real	wall;
+	t_wall	wall;
 	int		angle;
 	int		i;
 
@@ -39,6 +39,6 @@ void	ft_print_fov(t_cube *cube)
 		angle++;
 		i++;
 		if (cube->scene == 2)
-			ft_draw_line(cube, &wall, &(t_rgb){0, 0, 255});
+			ft_draw_line(cube, &wall.pos, &(t_rgb){0, 0, 255});
 	}
 }

@@ -1,11 +1,12 @@
 
 #include "cub3d.h"
 
-static void	ft_draw_wall(t_cube *cube, float distance, int x)
+static void	ft_draw_wall(t_cube *cube, float distance, int x, int direction)
 {
 	int		y;
 	int		i;
 
+	(void) direction;
 	i = WIN_HEIGHT / 2;
 	y = WIN_HEIGHT / 2;
 	distance = 1 / distance;
@@ -50,7 +51,7 @@ static float	ft_get_distance(t_cube *cube, t_real pyth, float rad)
 
 void	ft_print_wall(t_cube *cube, float rad)
 {
-	t_real	wall;
+	t_ray	ray;
 	int		x;
 	int		end;
 	t_real	pyth;
@@ -59,18 +60,19 @@ void	ft_print_wall(t_cube *cube, float rad)
 	ft_init_values(&x, &end, cube);
 	while (x < WIN_WIDTH)
 	{
-		wall = ft_get_wall(cube, ft_rad_to_angle(rad), rad);
+		ray.wall = ft_get_wall(cube, ft_rad_to_angle(rad), rad);
 		rad += (ft_angle_to_rad(D_FOV)) / (float)end;
 		if (rad > M_PI * 2)
 			rad -= M_PI * 2;
-		pyth.x = cube->player->real->x - wall.x;
-		pyth.y = cube->player->real->y - wall.y;
+		pyth.x = cube->player->real->x - ray.wall.pos.x;
+		pyth.y = cube->player->real->y - ray.wall.pos.y;
 		if (pyth.x < 0)
 			pyth.x *= -1;
 		if (pyth.y < 0)
 			pyth.y *= -1;
 		distance = ft_get_distance(cube, pyth, rad);
-		ft_draw_wall(cube, distance, x);
+		ray.distance = distance;
+		ft_draw_wall(cube, distance, x, ray.wall.direction);
 		x++;
 	}
 }

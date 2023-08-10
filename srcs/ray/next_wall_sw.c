@@ -21,31 +21,41 @@ static t_wall_values	ft_init_values(t_real pos, float rad)
 	return (wall_val);
 }
 
-t_real	ft_next_wall_sw(float rad, t_real pos, char **map)
+t_wall	ft_next_wall_sw(float rad, t_real pos, char **map)
 {
-	t_wall_values	wall_val;
+	t_wall_values	w;
+	t_wall			wall;
 
-	wall_val = ft_init_values(pos, rad);
-	if (wall_val.hypo.y == wall_val.hypo.x)
+	w = ft_init_values(pos, rad);
+	if (w.hypo.y == w.hypo.x)
 	{
-		wall_val.wall.y = pos.y + (wall_val.distance.y * tan(wall_val.dir));
-		wall_val.wall.x = pos.x - (wall_val.distance.x / tan(wall_val.dir));
-		if (map[(int)pos.y + 1][(int)(pos.x - 1 - wall_val.of7.x)] != '1')
-			wall_val.wall = ft_next_wall_sw(rad, wall_val.wall, map);
+		w.wall.y = pos.y + (w.distance.y * tan(w.dir));
+		w.wall.x = pos.x - (w.distance.x / tan(w.dir));
+		wall.pos.y = w.wall.y;
+		wall.pos.x = w.wall.x;
+		wall.direction = E_SOUTH;
+		if (map[(int)pos.y + 1][(int)(pos.x - 1 - w.of7.x)] != '1')
+			wall = ft_next_wall_sw(rad, w.wall, map);
 	}
-	else if (wall_val.hypo.y < wall_val.hypo.x)
+	else if (w.hypo.y < w.hypo.x)
 	{
-		wall_val.wall.y = pos.y + wall_val.distance.y;
-		wall_val.wall.x = pos.x - (wall_val.distance.y / tan(wall_val.dir));
-		if (map[(int)pos.y + 1][(int)(pos.x - wall_val.of7.x)] != '1')
-			wall_val.wall = ft_next_wall_sw(rad, wall_val.wall, map);
+		w.wall.y = pos.y + w.distance.y;
+		w.wall.x = pos.x - (w.distance.y / tan(w.dir));
+		wall.pos.y = w.wall.y;
+		wall.pos.x = w.wall.x;
+		wall.direction = E_SOUTH;
+		if (map[(int)pos.y + 1][(int)(pos.x - w.of7.x)] != '1')
+			wall = ft_next_wall_sw(rad, w.wall, map);
 	}
 	else
 	{
-		wall_val.wall.y = pos.y + (wall_val.distance.x * tan(wall_val.dir));
-		wall_val.wall.x = pos.x - wall_val.distance.x;
-		if (map[(int)pos.y][(int)(pos.x - 1 - wall_val.of7.x)] != '1')
-			wall_val.wall = ft_next_wall_sw(rad, wall_val.wall, map);
+		w.wall.y = pos.y + (w.distance.x * tan(w.dir));
+		w.wall.x = pos.x - w.distance.x;
+		wall.pos.y = w.wall.y;
+		wall.pos.x = w.wall.x;
+		wall.direction = E_WEST;
+		if (map[(int)pos.y][(int)(pos.x - 1 - w.of7.x)] != '1')
+			wall = ft_next_wall_sw(rad, w.wall, map);
 	}
-	return (wall_val.wall);
+	return (wall);
 }

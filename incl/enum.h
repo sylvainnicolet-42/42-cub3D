@@ -60,6 +60,14 @@ enum e_mouse
 	E_MOUSE_SCROLL_DOWN = 5,
 };
 
+enum e_direction
+{
+	E_SOUTH = 1,
+	E_NORTH = 2,
+	E_EAST = 3,
+	E_WEST = 4,
+};
+
 enum e_wall
 {
 	E_WALL = 1,
@@ -74,18 +82,6 @@ enum e_moves
 	E_LEFT = 2,
 	E_RIGHT = 3,
 	E_BACKWARD = 4,
-};
-
-enum e_balec
-{
-	E_NE = 1,
-	E_NW = 2,
-	E_SW = 3,
-	E_SE = 4,
-	E_N = 5,
-	E_S = 6,
-	E_W = 7,
-	E_E = 8
 };
 
 #endif

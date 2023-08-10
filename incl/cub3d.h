@@ -79,15 +79,15 @@ void		ft_draw_line(t_cube *cube, t_real *wall, t_rgb *color);
 int			ft_rad_to_angle(float facing);
 float		ft_angle_to_rad(int angle);
 void		ft_print_fov(t_cube *cube);
-t_real		ft_get_wall(t_cube *cube, int angle, float rad);
-t_real		ft_next_wall_e(t_real pos, char **map);
-t_real		ft_next_wall_s(t_real pos, char **map);
-t_real		ft_next_wall_w(t_real pos, char **map);
-t_real		ft_next_wall_n(t_real pos, char **map);
-t_real		ft_next_wall_se(float rad, t_real pos, char **map);
-t_real		ft_next_wall_sw(float rad, t_real pos, char **map);
-t_real		ft_next_wall_nw(float rad, t_real pos, char **map);
-t_real		ft_next_wall_ne(float rad, t_real pos, char **map);
+t_wall		ft_get_wall(t_cube *cube, int angle, float rad);
+t_wall		ft_next_wall_e(t_real pos, char **map);
+t_wall		ft_next_wall_s(t_real pos, char **map);
+t_wall		ft_next_wall_w(t_real pos, char **map);
+t_wall		ft_next_wall_n(t_real pos, char **map);
+t_wall		ft_next_wall_se(float rad, t_real pos, char **map);
+t_wall		ft_next_wall_sw(float rad, t_real pos, char **map);
+t_wall		ft_next_wall_nw(float rad, t_real pos, char **map);
+t_wall		ft_next_wall_ne(float rad, t_real pos, char **map);
 
 /** ----- RENDER ----- **/
 void		ft_floor_and_ceiling(t_cube *cube);
