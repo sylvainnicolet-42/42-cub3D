@@ -10,8 +10,12 @@
 # define D_PLAYER_SCALE 0.2
 # define D_FOV 60
 # define D_LOOK_ARROW 5
-# define D_LOOK_MOUSE 3
+# define D_LOOK_MOUSE 2
 # define D_LINUX 0
+# define D_EAST 0.000000
+# define D_SOUTH 1.570796
+# define D_WEST 3.141592
+# define D_NORTH 4.712388
 
 /** ----- SUCCESS MESSAGES ----- **/
 # define MSG_CLOSE_SUCCESS "Cub3D ended successfully! 🚀"

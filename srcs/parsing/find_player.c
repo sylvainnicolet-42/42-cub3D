@@ -4,11 +4,11 @@
 static void	ft_set_player_ext(char c, t_player *pos)
 {
 	if (c == 'N')
-		pos->facing = M_PI + M_PI_2;
+		pos->facing = floor(1000000 * (M_PI + M_PI_2)) / 1000000;
 	else if (c == 'S')
-		pos->facing = M_PI_2;
+		pos->facing = floor(1000000 * M_PI_2) / 1000000;
 	else if (c == 'W')
-		pos->facing = M_PI;
+		pos->facing = floor(1000000 * M_PI) / 1000000;
 	else if (c == 'E')
 		pos->facing = 0.0f;
 }
@@ -31,8 +31,6 @@ static void	ft_set_player(char c, t_player *pos, unsigned int x, unsigned int y)
 	color->b = 0;
 	pos->color = color;
 	pos->real = real;
-	pos->plane_x = 0;
-	pos->plane_y = (float) D_FOV / 100;
 	ft_set_player_ext(c, pos);
 }
 

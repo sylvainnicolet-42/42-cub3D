@@ -1,11 +1,11 @@
 
-SO ./textures/texture_1.xpm
+SO ./textures/debug/south.xpm
 
-WE ./textures/texture_2.xpm
+WE ./textures/debug/west.xpm
 
-EA ./textures/texture_3.xpm
+EA ./textures/debug/east.xpm
 
-NO ./textures/texture_4.xpm
+NO ./textures/debug/north.xpm
 
 F 54,90,94
 C 153,132,136

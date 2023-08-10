@@ -88,8 +88,9 @@ void	ft_print_wall(t_cube *cube, float rad)
 	ft_init_values(&x, &end, cube);
 	while (x < WIN_WIDTH)
 	{
-		wall = ft_get_wall(cube, ft_rad_to_angle(rad), rad);
+		wall = ft_get_wall(cube, rad);
 		rad += (ft_angle_to_rad(D_FOV)) / (float)end;
+		rad = floor(1000000 * rad) / 1000000;
 		if (rad > M_PI * 2)
 			rad -= M_PI * 2;
 		pyth.x = cube->player->real->x - wall.pos.x;
