@@ -1,37 +1,51 @@
 
 #include "cub3d.h"
 
-static int	ft_direction(int direction)
+static t_img	*ft_get_img(int direction, t_cube *cube)
 {
 	if (direction == E_NORTH)
-		return (ft_encode_rgb(204, 0, 0));
+		return (cube->wall_n);
 	else if (direction == E_WEST)
-		return (ft_encode_rgb(250, 172, 172));
+		return (cube->wall_e);
 	else if (direction == E_SOUTH)
-		return (ft_encode_rgb(0, 204, 0));
+		return (cube->wall_s);
 	else if (direction == E_EAST)
-		return (ft_encode_rgb(172, 250, 172));
+		return (cube->wall_e);
 	return (0);
 }
 
-static void	ft_draw_wall(t_cube *cube, float distance, int x, int direction)
+static t_real	ft_get_pos(t_wall wall, int y, int height, t_img *img)
+{
+	t_real	pos;
+
+	pos.x = 0;
+	pos.y = 0;
+	if (wall.direction == E_SOUTH || wall.direction == E_NORTH)
+		pos.x = (wall.pos.x - (int)wall.pos.x) * img->width;
+	else
+		pos.x = (wall.pos.y - (int)wall.pos.y) * img->width;
+	y = y - ((WIN_HEIGHT / 2) - (height / 2));
+	pos.y = ((float)img->height / (float)height) * y;
+	return (pos);
+}
+
+static void	ft_draw_wall(t_cube *cube, float distance, int x, t_wall wall)
 {
 	int		y;
-	int		i;
-	int		color;
+	t_real	pos;
+	t_img	*img;
 
-	i = WIN_HEIGHT / 2;
 	y = WIN_HEIGHT / 2;
 	distance = 1 / distance;
 	if (distance > 1)
 		distance = 1;
-	while (y < ((WIN_HEIGHT * distance) / 2) + (WIN_HEIGHT / 2))
+	y = ((WIN_HEIGHT * distance) / 2) + (WIN_HEIGHT / 2);
+	while (y > (WIN_HEIGHT - (WIN_HEIGHT * distance)) / 2)
 	{
-		color = ft_direction(direction);
-		ft_mlx_pixel_put(cube->img, x, y, color);
-		ft_mlx_pixel_put(cube->img, x, i, color);
-		y++;
-		i--;
+		img = ft_get_img(wall.direction, cube);
+		pos = ft_get_pos(wall, y , WIN_HEIGHT * distance, img);
+		ft_mlx_pixel_put(cube->img, x, y, img->color[(((int)pos.x * (int)img->width) + (int)pos.y)]);
+		y--;
 	}
 }
 
@@ -63,18 +77,6 @@ static float	ft_get_distance(t_cube *cube, t_real pyth, float rad)
 	return (distance);
 }
 
-static void	ft_print_direction(int direction)
-{
-	if (direction == E_NORTH)
-		printf("Looking Norh\n");
-	if (direction == E_SOUTH)
-		printf("Looking South\n");
-	if (direction == E_EAST)
-		printf("Looking East\n");
-	if (direction == E_WEST)
-		printf("Looking West\n");
-}
-
 void	ft_print_wall(t_cube *cube, float rad)
 {
 	t_wall	wall;
@@ -97,17 +99,7 @@ void	ft_print_wall(t_cube *cube, float rad)
 		if (pyth.y < 0)
 			pyth.y *= -1;
 		distance = ft_get_distance(cube, pyth, rad);
-		if (cube->scene == 1 || cube->scene == 3)
-		{
-			if (x == WIN_WIDTH / 2)
-				ft_print_direction(wall.direction);
-		}
-		else
-		{
-			if (x == (WIN_WIDTH / 2) + (WIN_WIDTH / 4))
-				ft_print_direction(wall.direction);
-		}
-		ft_draw_wall(cube, distance, x, wall.direction);
+		ft_draw_wall(cube, distance, x, wall);
 		x++;
 	}
 }

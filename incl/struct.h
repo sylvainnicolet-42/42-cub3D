@@ -29,6 +29,7 @@ typedef struct s_img {
 	int		endian;
 	int		width;
 	int		height;
+	int		*color;
 }			t_img;
 
 typedef struct s_rgb {
@@ -71,9 +72,11 @@ typedef struct s_wall {
 	int		direction;
 }			t_wall;
 
-typedef struct s_ray {
-	t_wall	wall;
-	float	distance;
-}			t_ray;
+typedef struct s_pixel {
+	t_real	wall;
+	t_real	pos;
+	int		height;
+	int		color;
+}			t_pixel;
 
 #endif
