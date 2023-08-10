@@ -11,7 +11,7 @@
 # define D_FOV 60
 # define D_LOOK_ARROW 5
 # define D_LOOK_MOUSE 3
-# define D_LINUX 1
+# define D_LINUX 0
 
 /** ----- SUCCESS MESSAGES ----- **/
 # define MSG_CLOSE_SUCCESS "Cub3D ended successfully! 🚀"

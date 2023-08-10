@@ -39,6 +39,11 @@ void	ft_print_fov(t_cube *cube)
 		angle++;
 		i++;
 		if (cube->scene == 2)
-			ft_draw_line(cube, &wall.pos, &(t_rgb){0, 0, 255});
+		{
+			if (i == D_FOV / 2)
+				ft_draw_line(cube, &wall.pos, &(t_rgb){255, 255, 0});
+			else
+				ft_draw_line(cube, &wall.pos, &(t_rgb){0, 0, 255});
+		}
 	}
 }
