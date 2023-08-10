@@ -4,8 +4,8 @@
 
 /** ----- DEFINE ----- **/
 # define PROG_NAME "Cub3D"
-# define WIN_WIDTH 960
-# define WIN_HEIGHT 540
+# define WIN_WIDTH 1920
+# define WIN_HEIGHT 1080
 # define D_UNIT 0.2
 # define D_PLAYER_SCALE 0.2
 # define D_FOV 60
