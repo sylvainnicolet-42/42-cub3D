@@ -21,6 +21,33 @@ static t_wall_values	ft_init_values(t_real pos, float rad)
 	return (wall_val);
 }
 
+static void	ft_case_1(t_wall_values *w, t_real *pos, t_wall *wall)
+{
+	w->wall.y = pos->y + (w->distance.y * tan(w->dir));
+	w->wall.x = pos->x - (w->distance.x / tan(w->dir));
+	wall->pos.y = w->wall.y;
+	wall->pos.x = w->wall.x;
+	wall->direction = E_WEST;
+}
+
+static void	ft_case_2(t_wall_values *w, t_real *pos, t_wall *wall)
+{
+	w->wall.y = pos->y + w->distance.y;
+	w->wall.x = pos->x - (w->distance.y / tan(w->dir));
+	wall->pos.y = w->wall.y;
+	wall->pos.x = w->wall.x;
+	wall->direction = E_WEST;
+}
+
+static void	ft_case_3(t_wall_values *w, t_real *pos, t_wall *wall)
+{
+	w->wall.y = pos->y + (w->distance.x * tan(w->dir));
+	w->wall.x = pos->x - w->distance.x;
+	wall->pos.y = w->wall.y;
+	wall->pos.x = w->wall.x;
+	wall->direction = E_SOUTH;
+}
+
 t_wall	ft_next_wall_sw(float rad, t_real pos, char **map)
 {
 	t_wall_values	w;
@@ -29,31 +56,19 @@ t_wall	ft_next_wall_sw(float rad, t_real pos, char **map)
 	w = ft_init_values(pos, rad);
 	if (w.hypo.y == w.hypo.x)
 	{
-		w.wall.y = pos.y + (w.distance.y * tan(w.dir));
-		w.wall.x = pos.x - (w.distance.x / tan(w.dir));
-		wall.pos.y = w.wall.y;
-		wall.pos.x = w.wall.x;
-		wall.direction = E_WEST;
+		ft_case_1(&w, &pos, &wall);
 		if (map[(int)pos.y + 1][(int)(pos.x - 1 - w.of7.x)] != '1')
 			wall = ft_next_wall_sw(rad, w.wall, map);
 	}
 	else if (w.hypo.y < w.hypo.x)
 	{
-		w.wall.y = pos.y + w.distance.y;
-		w.wall.x = pos.x - (w.distance.y / tan(w.dir));
-		wall.pos.y = w.wall.y;
-		wall.pos.x = w.wall.x;
-		wall.direction = E_WEST;
+		ft_case_2(&w, &pos, &wall);
 		if (map[(int)pos.y + 1][(int)(pos.x - w.of7.x)] != '1')
 			wall = ft_next_wall_sw(rad, w.wall, map);
 	}
 	else
 	{
-		w.wall.y = pos.y + (w.distance.x * tan(w.dir));
-		w.wall.x = pos.x - w.distance.x;
-		wall.pos.y = w.wall.y;
-		wall.pos.x = w.wall.x;
-		wall.direction = E_SOUTH;
+		ft_case_3(&w, &pos, &wall);
 		if (map[(int)pos.y][(int)(pos.x - 1 - w.of7.x)] != '1')
 			wall = ft_next_wall_sw(rad, w.wall, map);
 	}
