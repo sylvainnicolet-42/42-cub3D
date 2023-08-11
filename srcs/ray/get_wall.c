@@ -7,13 +7,13 @@ t_wall	ft_get_wall(t_cube *cube, float rad)
 
 	wall.pos.x = 0;
 	wall.pos.y = 0;
-	if (rad == D_EAST)
+	if (rad > D_EAST - 0.000001 && rad < D_EAST + 0.000001)
 		wall = ft_next_wall_e(*cube->player->real, cube->map);
-	else if (rad == D_SOUTH)
+	else if (rad > D_SOUTH - 0.000001 && rad < D_SOUTH + 0.000001)
 		wall = ft_next_wall_s(*cube->player->real, cube->map);
-	else if (rad == D_WEST)
+	else if (rad > D_WEST - 0.000001 && rad < D_WEST + 0.000001)
 		wall = ft_next_wall_w(*cube->player->real, cube->map);
-	else if (rad == D_NORTH)
+	else if (rad > D_NORTH - 0.000001 && rad < D_NORTH + 0.000001)
 		wall = ft_next_wall_n(*cube->player->real, cube->map);
 	else if (rad > D_EAST && rad < D_SOUTH)
 		wall = ft_next_wall_se(rad, *cube->player->real, cube->map);
