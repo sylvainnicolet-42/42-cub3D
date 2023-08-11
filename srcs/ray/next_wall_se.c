@@ -20,7 +20,7 @@ static void	ft_case_1(float *rad, t_real *pos, t_wall_values *w, t_wall *wall)
 	w->wall.x = pos->x + (w->distance.x / tan(*rad));
 	wall->pos.y = w->wall.y;
 	wall->pos.x = w->wall.x;
-	wall->direction = E_WEST;
+	wall->direction = E_SOUTH;
 }
 
 static void	ft_case_2(float *rad, t_real *pos, t_wall_values *w, t_wall *wall)
@@ -29,7 +29,7 @@ static void	ft_case_2(float *rad, t_real *pos, t_wall_values *w, t_wall *wall)
 	w->wall.x = pos->x + (w->distance.y / tan(*rad));
 	wall->pos.y = w->wall.y;
 	wall->pos.x = w->wall.x;
-	wall->direction = E_WEST;
+	wall->direction = E_SOUTH;
 }
 
 static void	ft_case_3(float *rad, t_real *pos, t_wall_values *w, t_wall *wall)
@@ -38,7 +38,7 @@ static void	ft_case_3(float *rad, t_real *pos, t_wall_values *w, t_wall *wall)
 	w->wall.x = pos->x + w->distance.x;
 	wall->pos.y = w->wall.y;
 	wall->pos.x = w->wall.x;
-	wall->direction = E_NORTH;
+	wall->direction = E_EAST;
 }
 
 t_wall	ft_next_wall_se(float rad, t_real pos, char **map)

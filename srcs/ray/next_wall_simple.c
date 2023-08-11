@@ -9,7 +9,7 @@ t_wall	ft_next_wall_e(t_real pos, char **map)
 		pos.x++;
 	wall.pos.y = pos.y;
 	wall.pos.x = pos.x - (pos.x - (int)pos.x);
-	wall.direction = E_EAST;
+	wall.direction = E_NORTH;
 	return (wall);
 }
 
@@ -21,7 +21,7 @@ t_wall	ft_next_wall_s(t_real pos, char **map)
 		pos.y++;
 	wall.pos.y = pos.y - (pos.y - (int)pos.y);
 	wall.pos.x = pos.x;
-	wall.direction = E_SOUTH;
+	wall.direction = E_WEST;
 	return (wall);
 }
 
@@ -33,7 +33,7 @@ t_wall	ft_next_wall_w(t_real pos, char **map)
 		pos.x--;
 	wall.pos.y = pos.y;
 	wall.pos.x = (int)pos.x + 1;
-	wall.direction = E_WEST;
+	wall.direction = E_SOUTH;
 	return (wall);
 }
 
@@ -45,6 +45,6 @@ t_wall	ft_next_wall_n(t_real pos, char **map)
 		pos.y--;
 	wall.pos.y = (int)pos.y + 1;
 	wall.pos.x = pos.x;
-	wall.direction = E_NORTH;
+	wall.direction = E_EAST;
 	return (wall);
 }

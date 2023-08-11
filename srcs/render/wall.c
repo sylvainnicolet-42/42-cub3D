@@ -7,7 +7,7 @@ static t_real	ft_get_pos(t_wall wall, int y, int height, t_img *img)
 
 	pos.x = 0;
 	pos.y = 0;
-	if (wall.direction == E_EAST || wall.direction == E_WEST)
+	if (wall.direction == E_NORTH || wall.direction == E_SOUTH)
 		pos.x = (wall.pos.x - (int)wall.pos.x) * img->width;
 	else
 		pos.x = (wall.pos.y - (int)wall.pos.y) * img->width;
