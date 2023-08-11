@@ -6,7 +6,7 @@
 /*   By: mjulliat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:45:10 by mjulliat          #+#    #+#             */
-/*   Updated: 2023/08/11 14:45:12 by mjulliat         ###   ########.fr       */
+/*   Updated: 2023/08/11 14:31:28 by mjulliat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static bool	ft_map_is_close(char **map, unsigned int x, unsigned int y)
 {
-	if (map[y][x] == 'f')
-		return (true);
 	if (map[y] == NULL)
 		return (false);
+	if (map[y][x] == 'f')
+		return (true);
 	if (map[y][x] == '1')
 		return (true);
 	if (x <= 0 || y <= 0)
