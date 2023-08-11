@@ -29,6 +29,7 @@ typedef struct s_img {
 	int		endian;
 	int		width;
 	int		height;
+	int		*color;
 }			t_img;
 
 typedef struct s_rgb {
@@ -45,8 +46,6 @@ typedef struct s_list_map {
 typedef struct s_player {
 	unsigned int	pos_x;
 	unsigned int	pos_y;
-	float			plane_x;
-	float			plane_y;
 	float			facing;
 	float			fov_start;
 	struct s_real	*real;
@@ -65,5 +64,17 @@ typedef struct s_wall_values {
 	t_real	of7;
 	float	dir;
 }			t_wall_values;
+
+typedef struct s_wall {
+	t_real	pos;
+	int		direction;
+}			t_wall;
+
+typedef struct s_pixel {
+	t_real	wall;
+	t_real	pos;
+	int		height;
+	int		color;
+}			t_pixel;
 
 #endif

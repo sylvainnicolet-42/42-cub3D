@@ -1,11 +1,11 @@
 
-SO ./textures/texture_1.xpm
+SO ./textures/tex_2/south.xpm
 
-WE ./textures/texture_2.xpm
+WE ./textures/tex_2/west.xpm
 
-EA ./textures/texture_3.xpm
+EA ./textures/tex_2/east.xpm
 
-NO ./textures/texture_4.xpm
+NO ./textures/tex_2/north.xpm
 
 F 54,90,94
 C 153,132,136

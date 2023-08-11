@@ -20,31 +20,41 @@ static t_wall_values	ft_init_values(t_real pos, float rad)
 	return (wall_val);
 }
 
-t_real	ft_next_wall_ne(float rad, t_real pos, char **map)
+t_wall	ft_next_wall_ne(float rad, t_real pos, char **map)
 {
 	t_wall_values	w;
+	t_wall			wall;
 
 	w = ft_init_values(pos, rad);
 	if (w.hypo.y == w.hypo.x)
 	{
 		w.wall.y = pos.y - (w.distance.y * tan(w.dir));
 		w.wall.x = pos.x + (w.distance.x / tan(w.dir));
+		wall.pos.y = w.wall.y;
+		wall.pos.x = w.wall.x;
+		wall.direction = E_EAST;
 		if (map[(int)(pos.y - 1 - w.of7.y)][(int)pos.x + 1] != '1')
-			w.wall = ft_next_wall_ne(rad, w.wall, map);
+			wall = ft_next_wall_ne(rad, w.wall, map);
 	}
 	else if (w.hypo.y < w.hypo.x)
 	{
 		w.wall.y = pos.y - w.distance.y;
 		w.wall.x = pos.x + (w.distance.y / tan(w.dir));
+		wall.pos.y = w.wall.y;
+		wall.pos.x = w.wall.x;
+		wall.direction = E_EAST;
 		if (map[(int)(pos.y - 1 - w.of7.y)][(int)pos.x] != '1')
-			w.wall = ft_next_wall_ne(rad, w.wall, map);
+			wall = ft_next_wall_ne(rad, w.wall, map);
 	}
 	else
 	{
 		w.wall.y = pos.y - (w.distance.x * tan(w.dir));
 		w.wall.x = pos.x + w.distance.x;
+		wall.pos.y = w.wall.y;
+		wall.pos.x = w.wall.x;
+		wall.direction = E_NORTH;
 		if (map[(int)(pos.y - w.of7.y)][(int)pos.x + 1] != '1')
-			w.wall = ft_next_wall_ne(rad, w.wall, map);
+			wall = ft_next_wall_ne(rad, w.wall, map);
 	}
-	return (w.wall);
+	return (wall);
 }

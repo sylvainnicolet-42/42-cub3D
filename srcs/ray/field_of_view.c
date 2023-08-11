@@ -13,13 +13,13 @@ float	ft_angle_to_rad(int angle)
 {
 	float	rad;
 
-	rad = ((2 * M_PI) / 360) * angle;
+	rad = floor(1000000 * ((2 * M_PI) / 360) * angle) / 1000000;
 	return (rad);
 }
 
 void	ft_print_fov(t_cube *cube)
 {
-	t_real	wall;
+	t_wall	wall;
 	int		angle;
 	int		i;
 
@@ -35,10 +35,10 @@ void	ft_print_fov(t_cube *cube)
 			angle += 360;
 		else if (angle > 360)
 			angle -= 360;
-		wall = ft_get_wall(cube, angle, ft_angle_to_rad(angle));
+		wall = ft_get_wall(cube, ft_angle_to_rad(angle));
 		angle++;
 		i++;
 		if (cube->scene == 2)
-			ft_draw_line(cube, &wall, &(t_rgb){0, 0, 255});
+			ft_draw_line(cube, &wall.pos, &(t_rgb){0, 0, 255});
 	}
 }

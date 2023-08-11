@@ -8,10 +8,14 @@
 # define WIN_HEIGHT 1080
 # define D_UNIT 0.2
 # define D_PLAYER_SCALE 0.2
-# define D_FOV 60
+# define D_FOV 45
 # define D_LOOK_ARROW 5
-# define D_LOOK_MOUSE 3
+# define D_LOOK_MOUSE 2
 # define D_LINUX 0
+# define D_EAST 0.000000
+# define D_SOUTH 1.570796
+# define D_WEST 3.141592
+# define D_NORTH 4.712388
 
 /** ----- SUCCESS MESSAGES ----- **/
 # define MSG_CLOSE_SUCCESS "Cub3D ended successfully! 🚀"
@@ -23,6 +27,7 @@
 # define MSG_FILE_NOT_CUB_ERR "File is not a .cub"
 # define MSG_TEXTURES_NOT_SET_ERR "Textures are not set"
 # define MSG_TEXTURES_CANT_OPEN_ERR "Textures can't be opened"
+# define MSG_TEXTURES_NOT_SQUARE_ERR "Textures is not square"
 
 # define MSG_RGB_RANGE_ERR "Value of the RGB is not in the range [0 - 255]"
 # define MSG_RGB_ARG_ERR "Need 3 numbers for the RGB set"
