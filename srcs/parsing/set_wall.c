@@ -18,7 +18,7 @@ static bool	ft_can_texture_be_open(char *path)
 static int	ft_get_pixel(t_img *img, int x, int y)
 {
 	x = (y * img->line_length) + (x * 4);
-	return (ft_encode_rgb(img->addr[x], img->addr[x + 1], img->addr[x + 2]));
+	return (ft_encode_rgb(img->addr[x + 2], img->addr[x + 1], img->addr[x]));
 }
 
 static int	*ft_get_color(t_img *img)
