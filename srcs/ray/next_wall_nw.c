@@ -49,7 +49,7 @@ t_wall	ft_next_wall_nw(float rad, t_real pos, char **map)
 		w.wall.x = pos.x - (w.distance.y / tan(w.dir));
 		wall.pos.y = w.wall.y;
 		wall.pos.x = w.wall.x;
-		wall.direction = E_WEST;
+		wall.direction = E_NORTH;
 		if (map[(int)(pos.y - 1 - w.of7.y)][(int)(pos.x - w.of7.x)] != '1')
 			wall = ft_next_wall_nw(rad, w.wall, map);
 	}
@@ -59,7 +59,7 @@ t_wall	ft_next_wall_nw(float rad, t_real pos, char **map)
 		w.wall.x = pos.x - w.distance.x;
 		wall.pos.y = w.wall.y;
 		wall.pos.x = w.wall.x;
-		wall.direction = E_NORTH;
+		wall.direction = E_WEST;
 		if (map[(int)(pos.y - w.of7.y)][(int)(pos.x - 1 - w.of7.x)] != '1')
 			wall = ft_next_wall_nw(rad, w.wall, map);
 	}
