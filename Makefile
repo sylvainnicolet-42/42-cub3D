@@ -69,6 +69,7 @@ RENDER_FILE	= floor_and_ceiling.c \
 			  minimap.c \
 			  print_player.c \
 			  render_next_frame.c \
+			  texture.c \
 			  wall.c \
 
 			  # OBJECT FILES

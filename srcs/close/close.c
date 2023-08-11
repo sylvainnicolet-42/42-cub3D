@@ -9,6 +9,10 @@
  */
 static void	ft_free_cube(t_cube *cube)
 {
+	free(cube->wall_e->color);
+	free(cube->wall_n->color);
+	free(cube->wall_s->color);
+	free(cube->wall_w->color);
 	free(cube->wall_e);
 	free(cube->wall_n);
 	free(cube->wall_s);

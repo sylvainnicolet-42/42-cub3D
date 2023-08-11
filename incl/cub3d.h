@@ -91,6 +91,7 @@ t_wall		ft_next_wall_ne(float rad, t_real pos, char **map);
 
 /** ----- RENDER ----- **/
 void		ft_floor_and_ceiling(t_cube *cube);
+t_img		*ft_get_img(int direction, t_cube *cube);
 void		ft_minimap(t_cube *cube);
 void		ft_print_player(t_cube *cube);
 void		ft_draw_cube(t_cube *cube, t_real *real, float size, t_rgb *rgb);
