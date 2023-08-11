@@ -6,7 +6,7 @@
 /*   By: mjulliat <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 14:59:53 by mjulliat          #+#    #+#             */
-/*   Updated: 2022/12/17 14:26:00 by mjulliat         ###   ########.fr       */
+/*   Updated: 2023/08/11 14:52:24 by mjulliat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ char	*ft_strjoin_gnl(const char *s1, const char *s2)
 
 	i = 0;
 	j = 0;
-	str = ft_calloc_gnl((ft_stlen_gnl(s1) + ft_stlen_gnl(s2)) + 1, sizeof(char));
+	str = ft_calloc_gnl(
+			(ft_stlen_gnl(s1) + ft_stlen_gnl(s2)) + 1, sizeof(char));
 	if (!str)
 		return (NULL);
 	while (s1[i] != '\0')

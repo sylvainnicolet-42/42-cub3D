@@ -19,3 +19,6 @@ libs/libmlx/libmlx.a
 
 # Ignore executable
 cub3D
+
+# Ignore Docs
+/docs
