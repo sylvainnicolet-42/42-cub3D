@@ -46,9 +46,9 @@ static void	ft_draw_wall(t_cube *cube, float distance, int x, t_wall wall)
 		img = ft_get_img(wall.direction, cube);
 		pos = ft_get_pos(wall, y, WIN_HEIGHT * distance, img);
 		pixel = (((int)pos.x * (int)img->width) + (int)pos.y);
-		if (pixel > img->width * img->height)
-			pixel = img->width * img->height - 1;
-		ft_mlx_pixel_put(cube->img, x, y, img->color[pixel]);
+		if (x < WIN_WIDTH && x >= 0 && y < WIN_HEIGHT && y >= 0 && pixel >= 0
+			&& pixel < img->width * img->height)
+			ft_mlx_pixel_put(cube->img, x, y, img->color[pixel]);
 		y--;
 	}
 }

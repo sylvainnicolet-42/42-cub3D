@@ -6,7 +6,6 @@ int	ft_mouse_hook(int x, int y, t_cube *cube)
 	(void)y;
 	if (cube->on_mouse == true)
 	{
-		printf("x = %d\n", x - cube->mouse_x);
 		if (x - cube->mouse_x > 0)
 			ft_move_vision_right(cube, D_LOOK_MOUSE);
 		else if (x - cube->mouse_x < 0)
