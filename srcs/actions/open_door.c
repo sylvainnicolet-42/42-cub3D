@@ -12,6 +12,10 @@ void	ft_open_door(t_cube *cube)
 		wall.pos.x -= 1;
 	else if (cube->player->facing > D_NORTH - 0.000001 && cube->player->facing < D_NORTH + 0.000001)
 		wall.pos.y -= 1;
+	if (wall.direction == E_WEST)
+		wall.pos.x -= 1;
+	else if (wall.direction == E_NORTH)
+		wall.pos.y -= 1;
 	printf("map[%d][%d] = [%c]\n", (int)wall.pos.y, (int)wall.pos.x, cube->map[(int)wall.pos.y][(int)wall.pos.x]);
 	printf("y[%f] x[%f]\n", wall.pos.y, wall.pos.x);
 	printf("distance [%f]\n", distance);
