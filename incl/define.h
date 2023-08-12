@@ -6,7 +6,7 @@
 /*   By: mjulliat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:50:23 by mjulliat          #+#    #+#             */
-/*   Updated: 2023/08/11 14:50:24 by mjulliat         ###   ########.fr       */
+/*   Updated: 2023/08/11 14:32:44 by mjulliat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 
 /** ----- DEFINE ----- **/
 # define PROG_NAME "Cub3D"
-# define WIN_WIDTH 1920
-# define WIN_HEIGHT 1080
+# define WIN_WIDTH 900
+# define WIN_HEIGHT 600
 # define D_UNIT 0.2
 # define D_PLAYER_SCALE 0.2
 # define D_FOV 45
 # define D_LOOK_ARROW 5
 # define D_LOOK_MOUSE 2
-# define D_LINUX 0
+# define D_LINUX 1
 # define D_EAST 0.000000
 # define D_SOUTH 1.570796
 # define D_WEST 3.141592

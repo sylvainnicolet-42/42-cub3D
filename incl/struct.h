@@ -6,7 +6,7 @@
 /*   By: mjulliat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:50:28 by mjulliat          #+#    #+#             */
-/*   Updated: 2023/08/11 14:50:29 by mjulliat         ###   ########.fr       */
+/*   Updated: 2023/08/11 14:38:15 by mjulliat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ typedef struct s_wall_values {
 typedef struct s_wall {
 	t_real	pos;
 	int		direction;
+	bool	door;
 }			t_wall;
 
 typedef struct s_pixel {

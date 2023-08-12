@@ -6,7 +6,7 @@
 /*   By: mjulliat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:44:08 by mjulliat          #+#    #+#             */
-/*   Updated: 2023/08/11 14:44:09 by mjulliat         ###   ########.fr       */
+/*   Updated: 2023/08/12 10:35:33 by mjulliat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,17 @@ static void	ft_draw_wall(t_cube *cube, float distance, int x, t_wall wall)
 	y = ((WIN_HEIGHT * distance) / 2) + (WIN_HEIGHT / 2);
 	while (y > (WIN_HEIGHT - (WIN_HEIGHT * distance)) / 2)
 	{
-		img = ft_get_img(wall.direction, cube);
-		pos = ft_get_pos(wall, y, WIN_HEIGHT * distance, img);
-		pixel = (((int)pos.x * (int)img->width) + (int)pos.y);
-		if (x < WIN_WIDTH && x >= 0 && y < WIN_HEIGHT && y >= 0 && pixel >= 0
-			&& pixel < img->width * img->height)
-			ft_mlx_pixel_put(cube->img, x, y, img->color[pixel]);
+		if (wall.door == true)
+			ft_mlx_pixel_put(cube->img, x, y, ft_encode_rgb(255, 255, 255));
+		else
+		{
+			img = ft_get_img(wall.direction, cube);
+			pos = ft_get_pos(wall, y, WIN_HEIGHT * distance, img);
+			pixel = (((int)pos.x * (int)img->width) + (int)pos.y);
+			if (x < WIN_WIDTH && x >= 0 && y < WIN_HEIGHT && y >= 0 && pixel >= 0
+				&& pixel < img->width * img->height)
+				ft_mlx_pixel_put(cube->img, x, y, img->color[pixel]);
+		}
 		y--;
 	}
 }
@@ -62,10 +67,17 @@ static void	ft_init_values(int *x, int *end, t_cube *cube)
 	}
 }
 
-static float	ft_get_distance(t_cube *cube, t_real pyth, float rad)
+float	ft_get_distance(t_cube *cube, t_wall wall, float rad)
 {
 	float	distance;
+	t_real	pyth;
 
+	pyth.x = cube->player->real->x - wall.pos.x;
+	pyth.y = cube->player->real->y - wall.pos.y;
+	if (pyth.x < 0)
+		pyth.x *= -1;
+	if (pyth.y < 0)
+		pyth.y *= -1;
 	distance = sqrt((pyth.x * pyth.x) + (pyth.y * pyth.y));
 	if (cube->scene == 3)
 	{
@@ -84,7 +96,6 @@ void	ft_print_wall(t_cube *cube, float rad)
 	t_wall	wall;
 	int		x;
 	int		end;
-	t_real	pyth;
 	float	distance;
 
 	ft_init_values(&x, &end, cube);
@@ -95,13 +106,7 @@ void	ft_print_wall(t_cube *cube, float rad)
 		rad = floor(1000000 * rad) / 1000000;
 		if (rad > M_PI * 2)
 			rad -= M_PI * 2;
-		pyth.x = cube->player->real->x - wall.pos.x;
-		pyth.y = cube->player->real->y - wall.pos.y;
-		if (pyth.x < 0)
-			pyth.x *= -1;
-		if (pyth.y < 0)
-			pyth.y *= -1;
-		distance = ft_get_distance(cube, pyth, rad);
+		distance = ft_get_distance(cube, wall, rad);
 		ft_draw_wall(cube, distance, x, wall);
 		x++;
 	}

@@ -31,6 +31,7 @@ MAIN_FILE	= main.c
 ACTION_FILE	= collision.c \
 			  moves.c \
 			  move_vision.c \
+			  open_door.c \
 
 CLOSE_FILE	= close.c \
 			  free.c \

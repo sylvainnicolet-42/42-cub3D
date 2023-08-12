@@ -6,7 +6,7 @@
 /*   By: mjulliat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:50:20 by mjulliat          #+#    #+#             */
-/*   Updated: 2023/08/11 14:50:22 by mjulliat         ###   ########.fr       */
+/*   Updated: 2023/08/12 10:34:31 by mjulliat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void		ft_move_forward(t_cube *cube);
 void		ft_move_backward(t_cube *cube);
 void		ft_move_left(t_cube *cube);
 void		ft_move_right(t_cube *cube);
+void		ft_open_door(t_cube *cube);
 
 /** ----- CLOSE ----- **/
 int			ft_close(t_cube *cube);
@@ -106,6 +107,7 @@ t_img		*ft_get_img(int direction, t_cube *cube);
 void		ft_minimap(t_cube *cube);
 void		ft_print_player(t_cube *cube);
 void		ft_draw_cube(t_cube *cube, t_real *real, float size, t_rgb *rgb);
+float		ft_get_distance(t_cube *cube, t_wall wall, float rad);
 void		ft_print_wall(t_cube *cube, float rad);
 int			ft_render_next_frame(t_cube *cube);
 
