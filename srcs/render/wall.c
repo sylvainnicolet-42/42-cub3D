@@ -6,7 +6,7 @@
 /*   By: mjulliat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:44:08 by mjulliat          #+#    #+#             */
-/*   Updated: 2023/08/13 14:15:46 by mjulliat         ###   ########.fr       */
+/*   Updated: 2023/08/13 20:22:28 by mjulliat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ static void	ft_draw_wall(t_cube *cube, float distance, int x, t_wall wall)
 
 	y = WIN_HEIGHT / 2;
 	distance = 1 / distance;
-	if (distance > 1)
-		distance = 1;
 	y = ((WIN_HEIGHT * distance) / 2) + (WIN_HEIGHT / 2);
 	while (y > (WIN_HEIGHT - (WIN_HEIGHT * distance)) / 2)
 	{
