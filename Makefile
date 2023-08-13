@@ -116,7 +116,7 @@ FCLEAN_TXT		= echo "$(RED) Deleting $(NAME)$(RESET)"
 NL_TXT			= echo ""
 
 # RULES
-all:		libs tmp $(NAME)
+all:		art libs tmp $(NAME)
 
 art:
 			@tput setaf 2; cat .ascii_art/projet; tput setaf default
@@ -124,18 +124,19 @@ art:
 
 $(NAME):	$(OBJS)
 ifeq ($(shell uname), Linux)
-			$(CC) $(FLAGS) -o $@ $(OBJS) $(LINUX_MLX) $(LIBS_PATH) $(LIBS)
+			@$(CC) $(FLAGS) -o $@ $(OBJS) $(LINUX_MLX) $(LIBS_PATH) $(LIBS)
 else
-			$(CC) $(FLAGS) -o $@ $(OBJS) $(MAC_MLX) $(LIBS_PATH) $(LIBS)
+			@$(CC) $(FLAGS) -o $@ $(OBJS) $(MAC_MLX) $(LIBS_PATH) $(LIBS)
 endif
 			@$(NL_TXT)
 			@$(END_TXT)
 
 debug:		clean_o libs tmp $(OBJS)
 ifeq ($(shell uname), Linux)
-			$(CC) $(FLAG_DEBUG) $(FLAGS) -o $(NAME) $(OBJS) $(LINUX_MLX) $(LIBS_PATH) $(LIBS)
+			@$(CC) $(FLAG_DEBUG) $(FLAGS) -o $(NAME) $(OBJS) $(LINUX_MLX) $(LIBS_PATH) $(LIBS)
 else
-			$(CC) $(FLAG_DEBUG) $(FLAGS) -o $(NAME) $(OBJS) $(MAC_MLX) $(LIBS_PATH) $(LIBS)
+			@$(CC) $(FLAG_DEBUG) $(FLAGS) -o $(NAME) $(OBJS) $(MAC_MLX) $(LIBS_PATH) $(LIBS)
+			@$(CHARG_LINE_TXT)
 endif
 			@$(NL_TXT)
 			@$(END_TXT)
@@ -171,14 +172,15 @@ gnl:
 
 $(OBJS_PATH)/%.o:	$(SRCS_PATH)/%.c
 					@mkdir -p $(@D)
-					$(CC) $(FLAGS) $(INCS_PATH) -c $< -o $@
+					@$(CC) $(FLAGS) $(INCS_PATH) -c $< -o $@
+					@$(CHARG_LINE_TXT)
 
 clean:
 			@$(CLEAN_TXT)
 			@tput setaf 1; cat .ascii_art/trash; tput setaf default
 			@rm -rf $(OBJS_PATH)
 ifeq ($(shell uname), Linux)
-			make clean -C $(MLX_LINUX)
+			@make clean -C $(MLX_LINUX)
 else
 			@make clean -C $(MLX)
 endif

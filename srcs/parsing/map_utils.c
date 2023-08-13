@@ -6,7 +6,7 @@
 /*   By: mjulliat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:45:04 by mjulliat          #+#    #+#             */
-/*   Updated: 2023/08/11 21:11:48 by mjulliat         ###   ########.fr       */
+/*   Updated: 2023/08/13 14:45:49 by mjulliat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ char	**ft_cpy_map_utils(char **map)
 
 bool	ft_is_valid_char_map_utils(char c)
 {
-	printf("[%c]\n", c);
 	if (c == '0' || c == 'N' || c == 'S' || c == 'E' || c == 'W' || c == 'D')
 		return (true);
 	return (false);
