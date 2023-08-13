@@ -6,7 +6,7 @@
 /*   By: mjulliat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:44:59 by mjulliat          #+#    #+#             */
-/*   Updated: 2023/08/11 21:13:51 by mjulliat         ###   ########.fr       */
+/*   Updated: 2023/08/13 14:23:16 by mjulliat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ static bool	ft_is_map(char *line)
 	while (line[i] != '\0')
 	{
 		if (line[i] != ' ' && line[i] != '0' && line[i] != '1' && line[i] != 'N'
-			&& line[i] != 'S' && line[i] != 'E' && line[i] != 'W' && line[i] != 'D')
+			&& line[i] != 'S' && line[i] != 'E' && line[i] != 'W'
+			&& line[i] != 'D')
 			ft_print_error(MSG_MAP_NOT_VALID_ERR);
 		i++;
 	}

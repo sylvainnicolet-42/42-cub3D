@@ -6,7 +6,7 @@
 /*   By: mjulliat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:44:17 by mjulliat          #+#    #+#             */
-/*   Updated: 2023/08/12 10:17:52 by mjulliat         ###   ########.fr       */
+/*   Updated: 2023/08/13 14:23:51 by mjulliat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ t_wall	ft_next_wall_n(t_real pos, char **map)
 		if (map[(int)pos.y][(int)pos.x] == 'D')
 		{
 			wall.pos.y = (int)pos.y + 1;
-		 	wall.pos.x = pos.x;
+			wall.pos.x = pos.x;
 			wall.direction = E_EAST;
 			wall.door = true;
 			return (wall);
@@ -99,7 +99,7 @@ t_wall	ft_next_wall_n(t_real pos, char **map)
 	}
 	wall.pos.y = (int)pos.y + 1;
 	wall.pos.x = pos.x;
-	wall.direction = E_EAST; 
+	wall.direction = E_EAST;
 	wall.door = false;
 	return (wall);
 }

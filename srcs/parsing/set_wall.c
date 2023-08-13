@@ -6,7 +6,7 @@
 /*   By: mjulliat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:44:44 by mjulliat          #+#    #+#             */
-/*   Updated: 2023/08/11 14:44:47 by mjulliat         ###   ########.fr       */
+/*   Updated: 2023/08/13 14:02:23 by mjulliat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static int	*ft_get_color(t_img *img)
 	return (color);
 }
 
-static t_img	*ft_init_texture(t_cube *cube, char *path)
+t_img	*ft_init_texture(t_cube *cube, char *path)
 {
 	t_img	*img;
 

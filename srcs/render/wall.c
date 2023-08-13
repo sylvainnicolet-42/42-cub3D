@@ -6,7 +6,7 @@
 /*   By: mjulliat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:44:08 by mjulliat          #+#    #+#             */
-/*   Updated: 2023/08/12 10:35:33 by mjulliat         ###   ########.fr       */
+/*   Updated: 2023/08/13 14:15:46 by mjulliat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,12 @@ static void	ft_draw_wall(t_cube *cube, float distance, int x, t_wall wall)
 	y = ((WIN_HEIGHT * distance) / 2) + (WIN_HEIGHT / 2);
 	while (y > (WIN_HEIGHT - (WIN_HEIGHT * distance)) / 2)
 	{
-		if (wall.door == true)
-			ft_mlx_pixel_put(cube->img, x, y, ft_encode_rgb(255, 255, 255));
-		else
-		{
-			img = ft_get_img(wall.direction, cube);
-			pos = ft_get_pos(wall, y, WIN_HEIGHT * distance, img);
-			pixel = (((int)pos.x * (int)img->width) + (int)pos.y);
-			if (x < WIN_WIDTH && x >= 0 && y < WIN_HEIGHT && y >= 0 && pixel >= 0
-				&& pixel < img->width * img->height)
-				ft_mlx_pixel_put(cube->img, x, y, img->color[pixel]);
-		}
+		img = ft_get_img(wall, cube);
+		pos = ft_get_pos(wall, y, WIN_HEIGHT * distance, img);
+		pixel = (((int)pos.x * (int)img->width) + (int)pos.y);
+		if (x < WIN_WIDTH && x >= 0 && y < WIN_HEIGHT && y >= 0 && pixel >= 0
+			&& pixel < img->width * img->height)
+			ft_mlx_pixel_put(cube->img, x, y, img->color[pixel]);
 		y--;
 	}
 }

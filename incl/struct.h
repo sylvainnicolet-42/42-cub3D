@@ -6,7 +6,7 @@
 /*   By: mjulliat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:50:28 by mjulliat          #+#    #+#             */
-/*   Updated: 2023/08/11 14:38:15 by mjulliat         ###   ########.fr       */
+/*   Updated: 2023/08/13 14:01:57 by mjulliat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct s_cube {
 	struct s_img	*wall_s;
 	struct s_img	*wall_e;
 	struct s_img	*wall_w;
+	struct s_img	*door;
 	char			**map;
 	int				map_max_x;
 	int				map_max_y;

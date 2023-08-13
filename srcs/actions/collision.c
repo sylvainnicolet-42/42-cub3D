@@ -6,12 +6,11 @@
 /*   By: mjulliat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:48:43 by mjulliat          #+#    #+#             */
-/*   Updated: 2023/08/12 04:47:53 by mjulliat         ###   ########.fr       */
+/*   Updated: 2023/08/13 14:21:14 by mjulliat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
 
 static bool	ft_m_i_in_wall(char **map, float x, float y, float sc)
 {
