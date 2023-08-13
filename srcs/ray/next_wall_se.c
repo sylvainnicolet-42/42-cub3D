@@ -6,7 +6,7 @@
 /*   By: mjulliat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:44:20 by mjulliat          #+#    #+#             */
-/*   Updated: 2023/08/11 21:03:07 by mjulliat         ###   ########.fr       */
+/*   Updated: 2023/08/13 20:48:54 by mjulliat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,35 +62,44 @@ t_wall	ft_next_wall_se(float rad, t_real pos, char **map)
 	if (w.hypo.y == w.hypo.x)
 	{
 		ft_case_1(&rad, &pos, &w, &wall);
-		if (map[(int)pos.y + 1][(int)pos.x + 1] == 'D')
+		if (map[(int)pos.y + 1] != NULL)
 		{
-			wall.door = true;
-			return (wall);
+			if (map[(int)pos.y + 1][(int)pos.x + 1] == 'D')
+			{
+				wall.door = true;
+				return (wall);
+			}
+			if (map[(int)pos.y + 1][(int)pos.x + 1] != '1')
+				wall = ft_next_wall_se(rad, w.wall, map);
 		}
-		if (map[(int)pos.y + 1][(int)pos.x + 1] != '1')
-			wall = ft_next_wall_se(rad, w.wall, map);
 	}
 	else if (w.hypo.y < w.hypo.x)
 	{
 		ft_case_2(&rad, &pos, &w, &wall);
-		if (map[(int)pos.y + 1][(int)pos.x] == 'D')
+		if (map[(int)pos.y + 1] != NULL)
 		{
-			wall.door = true;
-			return (wall);
+			if (map[(int)pos.y + 1][(int)pos.x] == 'D')
+			{
+				wall.door = true;
+				return (wall);
+			}
+			if (map[(int)pos.y + 1][(int)pos.x] != '1')
+				wall = ft_next_wall_se(rad, w.wall, map);
 		}
-		if (map[(int)pos.y + 1][(int)pos.x] != '1')
-			wall = ft_next_wall_se(rad, w.wall, map);
 	}
 	else
 	{
 		ft_case_3(&rad, &pos, &w, &wall);
-		if (map[(int)pos.y][(int)pos.x + 1] == 'D')
+		if (map[(int)pos.y] != NULL)
 		{
-			wall.door = true;
-			return (wall);
+			if (map[(int)pos.y][(int)pos.x + 1] == 'D')
+			{
+				wall.door = true;
+				return (wall);
+			}
+			if (map[(int)pos.y][(int)pos.x + 1] != '1')
+				wall = ft_next_wall_se(rad, w.wall, map);
 		}
-		if (map[(int)pos.y][(int)pos.x + 1] != '1')
-			wall = ft_next_wall_se(rad, w.wall, map);
 	}
 	return (wall);
 }

@@ -6,7 +6,7 @@
 /*   By: mjulliat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:44:27 by mjulliat          #+#    #+#             */
-/*   Updated: 2023/08/11 14:46:21 by mjulliat         ###   ########.fr       */
+/*   Updated: 2023/08/13 20:46:50 by mjulliat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,35 +69,44 @@ t_wall	ft_next_wall_ne(float rad, t_real pos, char **map)
 	if (w.hypo.y == w.hypo.x)
 	{
 		ft_case_1(&w, &pos, &wall);
-		if (map[(int)(pos.y - 1 - w.of7.y)][(int)pos.x + 1] == 'D')
+		if (map[(int)(pos.y - 1 - w.of7.y)] != NULL)
 		{
-			wall.door = true;
-			return (wall);
+			if (map[(int)(pos.y - 1 - w.of7.y)][(int)pos.x + 1] == 'D')
+			{
+				wall.door = true;
+				return (wall);
+			}
+			if (map[(int)(pos.y - 1 - w.of7.y)][(int)pos.x + 1] != '1')
+				wall = ft_next_wall_ne(rad, w.wall, map);
 		}
-		if (map[(int)(pos.y - 1 - w.of7.y)][(int)pos.x + 1] != '1')
-			wall = ft_next_wall_ne(rad, w.wall, map);
 	}
 	else if (w.hypo.y < w.hypo.x)
 	{
 		ft_case_2(&w, &pos, &wall);
-		if (map[(int)(pos.y - 1 - w.of7.y)][(int)pos.x] == 'D')
+		if (map[(int)(pos.y - 1 - w.of7.y)] != NULL)
 		{
-			wall.door = true;
-			return (wall);
+			if (map[(int)(pos.y - 1 - w.of7.y)][(int)pos.x] == 'D')
+			{
+				wall.door = true;
+				return (wall);
+			}
+			if (map[(int)(pos.y - 1 - w.of7.y)][(int)pos.x] != '1')
+				wall = ft_next_wall_ne(rad, w.wall, map);
 		}
-		if (map[(int)(pos.y - 1 - w.of7.y)][(int)pos.x] != '1')
-			wall = ft_next_wall_ne(rad, w.wall, map);
 	}
 	else
 	{
 		ft_case_3(&w, &pos, &wall);
-		if (map[(int)(pos.y - w.of7.y)][(int)pos.x + 1] == 'D')
+		if (map[(int)(pos.y - w.of7.y)] != NULL)
 		{
-			wall.door = true;
-			return (wall);
+			if (map[(int)(pos.y - w.of7.y)][(int)pos.x + 1] == 'D')
+			{
+				wall.door = true;
+				return (wall);
+			}
+			if (map[(int)(pos.y - w.of7.y)][(int)pos.x + 1] != '1')
+				wall = ft_next_wall_ne(rad, w.wall, map);
 		}
-		if (map[(int)(pos.y - w.of7.y)][(int)pos.x + 1] != '1')
-			wall = ft_next_wall_ne(rad, w.wall, map);
 	}
 	return (wall);
 }
