@@ -6,7 +6,7 @@
 /*   By: mjulliat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:50:28 by mjulliat          #+#    #+#             */
-/*   Updated: 2023/08/13 14:01:57 by mjulliat         ###   ########.fr       */
+/*   Updated: 2023/08/14 13:34:11 by mjulliat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,9 @@ typedef struct s_wall_values {
 	t_real			distance;
 	t_real			hypo;
 	t_real			of7;
+	t_cube			*cube;
 	float			dir;
-	struct s_wall	(*fct)(float, t_real, char**);
+	struct s_wall	(*fct)(float, t_real, char**, t_cube*);
 }					t_wall_values;
 
 typedef struct s_pixel {
