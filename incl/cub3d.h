@@ -101,6 +101,8 @@ t_wall		ft_next_wall_se(float rad, t_real pos, char **map);
 t_wall		ft_next_wall_sw(float rad, t_real pos, char **map);
 t_wall		ft_next_wall_nw(float rad, t_real pos, char **map);
 t_wall		ft_next_wall_ne(float rad, t_real pos, char **map);
+t_wall		ft_mathias(char **map, t_real *pos, \
+				t_wall_values *w, const float *rad);
 
 /** ----- RENDER ----- **/
 void		ft_floor_and_ceiling(t_cube *cube);

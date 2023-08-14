@@ -65,6 +65,7 @@ RAY_FILE	= draw_line.c \
 			  next_wall_sw.c \
 			  next_wall_simple.c \
 			  get_wall.c \
+			  mathias.c \
 
 RENDER_FILE	= floor_and_ceiling.c \
 			  minimap.c \

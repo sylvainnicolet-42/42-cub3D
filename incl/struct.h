@@ -69,19 +69,20 @@ typedef struct s_real {
 	float	y;
 }			t_real;
 
-typedef struct s_wall_values {
-	t_real	wall;
-	t_real	distance;
-	t_real	hypo;
-	t_real	of7;
-	float	dir;
-}			t_wall_values;
-
 typedef struct s_wall {
 	t_real	pos;
 	int		direction;
 	bool	door;
 }			t_wall;
+
+typedef struct s_wall_values {
+	t_wall	wall;
+	t_real	distance;
+	t_real	hypo;
+	t_real	of7;
+	float	dir;
+	t_wall	(*fct)(float, t_real, char**);
+}			t_wall_values;
 
 typedef struct s_pixel {
 	t_real	wall;
