@@ -6,7 +6,7 @@
 /*   By: mjulliat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:50:20 by mjulliat          #+#    #+#             */
-/*   Updated: 2023/08/13 14:14:57 by mjulliat         ###   ########.fr       */
+/*   Updated: 2023/08/14 13:32:14 by mjulliat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,10 +97,10 @@ t_wall		ft_next_wall_e(t_real pos, char **map);
 t_wall		ft_next_wall_s(t_real pos, char **map);
 t_wall		ft_next_wall_w(t_real pos, char **map);
 t_wall		ft_next_wall_n(t_real pos, char **map);
-t_wall		ft_next_wall_se(float rad, t_real pos, char **map);
-t_wall		ft_next_wall_sw(float rad, t_real pos, char **map);
-t_wall		ft_next_wall_nw(float rad, t_real pos, char **map);
-t_wall		ft_next_wall_ne(float rad, t_real pos, char **map);
+t_wall		ft_next_wall_se(float rad, t_real pos, char **map, t_cube *cube);
+t_wall		ft_next_wall_sw(float rad, t_real pos, char **map, t_cube *cube);
+t_wall		ft_next_wall_nw(float rad, t_real pos, char **map, t_cube *cube);
+t_wall		ft_next_wall_ne(float rad, t_real pos, char **map, t_cube *cube);
 t_wall		ft_mathias(char **map, t_real *pos, \
 				t_wall_values *w, const float *rad);
 

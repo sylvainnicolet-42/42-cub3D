@@ -6,16 +6,17 @@
 /*   By: mjulliat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:44:20 by mjulliat          #+#    #+#             */
-/*   Updated: 2023/08/13 20:48:54 by mjulliat         ###   ########.fr       */
+/*   Updated: 2023/08/14 13:36:35 by mjulliat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static t_wall_values	ft_init_values(t_real pos, float rad)
+static t_wall_values	ft_init_values(t_real pos, float rad, t_cube *cube)
 {
 	t_wall_values	wall_values;
 
+	wall_values.cube = cube;
 	wall_values.fct = ft_next_wall_se;
 	wall_values.wall.door = false;
 	wall_values.distance.y = (int)pos.y + 1 - pos.y;
@@ -48,11 +49,11 @@ static void	ft_case_3(float *rad, t_real *pos, t_wall_values *w)
 	w->wall.direction = E_EAST;
 }
 
-t_wall	ft_next_wall_se(float rad, t_real pos, char **map)
+t_wall	ft_next_wall_se(float rad, t_real pos, char **map, t_cube *cube)
 {
 	t_wall_values	w;
 
-	w = ft_init_values(pos, rad);
+	w = ft_init_values(pos, rad, cube);
 	if (w.hypo.y == w.hypo.x)
 	{
 		ft_case_1(&rad, &pos, &w);
