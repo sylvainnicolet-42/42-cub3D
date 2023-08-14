@@ -6,7 +6,7 @@
 /*   By: mjulliat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:50:26 by mjulliat          #+#    #+#             */
-/*   Updated: 2023/08/11 14:50:27 by mjulliat         ###   ########.fr       */
+/*   Updated: 2023/08/13 13:52:24 by mjulliat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ enum e_key_linux
 	E_KEY_LINUX_S = 115,
 	E_KEY_LINUX_D = 100,
 	E_KEY_LINUX_W = 119,
+	E_KEY_LINUX_E = 101,
 	E_KEY_LINUX_R = 114,
 	E_KEY_LINUX_1 = 49,
 	E_KEY_LINUX_2 = 50,
@@ -51,6 +52,7 @@ enum e_key
 	E_KEY_S = 1,
 	E_KEY_D = 2,
 	E_KEY_W = 13,
+	E_KEY_E = 14,
 	E_KEY_R = 15,
 	E_KEY_1 = 18,
 	E_KEY_2 = 19,
@@ -85,6 +87,7 @@ enum e_wall
 	E_RGB = 2,
 	E_PLAYER = 3,
 	E_ALLEY = 4,
+	E_DOOR = 5,
 };
 
 enum e_moves

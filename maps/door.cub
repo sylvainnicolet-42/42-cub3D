@@ -1,0 +1,22 @@
+
+SO ./textures/debug_1/south.xpm
+
+WE ./textures/debug_1/west.xpm
+
+EA ./textures/debug_1/east.xpm
+
+NO ./textures/debug_1/north.xpm
+
+F 202,206,199
+C 128,188,218
+
+1111111111
+1001001001
+100D00D001
+11D1001D11
+1000000001
+1000W0000D1
+11D1001D11
+100D00D001
+1001001001
+1111111111

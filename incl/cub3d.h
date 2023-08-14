@@ -6,7 +6,7 @@
 /*   By: mjulliat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:50:20 by mjulliat          #+#    #+#             */
-/*   Updated: 2023/08/11 14:50:22 by mjulliat         ###   ########.fr       */
+/*   Updated: 2023/08/13 14:14:57 by mjulliat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void		ft_move_forward(t_cube *cube);
 void		ft_move_backward(t_cube *cube);
 void		ft_move_left(t_cube *cube);
 void		ft_move_right(t_cube *cube);
+void		ft_open_door(t_cube *cube);
 
 /** ----- CLOSE ----- **/
 int			ft_close(t_cube *cube);
@@ -69,6 +70,7 @@ t_cube		*ft_init_cube(int ac, char **av);
 void		ft_find_max_value(t_cube *cube);
 t_player	*ft_find_player(char **map);
 void		ft_set_textures(t_cube *cube, int fd);
+t_img		*ft_init_texture(t_cube *cube, char *path);
 void		ft_set_wall(t_cube *cube, char *line);
 void		ft_set_rgb(t_cube *cube, char *line);
 void		ft_set_map(t_cube *cube, int fd);
@@ -99,13 +101,16 @@ t_wall		ft_next_wall_se(float rad, t_real pos, char **map);
 t_wall		ft_next_wall_sw(float rad, t_real pos, char **map);
 t_wall		ft_next_wall_nw(float rad, t_real pos, char **map);
 t_wall		ft_next_wall_ne(float rad, t_real pos, char **map);
+t_wall		ft_mathias(char **map, t_real *pos, \
+				t_wall_values *w, const float *rad);
 
 /** ----- RENDER ----- **/
 void		ft_floor_and_ceiling(t_cube *cube);
-t_img		*ft_get_img(int direction, t_cube *cube);
 void		ft_minimap(t_cube *cube);
 void		ft_print_player(t_cube *cube);
 void		ft_draw_cube(t_cube *cube, t_real *real, float size, t_rgb *rgb);
+t_img		*ft_get_img(t_wall wall, t_cube *cube);
+float		ft_get_distance(t_cube *cube, t_wall wall, float rad);
 void		ft_print_wall(t_cube *cube, float rad);
 int			ft_render_next_frame(t_cube *cube);
 

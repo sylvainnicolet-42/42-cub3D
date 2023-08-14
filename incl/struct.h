@@ -6,7 +6,7 @@
 /*   By: mjulliat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:50:28 by mjulliat          #+#    #+#             */
-/*   Updated: 2023/08/11 14:50:29 by mjulliat         ###   ########.fr       */
+/*   Updated: 2023/08/13 14:01:57 by mjulliat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct s_cube {
 	struct s_img	*wall_s;
 	struct s_img	*wall_e;
 	struct s_img	*wall_w;
+	struct s_img	*door;
 	char			**map;
 	int				map_max_x;
 	int				map_max_y;
@@ -68,18 +69,20 @@ typedef struct s_real {
 	float	y;
 }			t_real;
 
-typedef struct s_wall_values {
-	t_real	wall;
-	t_real	distance;
-	t_real	hypo;
-	t_real	of7;
-	float	dir;
-}			t_wall_values;
-
 typedef struct s_wall {
 	t_real	pos;
 	int		direction;
+	bool	door;
 }			t_wall;
+
+typedef struct s_wall_values {
+	t_wall			wall;
+	t_real			distance;
+	t_real			hypo;
+	t_real			of7;
+	float			dir;
+	struct s_wall	(*fct)(float, t_real, char**);
+}					t_wall_values;
 
 typedef struct s_pixel {
 	t_real	wall;

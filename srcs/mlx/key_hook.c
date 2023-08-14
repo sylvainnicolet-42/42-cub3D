@@ -6,7 +6,7 @@
 /*   By: mjulliat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:48:15 by mjulliat          #+#    #+#             */
-/*   Updated: 2023/08/11 14:48:16 by mjulliat         ###   ########.fr       */
+/*   Updated: 2023/08/13 13:52:52 by mjulliat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int	ft_key_hook_linux(int key, t_cube *cube)
 		ft_move_left(cube);
 	else if (key == E_KEY_LINUX_D)
 		ft_move_right(cube);
+	else if (key == E_KEY_LINUX_E)
+		ft_open_door(cube);
 	else if (key == E_KEY_LINUX_ARROW_LEFT)
 		ft_move_vision_left(cube, D_LOOK_ARROW);
 	else if (key == E_KEY_LINUX_ARROW_RIGHT)
@@ -61,6 +63,8 @@ int	ft_key_hook(int key, t_cube *cube)
 		ft_move_left(cube);
 	else if (key == E_KEY_D)
 		ft_move_right(cube);
+	else if (key == E_KEY_E)
+		ft_open_door(cube);
 	else if (key == E_KEY_ARROW_LEFT)
 		ft_move_vision_left(cube, D_LOOK_ARROW);
 	else if (key == E_KEY_ARROW_RIGHT)

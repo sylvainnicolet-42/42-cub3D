@@ -6,7 +6,7 @@
 /*   By: mjulliat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 14:43:49 by mjulliat          #+#    #+#             */
-/*   Updated: 2023/08/11 14:43:51 by mjulliat         ###   ########.fr       */
+/*   Updated: 2023/08/12 04:31:06 by mjulliat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ static int	ft_is_wall(t_cube *cube, int x, int y)
 		return (E_WALL);
 	if (cube->map[y_map][x_map] == '\0')
 		return (E_WALL);
+	if (cube->map[y_map][x_map] == 'D')
+		return (E_DOOR);
 	return (E_ALLEY);
 }
 
@@ -41,6 +43,8 @@ void	ft_minimap(t_cube *cube)
 		{
 			if (ft_is_wall(cube, x, y) == E_WALL)
 				ft_mlx_pixel_put(cube->img, x, y, ft_encode_rgb(50, 160, 0));
+			else if (ft_is_wall(cube, x, y) == E_DOOR)
+				ft_mlx_pixel_put(cube->img, x, y, ft_encode_rgb(200, 200, 0));
 			else
 				ft_mlx_pixel_put(cube->img, x, y, ft_encode_rgb(0, 0, 0));
 			y++;
