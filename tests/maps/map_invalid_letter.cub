@@ -1,0 +1,14 @@
+SO ./textures/debug_2/south.xpm
+
+WE ./textures/debug_2/west.xpm
+
+EA ./textures/debug_2/east.xpm
+
+NO ./textures/debug_2/north.xpm
+
+F 54,90,94
+C 153,132,136
+
+11111
+10NL1
+11111

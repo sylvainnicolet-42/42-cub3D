@@ -208,4 +208,8 @@ clean_o:
 norm:
 			norminette incl srcs libs/gnl libs/libft
 
-.PHONY:		clean clean_o fclean re tmp libs all libft norm
+tests:
+			@# Ensures that the exit status of the command is always considered successful
+			@bash ./tests/run.sh || true
+
+.PHONY:		clean clean_o fclean re tmp libs all libft norm tests
