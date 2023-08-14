@@ -206,6 +206,6 @@ clean_o:
 			@$(NL_TXT)
 
 norm:
-			norminette incl srcs | grep -v "Missing or invalid 42 header" | grep -v "Empty line at start of file"
+			norminette incl srcs libs/gnl libs/libft
 
 .PHONY:		clean clean_o fclean re tmp libs all libft norm
